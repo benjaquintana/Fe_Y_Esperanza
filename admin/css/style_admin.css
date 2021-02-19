@@ -1,0 +1,66 @@
+/* Utilidades */
+:root {
+    --primario:rgb(20, 83, 81);
+    --primarioClaro: rgb(44, 188, 164);
+    --secundarioClaro:  rgb(220, 163, 21);
+    --secundario:  rgb(105, 42, 0);
+    --secundarioOscuro: rgb(63, 45, 0);
+}
+.social {
+    padding-top: 2rem;
+    justify-content: center;
+}
+.navegacion {
+    justify-content: center;
+    height: auto!important;
+    margin-left: 0px!important;
+}
+.navegacion_center {
+    justify-content: center!important;
+}
+.navegacion_center li a {
+    text-align: center center;
+    height: auto!important;
+}
+.navegacion_center li a i {
+    font-size: 1.5rem;
+}
+.navegacion_right {
+    right: 0;
+    float: right;
+    justify-content: right!important;
+    text-align: right!important;
+    align-items: flex-end;
+}
+.navegacion_right li a {
+    text-align: center center;
+    height: auto!important;
+}
+
+
+.texto_logo {
+    color: var(--secundarioClaro);
+}
+
+.contenido_principal {
+    float: left;
+    width: 75%;
+}
+.main_sidebar_left {
+    margin-top: 60px;
+}
+.sidebar_left {
+    margin-top: 0!important;
+}
+.main_sidebar_right {
+    width: auto;
+    justify-content: right;
+    right: 0;
+    left: auto!important;
+    float: right!important;
+    height: 100%;
+    margin-top: 60px;
+}
+.sidebar_right {
+    margin-top: 0!important;
+}
