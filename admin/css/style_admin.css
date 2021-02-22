@@ -6,23 +6,58 @@
     --secundario:  rgb(105, 42, 0);
     --secundarioOscuro: rgb(63, 45, 0);
 }
-.social {
-    padding-top: 2rem;
-    justify-content: center;
+.activo {
+    color: var(--secundarioClaro);
 }
+
+/* Navegacion Superior */
 .navegacion {
     justify-content: center;
     height: auto!important;
     margin-left: 0px!important;
 }
+.menu_barra {
+    transition: all .6s ease;
+}
+.menu_barra a {
+    margin-left: 1rem;
+}
+@media (min-width: 375px) {
+    .menu_barra a {
+        margin-left: 0;
+    }
+}
+@media (min-width: 768px) {
+    .menu_barra {
+        display: none;
+    }
+}
+.texto_logo {
+    color: var(--secundarioClaro);
+    font-weight: bold!important;
+}
+
 .navegacion_center {
     justify-content: center!important;
+    margin-left: 4rem;
 }
-.navegacion_center li a {
+@media (min-width: 768px) {
+    .navegacion_center {
+        margin-left: 0;
+    }
+}
+.icono {
     text-align: center center;
     height: auto!important;
+    padding: 0;
+    padding-left: 0!important;
 }
-.navegacion_center li a i {
+@media (min-width: 768px) {
+    .icono {
+        margin: 0 1rem;
+    }
+}
+.icono i {
     font-size: 1.5rem;
 }
 .navegacion_right {
@@ -37,30 +72,50 @@
     height: auto!important;
 }
 
-
-.texto_logo {
-    color: var(--secundarioClaro);
-}
-
-.contenido_principal {
-    float: left;
-    width: 75%;
-}
+/* Sidebar */
 .main_sidebar_left {
     margin-top: 60px;
+    margin-left: 0;
 }
 .sidebar_left {
     margin-top: 0!important;
 }
-.main_sidebar_right {
-    width: auto;
-    justify-content: right;
-    right: 0;
-    left: auto!important;
-    float: right!important;
-    height: 100%;
-    margin-top: 60px;
+.controls {
+    width: 13rem;
+    height: 2rem;
 }
-.sidebar_right {
-    margin-top: 0!important;
+
+/* Contenido Principal */
+.contenido_principal {
+    float: right;
+    width: 75%;
+}
+@media (min-width: 768px) {
+    .contenido_principal {
+        float: right;
+        width: 75%;
+    }
+}
+@media (min-width: 998px) {
+    .contenido_principal {
+        float: left;
+    }
+}
+
+.social {
+    padding-top: 2rem;
+    justify-content: center;
+}
+
+/* Chat */
+.chat {
+    position: fixed;
+    bottom: -1rem;
+    right: 0rem;
+    min-width: 15rem;
+}
+@media (min-width: 998px) {
+    .chat {
+        min-width: 20rem;
+    }
 }
