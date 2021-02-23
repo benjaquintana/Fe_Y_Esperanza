@@ -113,6 +113,7 @@
     bottom: -1rem;
     right: 0rem;
     min-width: 15rem;
+    z-index: 1100;
 }
 @media (min-width: 998px) {
     .chat {
