@@ -1,67 +1,6 @@
-<!doctype html>
-<html class="no-js" lang="">
-
-<head>
-    <meta charset="utf-8">
-    <title>Fe y Esperanza</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta property="og:title" content="">
-    <meta property="og:type" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
- 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <!-- Place favicon.ico in the root directory -->
-
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-
-    <meta name="theme-color" content="#fafafa">
-</head>
-
-<body>
-    <!-- Hero -->
-    <header class="site_header">
-        <div class="hero">
-            <div class="contenido_header">
-                <!-- Redes Sociales -->
-                <nav class="redes_sociales">
-                    <a href="#"><i class="facebook fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="twitter fab fa-twitter"></i></a>
-                    <a href="#"><i class="whatsapp fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="youtube fab fa-youtube"></i></a>
-                    <a href="#"><i class="instagram fab fa-instagram"></i></a>
-                </nav>
-                <!-- Titulo -->
-                <div class="informacion_evento">
-                    <h1 class="nombre_sitio">Fe y Esperanza</h1>
-                    <p class="slogan">Preparando a las familias para la <span>Venida del Señor</span>.</p>
-                </div>
-                <!-- Registro Radio -->
-                <div class="registro_sesion">
-                    <a href="admin/login.html" class="boton boton_terciario"><i class="fas fa-user-lock"></i> Iniciar Sesión</a>
-                    <a href="admin/register.html" class="boton boton_terciario"><i class="fas fa-user-plus"></i> Registrarse</a>
-                </div>
-            </div>
-        </div> 
-    </header>
-
-    <!-- Barra de Navegacion -->
-    <div class="navegador">
-        <div class="menu_movil">
-            <p><i class="fas fa-bars"></i></p>
-        </div>
-        <nav class="navegacion_principal"> 
-            <a href="/" class="dropbtn"><i class="fas fa-home"></i> Inicio</a>                
-            <a href="nosotros.html" class="dropbtn"><i class="far fa-address-card"></i> Sobre Nosotros</a>                
-            <a href="404.html" class="dropbtn"><i class="fas fa-microphone-alt"></i> Nuestros Programas</a>   
-            <a href="https://checkout.square.site/buy/57VWMWQWCKW4XFET6SDFSTRM" class="dropbtn"><i class="fas fa-donate"></i> Donaciones</a>                
-            <a href="404.html" class="dropbtn"><i class="fas fa-cloud-download-alt"></i> Descargas</a>
-        </nav>
-    </div>
+<!--Header-->
+<?php include_once 'includes/templates/header.php'?>
+<!--Fin Header-->
     
     <section class="seccion nuestro_ministerio">
         <div class="contenedor">
@@ -359,40 +298,6 @@
         </div>
     </section>
     
-    <footer class="site_footer">        
-        <div class="contenedor contenido_footer">
-            <div class="footer_informacion">
-                <h3>Sobre Nosotros</h3>
-                <p>Ministerio Fe y Esperanza es un ministerio cristiano Adventista del Séptimo Día. Para nosotros es una bendición servir a nuestro Padre Celestial y contar con una familia en la fe como usted. Nosotros por este medio queremos ayudar a preparar a las familias que formarán parte del pueblo que verá a Dios.</p>
-            </div> 
-            <div class="redes">
-                <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                <a target="_blank" href="#"><i class="fab fa-whatsapp"></i></a>
-                <a target="_blank" href="#"><i class="fab fa-youtube"></i></a>
-                <a target="_blank" href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>Todos los Derechos Reservados &copy;- Ministerio Fe y Esperanza - 2021</p>
-        </div>   
-    </footer>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/f5164e1266.js" crossorigin="anonymous"></script>
-    <!-- User Scripts -->
-    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
-</body>
-
-</html>
+<!--Header-->
+<?php include_once 'includes/templates/footer.php'?>
+<!--Fin Header-->

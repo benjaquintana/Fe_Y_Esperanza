@@ -502,7 +502,7 @@ div.menu_movil p {
     text-align: right;
 }
 
-/* Radio en Vivo */
+/* Lista de Estaciones */
 .seccion_radio {
     background: rgba(250,250,250,1);
     background: -moz-radial-gradient(center, ellipse cover, rgba(250,250,250,1) 0%, rgba(255,183,0,1) 26%, rgba(0,0,0,1) 100%);
@@ -515,26 +515,28 @@ div.menu_movil p {
     color: #FFFFFF;
     padding-bottom: 5rem;
 }
-@media (min-width: 998px) {
-    .contenido_radio {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+ul.contenido_radio li {
+  padding: 10px;
+  float: left;
 }
-.radio {
-    width: 100%;
+@media (min-width: 480px) {
+  ul.contenido_radio li {
+    width: 50%;
+  }
 }
-@media (min-width: 998px) {
-    .radio {
-        width: calc(33% - 1rem);
-    }
+@media (min-width: 768px) {
+  ul.contenido_radio li {
+    width: 33.3%;
+  }
 }
 .estacion {
-    margin-top: 3rem;
+    margin-top: 3.5rem;
 }
 #video_index {
     width: 100%;
+}
+.img_radio {
+    width: 30rem;
 }
 .controls {
     width: 100%;
