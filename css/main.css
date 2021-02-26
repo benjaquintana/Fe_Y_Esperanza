@@ -516,31 +516,28 @@ div.menu_movil p {
     padding-bottom: 5rem;
 }
 ul.contenido_radio li {
-  padding: 10px;
-  float: left;
+    padding: 1rem;
+    float: left;
 }
 @media (min-width: 480px) {
-  ul.contenido_radio li {
-    width: 50%;
-  }
+    ul.contenido_radio li {
+        width: 50%;
+    }
 }
 @media (min-width: 768px) {
-  ul.contenido_radio li {
-    width: 33.3%;
-  }
+    ul.contenido_radio li {
+        width: 33.3%;
+    }
 }
 .estacion {
-    margin-top: 3.5rem;
+    margin-top: 3.6rem;
 }
 #video_index {
     width: 100%;
 }
-.img_radio {
-    width: 30rem;
-}
 .controls {
     width: 100%;
-    margin-top: 0.5rem;
+    margin: 1rem 0;
 }
 
 /* Parrallax Inicio */

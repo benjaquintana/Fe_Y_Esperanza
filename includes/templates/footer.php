@@ -5,11 +5,12 @@
                 <p>Ministerio Fe y Esperanza es un ministerio cristiano Adventista del Séptimo Día. Para nosotros es una bendición servir a nuestro Padre Celestial y contar con una familia en la fe como usted. Nosotros por este medio queremos ayudar a preparar a las familias que formarán parte del pueblo que verá a Dios.</p>
             </div> 
             <div class="redes">
-                <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                <a target="_blank" href="#"><i class="fab fa-whatsapp"></i></a>
-                <a target="_blank" href="#"><i class="fab fa-youtube"></i></a>
-                <a target="_blank" href="#"><i class="fab fa-instagram"></i></a>
+                <a target="_blank" href="admin/admin_area.php"><i class="fas fa-user-tie"></i></a>
+                <a target="_blank" href="https://www.facebook.com/feyesperanzahoy"><i class="fab fa-facebook-f"></i></a>
+                <a target="_blank" href="https://twitter.com/FeyEsperanzahoy"><i class="fab fa-twitter"></i></a>
+                <a target="_blank" href="https://chat.whatsapp.com/HrXdc5pqEHi7nARs6W0yJA"><i class="fab fa-whatsapp"></i></a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCXDAlDh5-ESiMluXCVdFesg"><i class="fab fa-youtube"></i></a>
+                <a target="_blank" href="https://www.instagram.com/fe.y.esperanza/"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
         <div class="copyright">

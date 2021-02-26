@@ -298,6 +298,6 @@
         </div>
     </section>
     
-<!--Header-->
+<!--Footer-->
 <?php include_once 'includes/templates/footer.php'?>
-<!--Fin Header-->
+<!--Fin Footer-->

@@ -35,21 +35,19 @@
             <ul class="contenido_radio clearfix">
                 <!-- Video Promocional -->
                 <li>
-                    <div class="radio">
-                        <video autoplay controls="controls" controlslist="nodownload" id="video_index" poster="img/poster_radio.png">
-                            <source src="video/video_radio.mp4" type="video/mp4">
-                            <source src="video/video_radio.webm" type="video/webm">
-                            <source src="video/video_radio.ogv" type="video/ogv">
-                        </video>
-                    </div>
+                    <video autoplay controls controlslist="nodownload" id="video_index" poster="img/poster_radio.png">
+                        <source src="video/video_radio.mp4" type="video/mp4">
+                        <source src="video/video_radio.webm" type="video/webm">
+                        <source src="video/video_radio.ogv" type="video/ogv">
+                    </video>
                 </li>
-
+ 
                 <!-- Estaciones -->
                 <?php while($estacion = $resultado->fetch_assoc() ) { ?>
                 <li>
-                    <div class="radio estacion">
+                    <div class="estacion">
                         <a href="#" target="_blank">
-                            <img class="img_radio" src="img/radios/<?php echo $estacion['url_img_radio']; ?>" alt="zeno_radio" title="Nuestra radio en Zeno">
+                            <img src="img/radios/<?php echo $estacion['url_img_radio']; ?>" alt="zeno_radio" title="Nuestra radio en Zeno">
                         </a>
                         <audio controls="" src="<?php echo $estacion['link']; ?>" controlslist="nodownload" class="controls"></audio>
                     </div>
@@ -96,6 +94,6 @@
         </div>
     </section>
     
-<!--Header-->
+<!--Footer-->
 <?php include_once 'includes/templates/footer.php'?>
-<!--Fin Header-->
+<!--Fin Footer-->

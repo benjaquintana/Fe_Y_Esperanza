@@ -34,11 +34,11 @@
             <div class="contenido_header">
                 <!-- Redes Sociales -->
                 <nav class="redes_sociales">
-                    <a href="#"><i class="facebook fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="twitter fab fa-twitter"></i></a>
-                    <a href="#"><i class="whatsapp fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="youtube fab fa-youtube"></i></a>
-                    <a href="#"><i class="instagram fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/feyesperanzahoy"><i class="facebook fab fa-facebook-f"></i></a>
+                    <a target="_blank" href="https://twitter.com/FeyEsperanzahoy"><i class="twitter fab fa-twitter"></i></a>
+                    <a target="_blank" href="https://chat.whatsapp.com/HrXdc5pqEHi7nARs6W0yJA"><i class="whatsapp fab fa-whatsapp"></i></a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCXDAlDh5-ESiMluXCVdFesg"><i class="youtube fab fa-youtube"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/fe.y.esperanza/"><i class="instagram fab fa-instagram"></i></a>
                 </nav> 
                 <!-- Titulo -->
                 <div class="informacion_evento">
@@ -47,8 +47,8 @@
                 </div>
                 <!-- Registro Radio -->
                 <div class="registro_sesion">
-                    <a href="admin/login.html" class="boton boton_terciario"><i class="fas fa-user-lock"></i> Iniciar Sesión</a>
-                    <a href="admin/registro.html" class="boton boton_terciario"><i class="fas fa-user-plus"></i> Registrarse</a>
+                    <a href="social/login.html" class="boton boton_terciario"><i class="fas fa-user-lock"></i> Iniciar Sesión</a>
+                    <a href="social/registro.html" class="boton boton_terciario"><i class="fas fa-user-plus"></i> Registrarse</a>
                 </div>
             </div>
         </div> 
