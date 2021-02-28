@@ -48,8 +48,8 @@ $(document).ready(function() {
                 var resultado = data;
                 if(resultado.respuesta == "exito") {
                     Swal.fire(
-                        'Correcto',
-                        'El adminstrador se guardo correctamente',
+                        '¡Correcto!',
+                        'El registro se guardó correctamente',
                         'success'
                     )
                 } else {

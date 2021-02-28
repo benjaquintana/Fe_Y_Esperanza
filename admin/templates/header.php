@@ -9,10 +9,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="css/OverlayScrollbars.min.css">
+    <!-- icheck bootstrap -->
+    <link href="css/icheck-bootstrap.min.css" rel="stylesheet">
     <!-- DataTables -->
     <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="css/buttons.bootstrap4.min.css">
+    <!-- ChartJS -->
+    <link rel="stylesheet" href="css/Chart.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="css/daterangepicker.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="css/select2.min.css">
     <!-- Sweet Alert 2 -->
     <link rel="stylesheet" href="css/sweetalert2.min.css">
     <!-- Theme style -->

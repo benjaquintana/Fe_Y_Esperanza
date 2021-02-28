@@ -30,7 +30,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="admin_area.php" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Dashboard</p>
                             </a>
@@ -72,13 +72,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="lista_eventos.php" class="nav-link">
+                                    <a href="lista_radios.php" class="nav-link">
                                         <i class="fas fa-list-alt nav-icon"></i>
                                         <p>Ver Todos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="crear_eventos.php" class="nav-link">
+                                    <a href="crear_radio.php" class="nav-link">
                                         <i class="nav-icon fas fa-plus-circle"></i>
                                         <p>Agregar</p>
                                     </a>

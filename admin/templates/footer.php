@@ -14,6 +14,8 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="js/jquery.overlayScrollbars.min.js"></script>
+    <!-- bs-custom-file-input -->
+    <script src="js/bs-custom-file-input.min.js"></script>
     <!-- DataTables  & Plugins -->
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/dataTables.bootstrap4.min.js"></script>
@@ -27,6 +29,18 @@
     <script src="js/buttons.html5.min.js"></script>
     <script src="js/buttons.print.min.js"></script>
     <script src="js/buttons.colVis.min.js"></script>
+    <!-- Font Awesome Icon Picker -->
+    <script src="js/iconpicker-1.5.0.js"></script>
+    <!-- ChartJS -->
+    <script src="js/Chart.min.js"></script>
+    <!-- Moment -->
+    <script src="js/moment.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="js/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Select2 -->
+    <script src="js/select2.full.min.js"></script>
     <!-- Sweeralert2 -->
     <script src="js/sweetalert2.min.js"></script>
     <!-- AdminLTE App -->
