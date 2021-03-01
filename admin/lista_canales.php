@@ -32,7 +32,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Maneje los canales en esta sección</h3>
+                            <h3 class="card-title">Maneje los canles en esta sección</h3>
                         </div>
                         <!-- /.card-header -->
                     <div class="card-body">
@@ -42,7 +42,9 @@
                                     <th>Nombre</th>
                                     <th>Link</th>
                                     <th>Imagen</th>
+                                    <?php if($_SESSION['nivel'] <= 2): ?>
                                     <th>Acciones</th>
+                                    <?php endif; ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,6 +61,7 @@
                                             <td><?php echo $canales['nombre_canal'];?></td>
                                             <td><?php echo $canales['link'];?></td>
                                             <td><img src="../img/canales/<?php echo $canales['url_img_canal'];?>" alt="img_<?php echo $canales['nombre_canal'];?>" width="150px"></td>
+                                            <?php if($_SESSION['nivel'] <= 2): ?>
                                             <td>
                                                 <a href="editar_canal.php?id=<?php echo $canales['id_canal']?>" class="btn bg-orange btn-flat margin editar_registro">
                                                     <i class="fa fa-pencil blanco"></i>
@@ -67,6 +70,7 @@
                                                     <i class="fa fa-trash"></i>
                                                 </a>
                                             </td>
+                                            <?php endif; ?>
                                         </tr>
                                     <?php } ?>
 
@@ -76,7 +80,9 @@
                                     <th>Nombre</th>
                                     <th>Link</th>
                                     <th>Imagen</th>
+                                    <?php if($_SESSION['nivel'] <= 2): ?>
                                     <th>Acciones</th>
+                                    <?php endif; ?>
                                 </tr>
                             </tfoot>
                         </table>

@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Listado de Radios</h1>
+                    <h1>Listado de Páginas</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -32,7 +32,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Maneje las radios en esta sección</h3>
+                            <h3 class="card-title">Maneje las páginas en esta sección</h3>
                         </div>
                         <!-- /.card-header -->
                     <div class="card-body">
@@ -50,23 +50,23 @@
                             <tbody>
                                 <?php
                                     try {
-                                        $sql = "SELECT * FROM radios";
+                                        $sql = "SELECT * FROM paginas";
                                         $resultado = $conn->query($sql);
                                     } catch (\Exception $e) {
                                         $error = $e->getMessage();
                                         echo "$error";
                                     }
-                                    while($radio = $resultado->fetch_assoc() ) { ?>
+                                    while($paginas = $resultado->fetch_assoc() ) { ?>
                                         <tr>
-                                            <td><?php echo $radio['nombre_radio'];?></td>
-                                            <td><?php echo $radio['link'];?></td>
-                                            <td><img src="../img/radios/<?php echo $radio['url_img_radio'];?>" alt="img_<?php echo $radio['nombre_radio'];?>" width="150px"></td>
+                                            <td><?php echo $paginas['nombre_pagina'];?></td>
+                                            <td><?php echo $paginas['link'];?></td>
+                                            <td><img src="../img/paginas/<?php echo $paginas['url_img_pagina'];?>" alt="img_<?php echo $paginas['nombre_pagina'];?>" width="150px"></td>
                                             <?php if($_SESSION['nivel'] <= 2): ?>
                                             <td>
-                                                <a href="editar_radio.php?id=<?php echo $radio['id_radio']?>" class="btn bg-orange btn-flat margin editar_registro">
+                                                <a href="editar_pagina.php?id=<?php echo $paginas['id_pagina']?>" class="btn bg-orange btn-flat margin editar_registro">
                                                     <i class="fa fa-pencil blanco"></i>
                                                 </a>
-                                                <a href="#" data-id="<?php echo $radio['id_radio'];?>" data-tipo="radio" class="btn bg-maroon btn-flat margin borrar_registro">
+                                                <a href="#" data-id="<?php echo $paginas['id_pagina'];?>" data-tipo="pagina" class="btn bg-maroon btn-flat margin borrar_registro">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
                                             </td>

@@ -45,7 +45,9 @@
                                             <th>Nacimiento</th>
                                             <th>Imagen</th>
                                             <th>Descripción</th>
+                                            <?php if($_SESSION['nivel'] <= 2): ?>
                                             <th>Acciones</th>
+                                            <?php endif; ?>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -65,6 +67,7 @@
                                                     <td><?php echo $miembro['fecha_nacimiento'];?></td>
                                                     <td><img src="../img/miembros/<?php echo $miembro['url_img_miembro'];?>" alt="img_invitado" width="150px"></td>
                                                     <td><?php echo $miembro['descripcion'];?></td>
+                                                    <?php if($_SESSION['nivel'] <= 2): ?>
                                                     <td>
                                                         <a href="editar_miembro.php?id=<?php echo $miembro['id_miembro']?>" class="btn bg-orange btn-flat margin editar_registro">
                                                             <i class="fa fa-pencil blanco"></i>
@@ -73,6 +76,7 @@
                                                             <i class="fa fa-trash"></i>
                                                         </a>
                                                     </td>
+                                                    <?php endif; ?>
                                                 </tr>
                                             <?php } ?>
                                     </tbody>
@@ -84,7 +88,9 @@
                                             <th>Nacimiento</th>
                                             <th>Imagen</th>
                                             <th>Descripción</th>
+                                            <?php if($_SESSION['nivel'] <= 2): ?>
                                             <th>Acciones</th>
+                                            <?php endif; ?>
                                         </tr>
                                     </tfoot>
                                 </table>

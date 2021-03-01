@@ -9,19 +9,7 @@
                         <img src="img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="perfil.php" class="d-block">Benjamín Quintana</a>
-                    </div>
-                </div>
-
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
+                        <p class="d-block"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?></p>
                     </div>
                 </div>
 
@@ -47,17 +35,19 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="lista_eventos.php" class="nav-link">
+                                    <a href="lista_paginas.php" class="nav-link">
                                         <i class="fas fa-list-alt nav-icon"></i>
                                         <p>Ver Todos</p>
                                     </a>
                                 </li>
+                                <?php if($_SESSION['nivel'] <= 2): ?>
                                 <li class="nav-item">
-                                    <a href="crear_eventos.php" class="nav-link">
+                                    <a href="crear_pagina.php" class="nav-link">
                                         <i class="nav-icon fas fa-plus-circle"></i>
                                         <p>Agregar</p>
                                     </a>
                                 </li>
+                                <?php endif; ?>
                             </ul>
                         </li>
 
@@ -77,12 +67,14 @@
                                         <p>Ver Todos</p>
                                     </a>
                                 </li>
+                                <?php if($_SESSION['nivel'] <= 2): ?>
                                 <li class="nav-item">
                                     <a href="crear_radio.php" class="nav-link">
                                         <i class="nav-icon fas fa-plus-circle"></i>
                                         <p>Agregar</p>
                                     </a>
                                 </li>
+                                <?php endif; ?>
                             </ul>
                         </li>
 
@@ -102,12 +94,14 @@
                                         <p>Ver Todos</p>
                                     </a>
                                 </li>
+                                <?php if($_SESSION['nivel'] <= 2): ?>
                                 <li class="nav-item">
                                     <a href="crear_canal.php" class="nav-link">
                                         <i class="nav-icon fas fa-plus-circle"></i>
                                         <p>Agregar</p>
                                     </a>
                                 </li>
+                                <?php endif; ?>
                             </ul>
                         </li>
 
@@ -127,12 +121,14 @@
                                         <p>Ver Todos</p>
                                     </a>
                                 </li>
+                                <?php if($_SESSION['nivel'] <= 2): ?>
                                 <li class="nav-item">
                                     <a href="crear_miembro.php" class="nav-link">
                                         <i class="nav-icon fas fa-plus-circle"></i>
                                         <p>Agregar</p>
                                     </a>
                                 </li>
+                                <?php endif; ?>
                             </ul>
                         </li>
 

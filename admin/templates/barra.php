@@ -20,12 +20,12 @@
             <!-- Center navbar links -->
             <ul class="navbar-nav col-md-4 navegacion_center">
                 <li class="nav-item d-sm-inline-block">
-                    <a href="principal.php" class="nav-link icono" title="Inicio"><i class="fas fa-home"></i></a>
+                    <a href="admin_area.php" class="nav-link icono" title="Inicio"><i class="fas fa-home"></i></a>
                 </li>
 
                 <!-- Contactos -->
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link icono" title="Amigos"><i class="fas fa-user-circle"></i></a>
+                    <a href="lista_miembros.php" class="nav-link icono" title="Amigos"><i class="fas fa-user-circle"></i></a>
                 </li>
 
                 <!-- Menu Mensages -->
@@ -124,21 +124,16 @@
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle perfil_nav" data-toggle="dropdown">
                             <img src="img/user8-128x128.jpg" class="user-image img-circle elevation-2" alt="User Image">
-                            <span class="d-none d-md-inline">Benjamín Quintana</span>
+                            <span class="d-none d-md-inline"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             <!-- User image -->
                             <li class="user-header bg-primary">
                                 <img src="img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
-
-                                <p>
-                                    Benjamín Quintana
-                                    <small>Miembro desde Jul. 2020</small>
-                                </p>
+                                <p><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?></p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <a href="perfil.php" class="btn btn-default btn-flat">Perfil</a>
                                 <a href="login.php?cerrar_sesion=true" class="btn btn-default btn-flat float-right">Cerrar Sesión</a>
                             </li>
                         </ul>

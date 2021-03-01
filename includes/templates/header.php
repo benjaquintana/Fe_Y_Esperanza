@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Fe y Esperanza</title>
+    <title>Unidos en Fe</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -42,7 +42,7 @@
                 </nav> 
                 <!-- Titulo -->
                 <div class="informacion_evento">
-                    <h1 class="nombre_sitio">Fe y Esperanza</h1>
+                    <h1 class="nombre_sitio">Unidos en Fe</h1>
                     <p class="slogan">Preparando a las familias para la <span>Venida del Señor</span>.</p>
                 </div>
                 <!-- Registro Radio -->

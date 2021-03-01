@@ -11,207 +11,126 @@
     include_once 'templates/navegacion.php';
 ?>
         
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper clearfix">
-            <!-- Main content -->
-            <section class="content contenido_principal">
-                <div class="container-fluid">
-                    <div class="row social">
-                        <!-- Muro Principal -->
-
-                        <!-- Box Comment -->
-                        <div class="col-md-9">
-                            <div class="card card-widget">
-                                <div class="card-header">
-                                    <div class="user-block">
-                                        <img class="img-circle" src="img/user1-128x128.jpg" alt="User Image">
-                                        <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
-                                        <span class="description">Shared publicly - 7:30 PM Today</span>
-                                    </div>
-                                    <!-- /.user-block -->
-                                    <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" title="Mark as read">
-                                        <i class="far fa-circle"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                    </div>
-                                    <!-- /.card-tools -->
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <img class="img-fluid pad" src="img/photo2.png" alt="Photo">
-
-                                    <p>I took this photo this morning. What do you guys think?</p>
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
-                                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-                                    <span class="float-right text-muted">127 likes - 3 comments</span>
-                                </div>
-                                <!-- /.card-body -->
-                                <div class="card-footer card-comments">
-                                    <div class="card-comment">
-                                    <!-- User image -->
-                                    <img class="img-circle img-sm" src="img/user3-128x128.jpg" alt="User Image">
-
-                                    <div class="comment-text">
-                                        <span class="username">
-                                        Maria Gonzales
-                                        <span class="text-muted float-right">8:03 PM Today</span>
-                                        </span><!-- /.username -->
-                                        It is a long established fact that a reader will be distracted
-                                        by the readable content of a page when looking at its layout.
-                                    </div>
-                                    <!-- /.comment-text -->
-                                    </div>
-                                    <!-- /.card-comment -->
-                                    <div class="card-comment">
-                                        <!-- User image -->
-                                        <img class="img-circle img-sm" src="img/user4-128x128.jpg" alt="User Image">
-                                        <div class="comment-text">
-                                            <span class="username">
-                                                Luna Stark
-                                                <span class="text-muted float-right">8:03 PM Today</span>
-                                            </span><!-- /.username -->
-                                                It is a long established fact that a reader will be distracted
-                                                by the readable content of a page when looking at its layout.
-                                        </div>
-                                        <!-- /.comment-text -->
-                                    </div>
-                                    <!-- /.card-comment -->
-                                </div>
-                                <!-- /.card-footer -->
-                                <div class="card-footer">
-                                    <form action="#" method="post">
-                                        <img class="img-fluid img-circle img-sm" src="img/user4-128x128.jpg" alt="Alt Text">
-                                        <!-- .img-push is used to add margin to elements next to floating images -->
-                                        <div class="img-push">
-                                            <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- /.card-footer -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-9">
-                            <!-- Box Comment -->
-                            <div class="card card-widget">
-                            <div class="card-header">
-                                <div class="user-block">
-                                <img class="img-circle" src="img/user1-128x128.jpg" alt="User Image">
-                                <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
-                                <span class="description">Shared publicly - 7:30 PM Today</span>
-                                </div>
-                                <!-- /.user-block -->
-                                <div class="card-tools">
-                                <button type="button" class="btn btn-tool" title="Mark as read">
-                                    <i class="far fa-circle"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                                </div>
-                                <!-- /.card-tools -->
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <!-- post text -->
-                                <p>Far far away, behind the word mountains, far from the
-                                countries Vokalia and Consonantia, there live the blind
-                                texts. Separated they live in Bookmarksgrove right at</p>
-
-                                <p>the coast of the Semantics, a large language ocean.
-                                A small river named Duden flows by their place and supplies
-                                it with the necessary regelialia. It is a paradisematic
-                                country, in which roasted parts of sentences fly into
-                                your mouth.</p>
-
-                                <!-- Attachment -->
-                                <div class="attachment-block clearfix">
-                                <img class="attachment-img" src="img/photo1.png" alt="Attachment Image">
-
-                                <div class="attachment-pushed">
-                                    <h4 class="attachment-heading"><a href="https://www.lipsum.com/">Lorem ipsum text generator</a></h4>
-
-                                    <div class="attachment-text">
-                                    Description about the attachment can be placed here.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry... <a href="#">more</a>
-                                    </div>
-                                    <!-- /.attachment-text -->
-                                </div>
-                                <!-- /.attachment-pushed -->
-                                </div>
-                                <!-- /.attachment-block -->
-
-                                <!-- Social sharing buttons -->
-                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-                                <span class="float-right text-muted">45 likes - 2 comments</span>
-                            </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer card-comments">
-                                <div class="card-comment">
-                                <!-- User image -->
-                                <img class="img-circle img-sm" src="img/user3-128x128.jpg" alt="User Image">
-
-                                <div class="comment-text">
-                                    <span class="username">
-                                    Maria Gonzales
-                                    <span class="text-muted float-right">8:03 PM Today</span>
-                                    </span><!-- /.username -->
-                                    It is a long established fact that a reader will be distracted
-                                    by the readable content of a page when looking at its layout.
-                                </div>
-                                <!-- /.comment-text -->
-                                </div>
-                                <!-- /.card-comment -->
-                                <div class="card-comment">
-                                <!-- User image -->
-                                <img class="img-circle img-sm" src="img/user5-128x128.jpg" alt="User Image">
-
-                                <div class="comment-text">
-                                    <span class="username">
-                                    Nora Havisham
-                                    <span class="text-muted float-right">8:03 PM Today</span>
-                                    </span><!-- /.username -->
-                                    The point of using Lorem Ipsum is that it hrs a morer-less
-                                    normal distribution of letters, as opposed to using
-                                    'Content here, content here', making it look like readable English.
-                                </div>
-                                <!-- /.comment-text -->
-                                </div>
-                                <!-- /.card-comment -->
-                            </div>
-                            <!-- /.card-footer -->
-                            <div class="card-footer">
-                                <form action="#" method="post">
-                                    <img class="img-fluid img-circle img-sm" src="img/user4-128x128.jpg" alt="Alt Text">
-                                    <!-- .img-push is used to add margin to elements next to floating images -->
-                                    <div class="img-push">
-                                        <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- /.card-footer -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
         </div>
-        <!-- /.content-wrapper -->
+    </section>
+
+    <section class="content">
+        <h5 class="mb-2 mt-4">Registro de Usuarios</h5>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- AREA CHART -->
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">Registro de Usuarios <small>por Fecha</small></h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+
+        <!-- Datos de los Miembros -->
+        <h5 class="mb-2 mt-4">Resumen de Información</h5>
+        <div class="row">
+            <!-- Total de Miembros -->
+            <div class="col-lg-3 col-6">
+                <?php
+                    $sql = "SELECT COUNT(id_miembro) AS miembros FROM miembro ";
+                    $resultado = $conn->query($sql);
+                    $miembros = $resultado->fetch_assoc();
+                ?>
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3><?php echo $miembros['miembros']; ?></h3>
+                        <p>Total Miembros</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <a href="lista_miembros.php" class="small-box-footer">
+                        Más Información <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        
+            <!-- Total de Páginas -->
+            <div class="col-lg-3 col-6">
+                <?php
+                    /*$sql = "SELECT COUNT(id_pagina) AS paginas FROM paginas ";
+                    $resultado = $conn->query($sql);
+                    $paginas = $resultado->fetch_assoc();*/
+                ?>
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>4<?php echo $paginas['paginas']; ?></h3>
+                        <p>Total Páginas</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <a href="lista_paginas.php" class="small-box-footer">
+                        Más Información <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        
+            <!-- Total de Radios -->
+            <div class="col-lg-3 col-6">
+                <?php
+                    $sql = "SELECT COUNT(id_radio) AS radios FROM radios ";
+                    $resultado = $conn->query($sql);
+                    $radios = $resultado->fetch_assoc();
+                ?>
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3><?php echo $radios['radios']; ?></h3>
+                        <p>Total Radios</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <a href="lista_radios.php" class="small-box-footer">
+                        Más Información <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        
+            <!-- Total de Canales -->
+            <div class="col-lg-3 col-6">
+                <?php
+                    $sql = "SELECT COUNT(id_canal) AS canales FROM canales ";
+                    $resultado = $conn->query($sql);
+                    $canales = $resultado->fetch_assoc();
+                ?>
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3><?php echo $canales['canales']; ?></h3>
+                        <p>Total Canales</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <a href="lista_canales.php" class="small-box-footer">
+                        Más Información <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 <!-- Footer -->
 <?php include_once 'templates/footer.php'?>
