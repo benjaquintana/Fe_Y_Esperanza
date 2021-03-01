@@ -12,6 +12,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- Bootstrap 4 -->
     <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Sweeralert2 -->
+    <script src="js/sweetalert2.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->

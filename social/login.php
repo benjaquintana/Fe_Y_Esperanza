@@ -15,12 +15,12 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="../index.html" class="h1">Fe y Esperanza</a>
+                <a href="../index.html" class="h1">Unidos en Fe</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Inicia Sesión Aquí</p>
 
-                <form method="post" name="login_sesion_form" id="login_sesion" action="login_sesion.php">
+                <form method="post" name="login_social_form" id="login_social" action="login_social.php">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="email" placeholder="Email">
                         <div class="input-group-append">

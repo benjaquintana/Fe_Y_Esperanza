@@ -12,7 +12,7 @@
                 <li class="nav-item">
                     <a href="../index.php" class="brand-link">
                         <img src="../favicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                        <span class="d-none d-sm-inline-block brand-text font-weight-light texto_logo">Fe y Esperanza</span>
+                        <span class="d-none d-sm-inline-block brand-text font-weight-light texto_logo">Unidos en Fe</span>
                     </a>
                 </li>
             </ul>
@@ -25,7 +25,7 @@
 
                 <!-- Contactos -->
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link icono" title="Amigos"><i class="fas fa-user-circle"></i></a>
+                    <a href="contactos.php" class="nav-link icono" title="Amigos"><i class="fas fa-user-circle"></i></a>
                 </li>
 
                 <!-- Menu Mensages -->
@@ -54,7 +54,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="../img/miembro/<?php echo $_SESSION['imagen'] ?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
@@ -123,23 +123,23 @@
                     <!-- User Information -->
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle perfil_nav" data-toggle="dropdown">
-                            <img src="img/user8-128x128.jpg" class="user-image img-circle elevation-2" alt="User Image">
-                            <span class="d-none d-md-inline">Benjamín Quintana</span>
+                            <img src="../img/miembros/<?php echo $_SESSION['imagen'] ?>" class="user-image img-circle elevation-2" alt="User Image">
+                            <span class="d-none d-md-inline"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             <!-- User image -->
                             <li class="user-header bg-primary">
-                                <img src="img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
+                                <img src="../img/miembros/<?php echo $_SESSION['imagen'] ?>" class="img-circle elevation-2" alt="User Image">
 
                                 <p>
-                                    Benjamín Quintana
-                                    <small>Miembro desde Jul. 2020</small>
+                                    <?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
+                                    <small>Miembro desde <?php echo $_SESSION['fecha'] ?></small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <a href="perfil.php" class="btn btn-default btn-flat">Perfil</a>
-                                <a href="login.php" class="btn btn-default btn-flat float-right">Cerrar Sesión</a>
+                                <a href="login.php?cerrar_sesion=true" class="btn btn-default btn-flat float-right">Cerrar Sesión</a>
                             </li>
                         </ul>
                     </li>

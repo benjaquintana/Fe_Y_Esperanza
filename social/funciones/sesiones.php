@@ -6,7 +6,7 @@
         }
     }
     function revisar_usuario() {
-        return isset($_SESSION['usuario']);
+        return isset($_SESSION['email']);
     }
     session_start();
     usuario_autenticado();

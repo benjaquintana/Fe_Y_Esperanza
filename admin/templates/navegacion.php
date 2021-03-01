@@ -6,7 +6,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="../favicon.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <p class="d-block"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?></p>

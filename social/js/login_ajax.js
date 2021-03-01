@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //Login User
-    $('#login_sesion').on('submit', function(e) {
+    $('#login_social').on('submit', function(e) {
         e.preventDefault();
         var datos = $(this).serializeArray();
         $.ajax({
@@ -14,11 +14,10 @@ $(document).ready(function() {
                     Swal.fire({
                         icon: 'success',
                         title: 'Login Correcto',
-                        text: 'Bienvenido(a) '+resultado.usuario+'',
-                        timer: 1300
+                        text: 'Bienvenido(a) '+resultado.usuario+''
                     })
                     setTimeout(function(){
-                        window.location.href = 'admin_area.php';
+                        window.location.href = 'principal.php';
                     }, 1000);
                 } else {
                     Swal.fire({

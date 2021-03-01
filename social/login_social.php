@@ -1,27 +1,29 @@
-<?php
+ <?php
     //Login
     if (isset($_POST['login_social'])) {
-        echo "<pre>";
-            var_dump($_POST);
-        echo "</pre>";
+        $email = $_POST['email'];
+        $password = $_POST['password'];
         try {
             include_once 'funciones/funciones.php';
-            $stmt = $conn->prepare("SELECT * FROM miembro WHERE usuario = ? ");
-            $stmt->bind_param("s", $usuario);
+            $stmt = $conn->prepare("SELECT * FROM miembro WHERE email_miembro = ? ");
+            $stmt->bind_param("s", $email);
             $stmt->execute();
-            $stmt->bind_result($id_miembro, $nombre_miembro, $apellido_miembro, $password_miembro, $editado, $nivel);
+            $stmt->bind_result($id, $nombre, $apellido, $email, $password_miembro, $nacimiento, $imagen, $biografia, $fecha, $editado);
             if($stmt->affected_rows) {
                 $existe = $stmt->fetch();
                 if($existe) {
-                    if(password_verify($password, $password_admin)) {
+                    if(password_verify($password, $password_miembro)) {
                         session_start();
-                        $_SESSION['usuario'] = $usuario_admin;
-                        $_SESSION['nombre'] = $nombre_admin;
-                        $_SESSION['apellido'] = $apellido_admin;
-                        $_SESSION['nivel'] = $nivel;
+                        $_SESSION['nombre'] = $nombre;
+                        $_SESSION['apellido'] = $apellido;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['nacimiento'] = $nacimiento;
+                        $_SESSION['imagen'] = $imagen;
+                        $_SESSION['descripcion'] = $biografia;
+                        $_SESSION['fecha'] = $fecha;
                         $respuesta = array(
                             'respuesta' => 'exitoso',
-                            'usuario' => $nombre_admin . " " . $apellido_admin
+                            'usuario' => $nombre . " " . $apellido
                         );
                     } else {
                       $respuesta = array(

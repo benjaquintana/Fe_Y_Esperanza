@@ -6,10 +6,10 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="../img/miembros/<?php echo $_SESSION['imagen'] ?>" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="perfil.php" class="d-block">Benjamín Quintana</a>
+                        <a href="perfil.php" class="d-block"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?></a>
                     </div>
                 </div>
 
@@ -35,24 +35,22 @@
                                 <p>Páginas <i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a target="_blank" href="https://www.facebook.com/feyesperanzahoy" class="nav-link">
-                                        <i class="fab fa-facebook nav-icon"></i>
-                                        <p>Facebook | Página Oficial</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a target="_blank" href="../../index2.html" class="nav-link">
-                                        <i class="fas fa-users nav-icon"></i>
-                                        <p>Facebook | Grupo</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a target="_blank" href="https://www.youtube.com/channel/UCjBTBQw5M-VJXmbpuBVyiVQ" class="nav-link">
-                                        <i class="fab fa-youtube nav-icon"></i>
-                                        <p>Canal | Faby Sirvent</p>
-                                    </a>
-                                </li>
+                                <?php 
+                                    try {
+                                        $sql = "SELECT * FROM paginas";
+                                        $resultado = $conn->query($sql);
+                                    } catch (\Exception $e) {
+                                        $error = $e->getMessage();
+                                        echo "$error";
+                                    }
+                                    while($paginas = $resultado->fetch_assoc() ) { ?>
+                                    <li class="nav-item">
+                                        <a href="<?php echo $paginas['link'] ?>" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p><?php echo $paginas['nombre_pagina'] ?></p>
+                                        </a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -64,38 +62,55 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Zeno Media</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <audio controls src="https://stream.zenolive.com/3r0qwf652mzuv.aac" controlslist="nodownload" class="controls"></audio>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>My Tuner</p>
+                                <?php 
+                                    try {
+                                        $sql = "SELECT * FROM radios";
+                                        $resultado = $conn->query($sql);
+                                    } catch (\Exception $e) {
+                                        $error = $e->getMessage();
+                                        echo "$error";
+                                    }
+                                    while($radios = $resultado->fetch_assoc() ) { ?>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p><?php echo $radios['nombre_radio'] ?></p>
                                         </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <audio controls src="https://stream.zenolive.com/3r0qwf652mzuv.aac" controlslist="nodownload" class="controls"></audio>
-                                    </a>
-                                </li>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <audio controls src="<?php echo $radios['link'] ?>" controlslist="nodownload" class="controls"></audio>
+                                        </a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tv"></i>
                                 <p>
-                                    TV en Vivo
-                                    <span class="badge badge-info right">Pronto</span>
+                                    Canales
+                                    <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <?php 
+                                    try {
+                                        $sql = "SELECT * FROM canales";
+                                        $resultado = $conn->query($sql);
+                                    } catch (\Exception $e) {
+                                        $error = $e->getMessage();
+                                        echo "$error";
+                                    }
+                                    while($canales = $resultado->fetch_assoc() ) { ?>
+                                    <li class="nav-item">
+                                        <a href="<?php echo $canales['link'] ?>" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p><?php echo $canales['nombre_canal'] ?></p>
+                                        </a>
+                                    </li>
+                                <?php } ?>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -123,7 +138,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="contactos.html" class="nav-link">
+                            <a href="contactos.php" class="nav-link">
                                 <i class="fas fa-user-circle nav-icon"></i>
                                 <p>Amigos</p>
                             </a>
@@ -131,17 +146,13 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-images"></i>
-                                <p>
-                                    Fotos
-                                </p>
+                                <p>Fotos</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-video"></i>
-                                <p>
-                                    Videos
-                                </p>
+                                <p>Videos</p>
                             </a>
                         </li>
                     
