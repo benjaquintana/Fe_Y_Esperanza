@@ -17,7 +17,7 @@
         
 
         //Cargar Archivo
-        $directorio = "../img/radios/";
+        $directorio = "../img/canales/";
         if(!is_dir($directorio)){
             mkdir($directorio, 0775, true);
         }
@@ -32,7 +32,7 @@
         }
 
         try {
-            $stmt = $conn->prepare("INSERT INTO radios (nombre_radio, link, url_img_radio, editado) VALUES (?,?,?,NOW()) ");
+            $stmt = $conn->prepare("INSERT INTO canales (nombre_canal, link, url_img_canal, editado) VALUES (?,?,?,NOW()) ");
             $stmt->bind_param("sss", $nombre, $link, $url_imagen);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
@@ -64,7 +64,7 @@
         die(json_encode($respuesta));*/
 
         //Cargar Archivo
-        $directorio = "../img/radios/";
+        $directorio = "../img/canales/";
         if(!is_dir($directorio)){
             mkdir($directorio, 0775, true);
         }
@@ -80,10 +80,10 @@
 
         try {
             if($_FILES['imagen']['size'] > 0 ) {
-                $stmt = $conn->prepare('UPDATE radios SET nombre_radio = ?, link = ?, url_img_radio = ?, editado = NOW() WHERE id_radio = ? ');
+                $stmt = $conn->prepare('UPDATE canales SET nombre_canal = ?, link = ?, url_img_canal = ?, editado = NOW() WHERE id_canal = ? ');
                 $stmt->bind_param("sssi", $nombre, $link, $url_imagen, $id_registro);
             } else {
-                $stmt = $conn->prepare('UPDATE radios SET nombre_radio = ?, link = ?, editado = NOW() WHERE id_radio = ? ');
+                $stmt = $conn->prepare('UPDATE canales SET nombre_canal = ?, link = ?, editado = NOW() WHERE id_canal = ? ');
                 $stmt->bind_param("ssi", $nombre, $link, $id_registro);
             }
             $estado = $stmt->execute();
@@ -91,7 +91,7 @@
             if($estado == true) {
                 $respuesta = array(
                     'respuesta' => 'exito',
-                    'id_radio' => $id_registro
+                    'id_canal' => $id_registro
                 );
             } else {
                 $respuesta = array(
@@ -110,7 +110,7 @@
     if ($_POST['registro'] == 'eliminar'){
         $id_borrar = $_POST['id'];
         try {
-            $stmt = $conn->prepare('DELETE FROM radios WHERE id_radio = ? ');
+            $stmt = $conn->prepare('DELETE FROM canales WHERE id_canal = ? ');
             $stmt->bind_param('i', $id_borrar);
             $stmt->execute();
             if($stmt->affected_rows) {

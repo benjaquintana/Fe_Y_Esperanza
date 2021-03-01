@@ -22,7 +22,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Editar Radios</h1>
+                        <h1>Editar Canales</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -36,52 +36,52 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Editar Radio</h3>
+                            <h3 class="card-title">Editar Canal</h3>
                         </div>
 
                         <div class="card-body">
                             <?php
-                                $sql = "SELECT * FROM radios WHERE id_radio = $id ";
+                                $sql = "SELECT * FROM canales WHERE id_canal = $id ";
                                 $resultado = $conn->query($sql);
-                                $radio = $resultado->fetch_assoc();
+                                $canal = $resultado->fetch_assoc();
                             ?>
                             <!-- form start -->
-                            <form role="form" name="guardar_registro" id="guardar_registro_archivo" method="post" action="modelo_radio.php" enctype="multipart/form-data">
+                            <form role="form" name="guardar_registro" id="guardar_registro_archivo" method="post" action="modelo_canal.php" enctype="multipart/form-data">
                                 <div class="card-body has-validation">
                                     <!-- Nombre -->
                                     <div class="form-group">
                                         <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el nombre de tu invitado" value="<?php echo $radio['nombre_radio']; ?>">
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el nombre de tu canal" value="<?php echo $canal['nombre_canal']; ?>">
                                     </div>
 
                                     <!-- Link -->
                                     <div class="form-group">
                                         <label for="link">Link</label>
-                                        <input type="text" class="form-control" id="link" name="link" placeholder="Ingresa el link de tu invitado" value="<?php echo $radio['link']; ?>">
+                                        <input type="text" class="form-control" id="link" name="link" placeholder="Ingresa el link de tu canal" value="<?php echo $canal['link']; ?>">
                                     </div>
 
                                     <!-- Imagen Actual -->
                                     <div class="form-group">
                                         <label for="imagen">Imagen Actual</label>
                                         <div class="input-group">
-                                            <img src="../img/radios/<?php echo $radio['url_img_radio']; ?>" alt="img<?php echo $radio['nombre_radio'] ?>" width="200">
+                                            <img src="../img/canales/<?php echo $canal['url_img_canal']; ?>" alt="img<?php echo $canal['nombre_canal'] ?>" width="200">
                                         </div>
                                     </div>
 
                                     <!-- Imagen -->
                                     <div class="form-group">
-                                        <label for="imagen">Imagen</label>
+                                        <label for="imagen">Imagen <small>Imágenes de 1:1</small></label>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="imagen" name="imagen">
-                                                <label class="custom-file-label" for="imagen"><?php echo $radio['url_img_radio']; ?></label>
+                                                <label class="custom-file-label" for="imagen"><?php echo $canal['url_img_canal']; ?></label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="card-footer">
                                         <input type="hidden" name="registro" value="actualizar">
-                                        <input type="hidden" name="id_registro" value="<?php echo $radio['id_radio']; ?>">
+                                        <input type="hidden" name="id_registro" value="<?php echo $canal['id_canal']; ?>">
                                         <button type="submit" class="btn btn-primary">Actualizar</button>
                                     </div>
                                 </div>

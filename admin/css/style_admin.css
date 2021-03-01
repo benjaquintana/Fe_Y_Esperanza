@@ -9,6 +9,9 @@
 .activo {
     color: var(--secundarioClaro);
 }
+.blanco {
+    color: #ffffff;
+}
 
 /* Navegacion Superior */
 .navegacion {

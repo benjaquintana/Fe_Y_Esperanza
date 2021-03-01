@@ -1,7 +1,7 @@
 $(function () {
     $("#registro").DataTable({
         "responsive": true,
-        "pageLength": 5,
+        "pageLength": 10,
         "lengthChange": false,
         "autoWidth": false,
         "searching": true,

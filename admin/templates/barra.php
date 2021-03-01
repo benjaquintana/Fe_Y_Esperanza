@@ -11,7 +11,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="../index.php" class="brand-link">
-                        <img src="../favicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                        <img src="../favicon.png" alt="Unidos en Fe" class="brand-image img-circle elevation-3" style="opacity: .8">
                         <span class="d-none d-sm-inline-block brand-text font-weight-light texto_logo">Fe y Esperanza</span>
                     </a>
                 </li>

@@ -18,7 +18,7 @@
         <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Crear Administradores</h1>
+                <h1>Crear Miembros</h1>
             </div>
         </div>
         </div><!-- /.container-fluid -->
@@ -32,24 +32,18 @@
         <div class="col-md-8">
             <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Crear Nuevo Administrador</h3>
+                <h3 class="card-title">Crear Nuevo Miembro</h3>
             </div>
 
             <div class="card-body">
                 <!-- form start -->
-                <form role="form" name="guardar_registro" id="guardar_registro" method="post" action="modelo_admin.php">
+                <form role="form" name="guardar_registro" id="guardar_registro_archivo" method="post" action="modelo_miembro.php" enctype="multipart/form-data">
                     <div class="card-body has-validation">
-
-                        <!-- Usuario -->
-                        <div class="form-group">
-                            <label for="usuario">Usuario</label>
-                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Crea el Usuario">
-                        </div>
 
                         <!-- Nombre -->
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el Nombre Completo">
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el Nombre">
                         </div>
 
                         <!-- Apellido -->
@@ -58,16 +52,38 @@
                             <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingresa el Apellido">
                         </div>
 
-                        <!-- Nivel -->
+                        <!-- Email -->
                         <div class="form-group">
-                            <label>Seleccione el Nivel del Administrador</label>
-                            <select id="nivel" class="custom-select" name="nivel" required>
-                                <option value="">-- Selecciona un Nivel --</option>
-                                <option value="1">Nivel 1</option>
-                                <option value="2">Nivel 2</option>
-                                <option value="3">Nivel 3</option>
-                                <option value="4">Nivel 4</option>
-                            </select>
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa el Email">
+                        </div>
+
+                        <!-- Fecha -->
+                        <div class="form-group">
+                            <label>Fecha de Nacimiento</label>
+                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" name="fecha_nacimiento" data-target="#reservationdate" data-toggle="datetimepicker">
+                                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Imagen -->
+                        <div class="form-group">
+                            <label for="imagen">Imagen</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="imagen" name="imagen">
+                                    <label class="custom-file-label" for="imagen">Subir archivo</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Descripción -->
+                        <div class="form-group">
+                            <label for="biografia">Descripción</label>
+                            <textarea id="biografia" class="form-control" rows="3" placeholder="Escribe algo sobre el miembro" name="biografia"></textarea>
                         </div>
 
                         <!-- Password -->

@@ -97,13 +97,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="lista_eventos.php" class="nav-link">
+                                    <a href="lista_canales.php" class="nav-link">
                                         <i class="fas fa-list-alt nav-icon"></i>
                                         <p>Ver Todos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="crear_eventos.php" class="nav-link">
+                                    <a href="crear_canal.php" class="nav-link">
                                         <i class="nav-icon fas fa-plus-circle"></i>
                                         <p>Agregar</p>
                                     </a>
@@ -111,24 +111,24 @@
                             </ul>
                         </li>
 
-                        <!-- Amigos -->
+                        <!-- Miembros -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
-                                    Amigos
+                                    Miembros
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="lista_eventos.php" class="nav-link">
+                                    <a href="lista_miembros.php" class="nav-link">
                                         <i class="fas fa-list-alt nav-icon"></i>
                                         <p>Ver Todos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="crear_eventos.php" class="nav-link">
+                                    <a href="crear_miembro.php" class="nav-link">
                                         <i class="nav-icon fas fa-plus-circle"></i>
                                         <p>Agregar</p>
                                     </a>
