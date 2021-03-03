@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="css/OverlayScrollbars.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="css/daterangepicker.css">
+    <!-- Drop Zone -->
+    <link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css">
+    <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
     <!-- Sweet Alert 2 -->
     <link rel="stylesheet" href="css/sweetalert2.min.css">
     <!-- Theme style -->
@@ -18,3 +25,9 @@
     <!-- User style -->
     <link rel="stylesheet" href="css/style_admin.css">
 </head>
+<?php
+    $id_session = $_SESSION['id'];
+    $sql = "SELECT * FROM miembro WHERE id_miembro = $id_session ";
+    $resultado = $conn->query($sql);
+    $info_miembro = $resultado->fetch_assoc();
+?>

@@ -6,22 +6,10 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../img/miembros/<?php echo $_SESSION['imagen'] ?>" class="img-circle elevation-2" alt="User Image">
+                        <img src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" class="img-circle elevation-2 uploaded_image" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="perfil.php" class="d-block"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?></a>
-                    </div>
-                </div>
-
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
+                        <a href="perfil.php?id=<?php echo $_SESSION['id']?>" class="d-block"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a>
                     </div>
                 </div>
 
@@ -113,8 +101,14 @@
                             </ul>
                         </li>
                         <li class="nav-item">
+                            <a href="https://checkout.square.site/buy/57VWMWQWCKW4XFET6SDFSTRM" class="nav-link">
+                                <i class="nav-icon fas fa-heart"></i>
+                                <p>Donaciones</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="fas fa-mail-bulk"></i>
+                                <i class="nav-icon fas fa-mail-bulk"></i>
                                 <p>
                                     Mensajes
                                     <i class="fas fa-angle-left right"></i>
@@ -155,7 +149,7 @@
                                 <p>Videos</p>
                             </a>
                         </li>
-                    
+                        
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

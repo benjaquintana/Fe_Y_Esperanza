@@ -123,22 +123,22 @@
                     <!-- User Information -->
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle perfil_nav" data-toggle="dropdown">
-                            <img src="../img/miembros/<?php echo $_SESSION['imagen'] ?>" class="user-image img-circle elevation-2" alt="User Image">
-                            <span class="d-none d-md-inline"><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?></span>
+                            <img src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" class="user-image img-circle elevation-2 uploaded_image" alt="User Image">
+                            <span class="d-none d-md-inline"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             <!-- User image -->
                             <li class="user-header bg-primary">
-                                <img src="../img/miembros/<?php echo $_SESSION['imagen'] ?>" class="img-circle elevation-2" alt="User Image">
+                                <img src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" class="img-circle elevation-2 uploaded_image" alt="User Image">
 
                                 <p>
-                                    <?php echo $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
-                                    <small>Miembro desde <?php echo $_SESSION['fecha'] ?></small>
+                                    <?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?>
+                                    <small>Miembro desde <?php echo $_['fecha'] ?></small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <a href="perfil.php" class="btn btn-default btn-flat">Perfil</a>
+                                <a href="perfil.php?id=<?php echo $_SESSION['id']?>" class="btn btn-default btn-flat">Mi Perfil</a>
                                 <a href="login.php?cerrar_sesion=true" class="btn btn-default btn-flat float-right">Cerrar Sesión</a>
                             </li>
                         </ul>

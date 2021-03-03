@@ -71,6 +71,7 @@
             'file' => $_FILES
         );
         die(json_encode($respuesta));*/
+        
         //Cargar Archivo
         $directorio = "../img/miembros/";
         if(!is_dir($directorio)){
@@ -94,13 +95,15 @@
             } elseif (empty($_POST['password']) && $_FILES['imagen']['size'] > 0) {
                 $stmt = $conn->prepare('UPDATE miembro SET nombre_miembro = ?, apellido_miembro = ?, email_miembro = ?, fecha_nacimiento = ?, url_img_miembro = ?, descripcion = ?, editado = NOW() WHERE id_miembro = ? ');
                 $stmt->bind_param("ssssssi", $nombre, $apellido, $email, $fecha_nacimiento, $url_imagen, $biografia, $id_registro);
-            } elseif (is_string($_POST['password']) && $_FILES['imagen']['size'] == 0) {
+            
+            } elseif (!empty($_POST['password']) && $_FILES['imagen']['size'] == 0) {
                 $opciones = array(
                     'cost' => 12
                 );
                 $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
                 $stmt = $conn->prepare('UPDATE miembro SET nombre_miembro = ?, apellido_miembro = ?, email_miembro = ?, password = ?, fecha_nacimiento = ?, descripcion = ?, editado = NOW() WHERE id_miembro = ? ');
                 $stmt->bind_param("ssssssi", $nombre, $apellido, $email, $hash_password, $fecha_nacimiento, $biografia, $id_registro);
+            
             } else {
                 $opciones = array(
                     'cost' => 12

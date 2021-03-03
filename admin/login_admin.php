@@ -1,6 +1,7 @@
 <?php
     //Login
     if (isset($_POST['login_admin'])) {
+
         $usuario = $_POST['usuario'];
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];

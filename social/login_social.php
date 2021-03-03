@@ -14,6 +14,7 @@
                 if($existe) {
                     if(password_verify($password, $password_miembro)) {
                         session_start();
+                        $_SESSION['id'] = $id;
                         $_SESSION['nombre'] = $nombre;
                         $_SESSION['apellido'] = $apellido;
                         $_SESSION['email'] = $email;
@@ -23,7 +24,8 @@
                         $_SESSION['fecha'] = $fecha;
                         $respuesta = array(
                             'respuesta' => 'exitoso',
-                            'usuario' => $nombre . " " . $apellido
+                            'usuario' => $nombre . " " . $apellido,
+                            'session' => $_SESSION
                         );
                     } else {
                       $respuesta = array(
