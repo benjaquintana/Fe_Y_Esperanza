@@ -25,9 +25,3 @@
     <!-- User style -->
     <link rel="stylesheet" href="css/style_admin.css">
 </head>
-<?php
-    $id_session = $_SESSION['id'];
-    $sql = "SELECT * FROM miembro WHERE id_miembro = $id_session ";
-    $resultado = $conn->query($sql);
-    $info_miembro = $resultado->fetch_assoc();
-?>

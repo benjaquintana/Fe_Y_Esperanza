@@ -5,10 +5,10 @@
         $password = $_POST['password'];
         try {
             include_once 'funciones/funciones.php';
-            $stmt = $conn->prepare("SELECT * FROM miembro WHERE email_miembro = ? ");
+            $stmt = $conn->prepare("SELECT * FROM miembros WHERE email_miembro = ? ");
             $stmt->bind_param("s", $email);
             $stmt->execute();
-            $stmt->bind_result($id, $nombre, $apellido, $email, $password_miembro, $nacimiento, $imagen, $biografia, $fecha, $editado);
+            $stmt->bind_result($id, $nombre, $apellido, $email, $password_miembro, $nacimiento, $imagen, $biografia, $sesion_actual, $on_line, $fecha, $editado);
             if($stmt->affected_rows) {
                 $existe = $stmt->fetch();
                 if($existe) {
@@ -21,6 +21,8 @@
                         $_SESSION['nacimiento'] = $nacimiento;
                         $_SESSION['imagen'] = $imagen;
                         $_SESSION['descripcion'] = $biografia;
+                        $_SESSION['sesion_actual'] = $sesion_actual;
+                        $_SESSION['on_line'] = $on_line;
                         $_SESSION['fecha'] = $fecha;
                         $respuesta = array(
                             'respuesta' => 'exitoso',

@@ -48,7 +48,7 @@
             <!-- Total de Miembros -->
             <div class="col-lg-3 col-6">
                 <?php
-                    $sql = "SELECT COUNT(id_miembro) AS miembros FROM miembro ";
+                    $sql = "SELECT COUNT(id_miembro) AS miembros FROM miembros ";
                     $resultado = $conn->query($sql);
                     $miembros = $resultado->fetch_assoc();
                 ?>

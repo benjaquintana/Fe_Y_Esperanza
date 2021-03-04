@@ -18,13 +18,14 @@
     <!-- Doctrinas -->
     <section class="creencias">
         <div class="video_creencias">
-        <video autoplay loop poster="img/video_doctrina.png">
-            <source src="video/video_doctrina.mp4" type="video/mp4">
-            <source src="video/video_doctrina.webm" type="video/webm">
-            <source src="video/video_doctrina.ogv" type="video/ogv">
-        </video>
+            <video autoplay loop poster="img/video_doctrina.png">
+                <source src="video/video_doctrina.mp4" type="video/mp4">
+                <source src="video/video_doctrina.webm" type="video/webm">
+                <source src="video/video_doctrina.ogv" type="video/ogv">
+            </video>
         </div> 
-    <!-- Fin Contenedor Video -->
+        <!-- Fin Contenedor Video -->
+        
         <div class="contenido_creencias">
             <div class="contenedor">
                 <div id="creencias" class="creencias">

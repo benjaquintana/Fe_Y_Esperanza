@@ -14,12 +14,14 @@
                 </button>
             </div>
         </div>
+
         <!-- /.card-header -->
         <div class="card-body">
             <!-- Conversations are loaded here -->
             <div class="direct-chat-messages">
                 <!-- Message. Default to the left -->
                 <div class="direct-chat-msg">
+
                     <div class="direct-chat-infos clearfix">
                         <span class="direct-chat-name float-left">Alexander Pierce</span>
                         <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
@@ -52,23 +54,14 @@
             </div>
             <!--/.direct-chat-messages-->
 
+    <!---------------------------------------------------------------------------->
+    
             <!-- Contacts are loaded here -->
             <div class="direct-chat-contacts">
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
                 <ul class="contacts-list">
                 <?php
                     try {
-                        $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, url_img_miembro FROM miembro";
+                        $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, url_img_miembro FROM miembros ";
                         $resultado = $conn->query($sql);
                     } catch (\Exception $e) {
                         $error = $e->getMessage();
@@ -78,13 +71,19 @@
                     <li>
                         <a href="#">
                             <img class="contacts-list-img" src="../img/miembros/prueba1.jpg" alt="img_<?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>">
-
                             <div class="contacts-list-info">
                                 <span class="contacts-list-name">
                                     <?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>
                                     <small class="contacts-list-date float-right">2/28/2015</small>
                                 </span>
                                 <span class="contacts-list-msg">How have you been? I was...</span>
+                                <?php
+                                    $id_session = $_SESSION['id'];
+                                    $sql = "SELECT COUNT(id_reciever = $id_session) AS no_leidos FROM chat ";
+                                    $resultado = $conn->query($sql);
+                                    $no_leidos = $resultado->fetch_assoc();
+                                ?>
+                                <span title="3 New Messages" class="badge bg-danger float-right"><?php echo $no_leidos ?></span>
                             </div>
                             <!-- /.contacts-list-info -->
                         </a>

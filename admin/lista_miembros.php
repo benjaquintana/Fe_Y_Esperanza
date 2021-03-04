@@ -53,7 +53,7 @@
                                     <tbody>
                                         <?php
                                             try {
-                                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, email_miembro, fecha_nacimiento, url_img_miembro, descripcion FROM miembro";
+                                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, email_miembro, fecha_nacimiento, url_img_miembro, descripcion FROM miembros ";
                                                 $resultado = $conn->query($sql);
                                             } catch (\Exception $e) {
                                                 $error = $e->getMessage();

@@ -23,7 +23,7 @@
         $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
         
         try {
-            $stmt = $conn->prepare("INSERT INTO miembro (nombre_miembro, apellido_miembro, email_miembro, password, fecha_nacimiento, url_img_miembro, descripcion, fecha_registro, editado) VALUES (?,?,?,?,?,?,?,?,NOW()) ");
+            $stmt = $conn->prepare("INSERT INTO miembros (nombre_miembro, apellido_miembro, email_miembro, password, fecha_nacimiento, url_img_miembro, descripcion, fecha_registro, editado) VALUES (?,?,?,?,?,?,?,?,NOW()) ");
             $stmt->bind_param("ssssssss", $nombre, $apellido, $email, $password_hashed, $fecha_nacimiento, $url_imagen, $biografia, $fecha);
             $stmt->execute();
             $id_registro = $stmt->insert_id;

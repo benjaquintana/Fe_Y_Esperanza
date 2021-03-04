@@ -24,7 +24,7 @@
                         <div class="row d-flex align-items-stretch">
                         <?php
                             try {
-                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, url_img_miembro FROM miembro";
+                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, url_img_miembro FROM miembros ";
                                 $resultado = $conn->query($sql);
                             } catch (\Exception $e) {
                                 $error = $e->getMessage();

@@ -1,3 +1,9 @@
+<?php
+    $id_session = $_SESSION['id'];
+    $sql = "SELECT * FROM miembro WHERE id_miembro = $id_session ";
+    $resultado = $conn->query($sql);
+    $info_miembro = $resultado->fetch_assoc();
+?>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed principal">
     <!-- Site wrapper -->
     <div class="wrapper">
