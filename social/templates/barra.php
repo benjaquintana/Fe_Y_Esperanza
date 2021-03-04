@@ -1,6 +1,6 @@
 <?php
     $id_session = $_SESSION['id'];
-    $sql = "SELECT * FROM miembro WHERE id_miembro = $id_session ";
+    $sql = "SELECT * FROM miembros WHERE id_miembro = $id_session ";
     $resultado = $conn->query($sql);
     $info_miembro = $resultado->fetch_assoc();
 ?>
@@ -36,9 +36,15 @@
 
                 <!-- Menu Mensages -->
                 <li class="nav-item dropdown">
+                    <?php
+                        $id_session = $_SESSION['id'];
+                        $sql = "SELECT COUNT(id_reciever = $id_session) AS no_leidos FROM chat ";
+                        $resultado = $conn->query($sql);
+                        $no_leidos = $resultado->fetch_assoc();
+                    ?>
                     <a class="nav-link icono" data-toggle="dropdown" href="#" title="Mensajes">
                         <i class="fas fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
+                        <span class="badge badge-danger navbar-badge"><?php echo $no_leidos['no_leidos'] ?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
@@ -144,7 +150,7 @@
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <a href="perfil.php?id=<?php echo $_SESSION['id']?>" class="btn btn-default btn-flat">Mi Perfil</a>
+                                <a href="mi_perfil.php" class="btn btn-default btn-flat">Mi Perfil</a>
                                 <a href="login.php?cerrar_sesion=true" class="btn btn-default btn-flat float-right">Cerrar Sesión</a>
                             </li>
                         </ul>

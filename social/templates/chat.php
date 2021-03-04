@@ -1,11 +1,17 @@
+
 <!-- DIRECT CHAT WARNING -->
 <div class="col-md-3 chat">
     <div class="card card-info direct-chat direct-chat-info collapsed-card">
         <div class="card-header">
             <h3 class="card-title">Chat</h3>
-
+            <?php
+                $id_session = $_SESSION['id'];
+                $sql = "SELECT COUNT(id_reciever = $id_session) AS no_leidos FROM chat ";
+                $resultado = $conn->query($sql);
+                $no_leidos = $resultado->fetch_assoc();
+            ?>
             <div class="card-tools">
-                <span title="3 New Messages" class="badge bg-danger">3</span>
+                <span title="<?php echo $no_leidos['no_leidos'] ?> Nuevos Mensajes" class="badge bg-danger"><?php echo $no_leidos['no_leidos'] ?></span>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                 </button>
@@ -19,15 +25,31 @@
         <div class="card-body">
             <!-- Conversations are loaded here -->
             <div class="direct-chat-messages">
+                <?php
+                    $sql = "SELECT * FROM chat 
+                            WHERE (id_sender = '".$from_user_id."' 
+                            AND id_reciever = '".$to_user_id."') 
+                            OR (id_sender = '".$to_user_id."' 
+                            AND id_reciever = '".$from_user_id."') 
+                            ORDER BY timestamp ASC";
+                $userChat = $this->getData($sqlQuery);	
+                $conversation = '<ul>';
+		
+                ?>
                 <!-- Message. Default to the left -->
                 <div class="direct-chat-msg">
-
+                    <?php
+                        $id_session = $_SESSION['id'];
+                        $sql = "SELECT * FROM miembros WHERE id_miembro = $id_session ";
+                        $resultado = $conn->query($sql);
+                        $info_miembro = $resultado->fetch_assoc();
+                    ?>
                     <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-left">Alexander Pierce</span>
+                        <span class="direct-chat-name float-left"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></span>
                         <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                     </div>
                     <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="img/user1-128x128.jpg" alt="Message User Image">
+                    <img class="direct-chat-img uploaded_image" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="Message User Image">
                     <!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                         Is this template really for free? That's unbelievable!
@@ -61,29 +83,24 @@
                 <ul class="contacts-list">
                 <?php
                     try {
-                        $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, url_img_miembro FROM miembros ";
+                        $sql = "SELECT * FROM miembros WHERE id_miembro != $id_session ";
                         $resultado = $conn->query($sql);
                     } catch (\Exception $e) {
                         $error = $e->getMessage();
                         echo "$error";
                     }
                     while($miembro = $resultado->fetch_assoc() ) { ?>
-                    <li>
+                    <li id="<?php echo $miembro['id_miembro'] ?>" class="contacto" data-touserid="<?php echo $miembro['id_miembro'] ?>" >
                         <a href="#">
-                            <img class="contacts-list-img" src="../img/miembros/prueba1.jpg" alt="img_<?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>">
+                            <img class="contacts-list-img " src="../img/miembros/<?php echo $miembro['url_img_miembro'] ?>" alt="img_<?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>">
                             <div class="contacts-list-info">
                                 <span class="contacts-list-name">
                                     <?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>
                                     <small class="contacts-list-date float-right">2/28/2015</small>
                                 </span>
                                 <span class="contacts-list-msg">How have you been? I was...</span>
-                                <?php
-                                    $id_session = $_SESSION['id'];
-                                    $sql = "SELECT COUNT(id_reciever = $id_session) AS no_leidos FROM chat ";
-                                    $resultado = $conn->query($sql);
-                                    $no_leidos = $resultado->fetch_assoc();
-                                ?>
-                                <span title="3 New Messages" class="badge bg-danger float-right"><?php echo $no_leidos ?></span>
+                                
+                                <span title="<?php echo $no_leidos['no_leidos'] ?> Nuevos Mensajes" class="badge bg-danger float-right"><?php echo $no_leidos['no_leidos'] ?></span>
                             </div>
                             <!-- /.contacts-list-info -->
                         </a>

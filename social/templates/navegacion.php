@@ -1,4 +1,10 @@
-<!-- Main Sidebar Container -->
+<?php
+    $id_session = $_SESSION['id'];
+    $sql = "SELECT * FROM miembros WHERE id_miembro = $id_session ";
+    $resultado = $conn->query($sql);
+    $info_miembro = $resultado->fetch_assoc();
+?>
+        <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-light-warning elevation-4 main_sidebar_left">
            
             <!-- Sidebar -->
@@ -9,7 +15,7 @@
                         <img src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" class="img-circle elevation-2 uploaded_image" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="perfil.php?id=<?php echo $_SESSION['id']?>" class="d-block"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a>
+                        <a href="mi_perfil.php" class="d-block"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a>
                     </div>
                 </div>
 
@@ -107,12 +113,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <?php
+                                $id_session = $_SESSION['id'];
+                                $sql = "SELECT COUNT(id_reciever = $id_session) AS no_leidos FROM chat ";
+                                $resultado = $conn->query($sql);
+                                $no_leidos = $resultado->fetch_assoc();
+                            ?>
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-mail-bulk"></i>
                                 <p>
                                     Mensajes
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-danger right">3</span>
+                                    <span class="badge badge-danger right"><?php echo $no_leidos['no_leidos'] ?></span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">

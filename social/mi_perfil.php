@@ -3,10 +3,6 @@
     require_once 'funciones/sesiones.php';
     // Funciones
     require_once 'funciones/funciones.php';
-    $id = $_GET['id'];
-    if(!filter_var($id, FILTER_VALIDATE_INT)):
-        die("Error!");
-    else:
     //Header
     include_once 'templates/header.php';
     //Barra
@@ -22,6 +18,7 @@
                     <div class="row social">
                         <!-- Muro Principal -->
                         <?php
+                            $id_sesion = $_SESSION['id'];
                             $sql = "SELECT * FROM miembros WHERE id_miembro = $id ";
                             $resultado = $conn->query($sql);
                             $miembro = $resultado->fetch_assoc();
@@ -430,9 +427,6 @@
         <!-- /.content-wrapper -->
 
 <!-- Footer -->
-<?php 
-    include_once 'templates/footer.php';
-    endif;
-?>
+<?php include_once 'templates/footer.php' ?>
 <!-- Fin Footer -->
 
