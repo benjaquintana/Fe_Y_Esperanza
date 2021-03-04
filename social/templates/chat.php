@@ -25,17 +25,6 @@
         <div class="card-body">
             <!-- Conversations are loaded here -->
             <div class="direct-chat-messages">
-                <?php
-                    $sql = "SELECT * FROM chat 
-                            WHERE (id_sender = '".$from_user_id."' 
-                            AND id_reciever = '".$to_user_id."') 
-                            OR (id_sender = '".$to_user_id."' 
-                            AND id_reciever = '".$from_user_id."') 
-                            ORDER BY timestamp ASC";
-                $userChat = $this->getData($sqlQuery);	
-                $conversation = '<ul>';
-		
-                ?>
                 <!-- Message. Default to the left -->
                 <div class="direct-chat-msg">
                     <?php
@@ -57,7 +46,7 @@
                     <!-- /.direct-chat-text -->
                 </div>
                 <!-- /.direct-chat-msg -->
-
+            
                 <!-- Message to the right -->
                 <div class="direct-chat-msg right">
                     <div class="direct-chat-infos clearfix">
@@ -75,7 +64,7 @@
                 <!-- /.direct-chat-msg -->
             </div>
             <!--/.direct-chat-messages-->
-
+    
     <!---------------------------------------------------------------------------->
     
             <!-- Contacts are loaded here -->
