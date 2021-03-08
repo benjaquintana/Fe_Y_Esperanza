@@ -31,8 +31,9 @@
     <script src="js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="js/demo.js"></script>
+    
     <!-- User Scripts -->
-    <script src="js/chat.js"></script>
+    
     <script src="js/registro_ajax.js"></script>
     <script src="js/login_ajax.js"></script>
     <script src="js/main.js"></script>

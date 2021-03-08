@@ -25,43 +25,45 @@
         <div class="card-body">
             <!-- Conversations are loaded here -->
             <div class="direct-chat-messages">
-                <!-- Message. Default to the left -->
+                
+                <!-- Message. Default to the left 
                 <div class="direct-chat-msg">
                     <?php
-                        $id_session = $_SESSION['id'];
+                        /*$id_session = $_SESSION['id'];
                         $sql = "SELECT * FROM miembros WHERE id_miembro = $id_session ";
                         $resultado = $conn->query($sql);
-                        $info_miembro = $resultado->fetch_assoc();
+                        $info_miembro = $resultado->fetch_assoc();*/
                     ?>
                     <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-left"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></span>
+                        <span class="direct-chat-name float-left"><?php //echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></span>
                         <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                     </div>
-                    <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img uploaded_image" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="Message User Image">
-                    <!-- /.direct-chat-img -->
+                    <!-- /.direct-chat-infos --
+                    <img class="direct-chat-img uploaded_image" src="../img/miembros/<?php //echo $info_miembro['url_img_miembro'] ?>" alt="Message User Image">
+                    <!-- /.direct-chat-img --
                     <div class="direct-chat-text">
                         Is this template really for free? That's unbelievable!
                     </div>
-                    <!-- /.direct-chat-text -->
+                    <!-- /.direct-chat-text --
                 </div>
                 <!-- /.direct-chat-msg -->
             
-                <!-- Message to the right -->
+                <!-- Message to the right --
                 <div class="direct-chat-msg right">
                     <div class="direct-chat-infos clearfix">
                         <span class="direct-chat-name float-right">Sarah Bullock</span>
                         <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                     </div>
-                    <!-- /.direct-chat-infos -->
+                    <!-- /.direct-chat-infos --
                     <img class="direct-chat-img" src="img/user3-128x128.jpg" alt="Message User Image">
-                    <!-- /.direct-chat-img -->
+                    <!-- /.direct-chat-img --
                     <div class="direct-chat-text">
                         You better believe it!
                     </div>
-                    <!-- /.direct-chat-text -->
+                    <!-- /.direct-chat-text --
                 </div>
                 <!-- /.direct-chat-msg -->
+
             </div>
             <!--/.direct-chat-messages-->
     

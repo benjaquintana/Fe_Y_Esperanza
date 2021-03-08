@@ -119,29 +119,14 @@
                                 $resultado = $conn->query($sql);
                                 $no_leidos = $resultado->fetch_assoc();
                             ?>
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-mail-bulk"></i>
+                            <a target="_blank" href="https://5500-copper-bobolink-z74mqd9z.ws-us03.gitpod.io/social/chat" class="nav-link">
+                            <i class="nav-icon fas fa-mail-bulk"></i>
                                 <p>
-                                    Mensajes
-                                    <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-danger right"><?php echo $no_leidos['no_leidos'] ?></span>
+                                    Chat
+                                    <!--<span class="badge badge-danger right"><?php echo $no_leidos['no_leidos'] ?></span>-->
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="../tables/simple.html" class="nav-link">
-                                        <i class="nav-icon fas fa-inbox"></i>
-                                        <p>Ver Todos</p>
-                                        <span class="badge badge-danger right">3</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../tables/data.html" class="nav-link">
-                                        <i class="nav-icon fas fa-paper-plane"></i>
-                                        <p>Redactar</p>
-                                    </a>
-                                </li>
-                            </ul>
+                            
                         </li>
                         <li class="nav-item">
                             <a href="contactos.php" class="nav-link">
