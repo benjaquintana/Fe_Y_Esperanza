@@ -19,6 +19,29 @@
                 <div class="row social">
                     <!-- Muro Principal -->
 
+                    <div class="col-md-9">
+                        <div class="card card-widget">
+                            <?php
+                                $id_session = $_SESSION['id'];
+                                $sql = "SELECT * FROM miembros WHERE id_miembro = $id_session ";
+                                $resultado = $conn->query($sql);
+                                $info_miembro = $resultado->fetch_assoc(); 
+                            ?>
+                            <div class="card-header d-flex"> 
+                                <div class="user-block">
+                                    <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="User Image">
+                                </div>
+                                <div class="col-md-6">    
+                                    <a href="#" class="btn btn-block btn-info">Publicar</button>
+                                </div>
+                                <div class="col-md-5">    
+                                    <a href="#" class="btn btn-block btn-success">Subir Foto</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Box Comment -->
                     <div class="col-md-9">
                         <div class="card card-widget">

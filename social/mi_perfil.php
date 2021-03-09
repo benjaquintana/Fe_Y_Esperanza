@@ -18,10 +18,10 @@
                     <div class="row social">
                         <!-- Muro Principal -->
                         <?php
-                            $id_sesion = $_SESSION['id'];
-                            $sql = "SELECT * FROM miembros WHERE id_miembro = $id ";
+                            $id_session = $_SESSION['id'];
+                            $sql = "SELECT * FROM miembros WHERE id_miembro = $id_session ";
                             $resultado = $conn->query($sql);
-                            $miembro = $resultado->fetch_assoc();
+                            $info_miembro = $resultado->fetch_assoc();
                         ?>
                         <div class="col-md-3">
 
@@ -32,10 +32,10 @@
                                     <div class="text-center image_area">
                                         <form role="form" name="guardar_registro" method="post" id="guardar_registro_archivo" action="upload.php">
                                             <label for="upload_image">
-                                                <img src="../img/miembros/<?php echo $miembro['url_img_miembro'] ?>"
+                                                <img src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>"
                                                     id="uploaded_image" 
                                                     class="profile-user-img img-fluid img-circle uploaded_image" 
-                                                    alt="img_<?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>">
+                                                    alt="img_<?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?>">
                                                 <div class="overlay">
                                                     <div class="text"><i class="fas fa-camera"></i></div>
                                                 </div>
@@ -73,7 +73,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h3 class="profile-username text-center"><?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?></h3>
+                                    <h3 class="profile-username text-center"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></h3>
 
                                     <!-- <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">
@@ -103,7 +103,7 @@
                                     <strong><i class="fas fa-street-view mr-1"></i></i> Biografía</strong>
 
                                     <p class="text-muted">
-                                        <?php echo $miembro['descripcion'] ?>
+                                        <?php echo $info_miembro['descripcion'] ?>
                                     </p>
 
                                     <hr>
