@@ -4,14 +4,9 @@
     <div class="card card-info direct-chat direct-chat-info collapsed-card">
         <div class="card-header">
             <h3 class="card-title">Chat</h3>
-            <?php
-                $id_session = $_SESSION['id'];
-                $sql = "SELECT COUNT(id_reciever = $id_session) AS no_leidos FROM chat ";
-                $resultado = $conn->query($sql);
-                $no_leidos = $resultado->fetch_assoc();
-            ?>
+            
             <div class="card-tools">
-                <span title="<?php echo $no_leidos['no_leidos'] ?> Nuevos Mensajes" class="badge bg-danger"><?php echo $no_leidos['no_leidos'] ?></span>
+                <span title="3 Nuevos Mensajes" class="badge bg-danger">3</span>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                 </button>
@@ -26,41 +21,41 @@
             <!-- Conversations are loaded here -->
             <div class="direct-chat-messages">
                 
-                <!-- Message. Default to the left 
+                <!-- Message. Default to the left -->
                 <div class="direct-chat-msg">
                     <?php
-                        /*$id_session = $_SESSION['id'];
+                        $id_session = $_SESSION['id'];
                         $sql = "SELECT * FROM miembros WHERE id_miembro = $id_session ";
                         $resultado = $conn->query($sql);
-                        $info_miembro = $resultado->fetch_assoc();*/
+                        $info_miembro = $resultado->fetch_assoc();
                     ?>
                     <div class="direct-chat-infos clearfix">
                         <span class="direct-chat-name float-left"><?php //echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></span>
                         <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                     </div>
-                    <!-- /.direct-chat-infos --
-                    <img class="direct-chat-img uploaded_image" src="../img/miembros/<?php //echo $info_miembro['url_img_miembro'] ?>" alt="Message User Image">
-                    <!-- /.direct-chat-img --
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img uploaded_image" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                         Is this template really for free? That's unbelievable!
                     </div>
-                    <!-- /.direct-chat-text --
+                    <!-- /.direct-chat-text -->
                 </div>
                 <!-- /.direct-chat-msg -->
             
-                <!-- Message to the right --
+                <!-- Message to the right -->
                 <div class="direct-chat-msg right">
                     <div class="direct-chat-infos clearfix">
                         <span class="direct-chat-name float-right">Sarah Bullock</span>
                         <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                     </div>
-                    <!-- /.direct-chat-infos --
+                    <!-- /.direct-chat-infos -->
                     <img class="direct-chat-img" src="img/user3-128x128.jpg" alt="Message User Image">
-                    <!-- /.direct-chat-img --
+                    <!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                         You better believe it!
                     </div>
-                    <!-- /.direct-chat-text --
+                    <!-- /.direct-chat-text -->
                 </div>
                 <!-- /.direct-chat-msg -->
 

@@ -113,17 +113,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <?php
-                                $id_session = $_SESSION['id'];
-                                $sql = "SELECT COUNT(id_reciever = $id_session) AS no_leidos FROM chat ";
-                                $resultado = $conn->query($sql);
-                                $no_leidos = $resultado->fetch_assoc();
-                            ?>
+                            
                             <a target="_blank" href="https://5500-copper-bobolink-z74mqd9z.ws-us03.gitpod.io/social/chat" class="nav-link">
                             <i class="nav-icon fas fa-mail-bulk"></i>
                                 <p>
                                     Chat
-                                    <!--<span class="badge badge-danger right"><?php echo $no_leidos['no_leidos'] ?></span>-->
+                                    <!--<span class="badge badge-danger right">3</span>-->
                                 </p>
                             </a>
                             

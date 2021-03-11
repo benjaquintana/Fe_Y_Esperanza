@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
     <!-- Sweet Alert 2 -->
     <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <!-- Colorbox -->
+    <link rel="stylesheet" href="css/colorbox.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="css/adminlte.min.css">
     <!-- User style -->

@@ -31,9 +31,10 @@
     <script src="js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="js/demo.js"></script>
-    
+    <!-- Colorbox -->
+    <script src="js/jquery.colorbox-min.js"></script>
     <!-- User Scripts -->
-    
+    <script src="js/publicaciones_ajax.js"></script>
     <script src="js/registro_ajax.js"></script>
     <script src="js/login_ajax.js"></script>
     <script src="js/main.js"></script>

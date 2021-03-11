@@ -38,8 +38,11 @@ $(function() {
     //Input file
     bsCustomFileInput.init();
 
-    
+    //Colorbox
+    $('.publicar_texto').colorbox({inline:true, width:"50%"});
+    $('.publicar_foto').colorbox({inline:true, width:"50%"});
 
+    
 });
 
 //Upload Image

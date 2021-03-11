@@ -31,13 +31,87 @@
                                 <div class="user-block">
                                     <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="User Image">
                                 </div>
+
+                                <!-- Publicar -->
                                 <div class="col-md-6">    
-                                    <a href="#" class="btn btn-block btn-info">Publicar</button>
+                                    <a href="#publicar_texto" class="btn btn-block btn-info publicar_texto"><i class="fas fa-feather-alt"></i> Publicar</a>
                                 </div>
-                                <div class="col-md-5">    
-                                    <a href="#" class="btn btn-block btn-success">Subir Foto</button>
+
+                                <div style="display: none;">
+                                    <div id="publicar_texto">
+                                        <div class="col-md-12">
+                                            <div class="card card-outline card-info">
+                                                <form role="form" action="acciones_publicaciones.php" id="guardar_publicacion" name="guardar_publicacion" method="post">
+                                                    <div class="card-header">
+                                                        <div class="user-block">
+                                                            <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="User Image">
+                                                            <span class="username"><a href="mi_perfil.php"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a></span>
+                                                            <span class="description">¿Qué quieres publicar? Ponlo Aquí</span>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.card-header -->
+                                                    <div class="card-body">
+                                                        <textarea type="text" rows="5" name="publicacion" class="form-control"></textarea>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
+                                                        <input type="hidden" name="publicar" value="texto">
+                                                        <button type="submit" class="btn btn-info btn-block"><i class="fas fa-feather-alt"></i> Publicar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                    </div>
                                 </div>
                                 
+
+                                <!-- Subir Fotos -->
+                                <div class="col-md-5">    
+                                    <a href="#publicar_foto" class="btn btn-block btn-success publicar_foto"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></a>
+                                </div>
+                                
+                                <div style="display: none;">
+                                    <div id="publicar_foto">
+                                        <div class="col-md-12">
+                                            <div class="card card-outline card-info">
+                                                <form role="form" name="guardar_publicacion_archivo" id="guardar_publicacion_archivo" method="post" action="acciones_publicaciones.php" enctype="multipart/form-data">
+                                                    <div class="card-header">
+                                                        <div class="user-block">
+                                                            <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="User Image">
+                                                            <span class="username"><a href="mi_perfil.php"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a></span>
+                                                            <span class="description">¿Qué quieres publicar? Ponlo Aquí</span>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.card-header -->
+
+                                                    <div class="card-body">
+                                                        <label for="imagen">Imagen</label>
+                                                        <div class="input-group">
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" id="imagen" name="imagen">
+                                                                <label class="custom-file-label" for="imagen">Subir archivo</label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <label for="text">Descripción</label>
+                                                            <textarea type="text" rows="3" name="descripcion" class="form-control" placeholder="Describe tu imagen"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card-footer">
+                                                        <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
+                                                        <input type="hidden" name="publicar" value="foto">
+                                                        <button type="submit" class="btn btn-info btn-block"><i class="fas fa-feather-alt"></i> Publicar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!-- /.col-->
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

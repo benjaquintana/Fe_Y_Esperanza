@@ -36,15 +36,10 @@
 
                 <!-- Menu Mensages -->
                 <li class="nav-item dropdown">
-                    <?php
-                        $id_session = $_SESSION['id'];
-                        $sql = "SELECT COUNT(id_reciever = $id_session) AS no_leidos FROM chat ";
-                        $resultado = $conn->query($sql);
-                        $no_leidos = $resultado->fetch_assoc();
-                    ?>
+                    
                     <a class="nav-link icono" data-toggle="dropdown" href="#" title="Mensajes">
                         <i class="fas fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge"><?php echo $no_leidos['no_leidos'] ?></span>
+                        <span class="badge badge-danger navbar-badge">3</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
