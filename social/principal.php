@@ -71,7 +71,7 @@
                                     <a href="#publicar_foto" class="btn btn-block btn-success publicar_foto"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></a>
                                 </div>
                                 
-                                <div style="display: none;">
+                                <div id="cerrar" style="display: none;">
                                     <div id="publicar_foto">
                                         <div class="col-md-12">
                                             <div class="card card-outline card-info">
@@ -80,7 +80,7 @@
                                                         <div class="user-block">
                                                             <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="User Image">
                                                             <span class="username"><a href="mi_perfil.php"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a></span>
-                                                            <span class="description">¿Qué quieres publicar? Ponlo Aquí</span>
+                                                            <span class="description">¿Qué quieres publicar? Colocalo Aquí</span>
                                                         </div>
                                                     </div>
                                                     <!-- /.card-header -->
@@ -103,7 +103,7 @@
                                                     <div class="card-footer">
                                                         <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
                                                         <input type="hidden" name="publicar" value="foto">
-                                                        <button type="submit" class="btn btn-info btn-block"><i class="fas fa-feather-alt"></i> Publicar</button>
+                                                        <button type="submit" class="btn btn-info btn-block boton_publicar"><i class="fas fa-feather-alt"></i> Publicar</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -115,6 +115,8 @@
                             </div>
                         </div>
                     </div>
+
+                    
 
                     <!-- Box Comment -->
                     <div class="col-md-9">

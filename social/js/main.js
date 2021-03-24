@@ -42,7 +42,9 @@ $(function() {
     $('.publicar_texto').colorbox({inline:true, width:"50%"});
     $('.publicar_foto').colorbox({inline:true, width:"50%"});
 
-    
+    $('.boton_publicar').on('click', function() {
+        $('#cerrar').modal('hiden');
+    });
 });
 
 //Upload Image

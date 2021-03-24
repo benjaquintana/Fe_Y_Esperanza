@@ -36,11 +36,11 @@
 
     //Publicacion con archivo
     if ($_POST['publicar'] == 'foto'){
-        $respuesta = array(
+        /*$respuesta = array(
             'post' => $_POST,
             'file' => $_FILES
         );
-        die(json_encode($respuesta));
+        die(json_encode($respuesta));*/
         
         //Cargar Archivo
         $directorio = "../img/publicaciones/";
@@ -58,8 +58,8 @@
         }
         
         try {
-            $stmt = $conn->prepare("INSERT INTO publicacion_imagen (id_miembro, url_imagen, descripcion, fecha) VALUES (?,?,?,?) ");
-            $stmt->bind_param("isss", $id_miembro, $url_imagen, $texto, $fecha);
+            $stmt = $conn->prepare("INSERT INTO publicar_imagen (id_miembro, url_imagen, descripcion, fecha) VALUES (?,?,?,?) ");
+            $stmt->bind_param("isss", $id_miembro, $url_imagen, $descripcion, $fecha);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
             if($id_registro > 0) {
