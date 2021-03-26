@@ -8,11 +8,11 @@
     $descripcion = $_POST['descripcion'];
     $fecha = date('Y-m-d H:i:s');
 
-    //Nuevo Usuario
+    //Publicación de Texto
     if ($_POST['publicar'] == 'texto'){
 
         try {
-            $stmt = $conn->prepare("INSERT INTO publicaciones (id_miembro, texto, fecha) VALUES (?,?,?) ");
+            $stmt = $conn->prepare("INSERT INTO publicaciones (id_miem_public, texto, fecha) VALUES (?,?,?) ");
             $stmt->bind_param("iss", $id_miembro, $texto, $fecha);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
@@ -58,7 +58,7 @@
         }
         
         try {
-            $stmt = $conn->prepare("INSERT INTO publicar_imagen (id_miembro, url_imagen, descripcion, fecha) VALUES (?,?,?,?) ");
+            $stmt = $conn->prepare("INSERT INTO publicar_imagen (id_miem_public_img, url_imagen, texto, fecha) VALUES (?,?,?,?) ");
             $stmt->bind_param("isss", $id_miembro, $url_imagen, $descripcion, $fecha);
             $stmt->execute();
             $id_registro = $stmt->insert_id;

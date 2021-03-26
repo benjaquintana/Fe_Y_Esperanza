@@ -14,7 +14,7 @@
                 <p class="login-box-msg">Registrar un Nuevo Miembro</p>
 
                 <!-- Formulario de Inscripcion -->
-                <form action="acciones_registro.php" name="registro_social_form" id="guardar_registro" method="post">
+                <form action="acciones_social.php" name="registro_social_form" id="guardar_registro" method="post">
 
                     <!-- Nombre -->
                     <div class="input-group mb-3">

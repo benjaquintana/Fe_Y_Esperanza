@@ -34,10 +34,10 @@
 
                                 <!-- Publicar -->
                                 <div class="col-md-6">    
-                                    <a href="#publicar_texto" class="btn btn-block btn-info publicar_texto"><i class="fas fa-feather-alt"></i> Publicar</a>
+                                    <a href="#publicar_texto" class="btn btn-block btn-info publicar_texto"><i class="fas fa-feather-alt"></i> <b>Publicar</b></a>
                                 </div>
 
-                                <div style="display: none;">
+                                <div id="cerrar" style="display: none;">
                                     <div id="publicar_texto">
                                         <div class="col-md-12">
                                             <div class="card card-outline card-info">
@@ -56,7 +56,7 @@
                                                     <div class="card-footer">
                                                         <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
                                                         <input type="hidden" name="publicar" value="texto">
-                                                        <button type="submit" class="btn btn-info btn-block"><i class="fas fa-feather-alt"></i> Publicar</button>
+                                                        <button type="submit" id="boton_publicar" class="btn btn-info btn-block"><i class="fas fa-feather-alt"></i> <b>Publicar</b></button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -71,7 +71,7 @@
                                     <a href="#publicar_foto" class="btn btn-block btn-success publicar_foto"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></a>
                                 </div>
                                 
-                                <div id="cerrar" style="display: none;">
+                                <div id="cerrar_foto" style="display: none;">
                                     <div id="publicar_foto">
                                         <div class="col-md-12">
                                             <div class="card card-outline card-info">
@@ -103,7 +103,7 @@
                                                     <div class="card-footer">
                                                         <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
                                                         <input type="hidden" name="publicar" value="foto">
-                                                        <button type="submit" class="btn btn-info btn-block boton_publicar"><i class="fas fa-feather-alt"></i> Publicar</button>
+                                                        <button type="submit" class="btn btn-success btn-block boton_publicar"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
 
-                    
+                    <!-- Muro -->
 
                     <!-- Box Comment -->
                     <div class="col-md-9">
@@ -306,7 +306,7 @@
                     <!-- /.col -->
 
                     <!-- Chat -->
-                    <?php include_once 'templates/chat.php'?>
+                    <?php //include_once 'templates/chat.php'?>
                     <!-- Fin Chat -->
                 </div>
                 <!-- /.row -->

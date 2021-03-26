@@ -35,7 +35,7 @@
     <script src="js/jquery.colorbox-min.js"></script>
     <!-- User Scripts -->
     <script src="js/publicaciones_ajax.js"></script>
-    <script src="js/registro_ajax.js"></script>
+    <script src="js/social_ajax.js"></script>
     <script src="js/login_ajax.js"></script>
     <script src="js/main.js"></script>
 </body>

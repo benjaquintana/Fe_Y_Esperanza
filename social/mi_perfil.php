@@ -141,9 +141,9 @@
                             <div class="card">
                                 <div class="card-header p-2">
                                     <ul class="nav nav-pills">
-                                        <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                                        <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Actividad</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Linea de Tiempo</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Editar Perfil</a></li>
                                     </ul>
                                 </div><!-- /.card-header -->
                                 <div class="card-body">
@@ -359,51 +359,71 @@
                                         <!-- /.tab-pane -->
 
                                         <div class="tab-pane" id="settings">
-                                            <form class="form-horizontal">
-                                            <div class="form-group row">
-                                                <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                                                <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputName" placeholder="Name">
+                                            <form action="acciones_social.php" name="registro_social_form" id="guardar_registro_editado" method="post" class="form-horizontal">
+                                                <!-- Nombre -->
+                                                <div class="form-group row">
+                                                    <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el Nombre" value="<?php echo $info_miembro['nombre_miembro']; ?>">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                                                <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+
+                                                <!-- Apellido -->
+                                                <div class="form-group row">
+                                                    <label for="apellido" class="col-sm-2 col-form-label">Apellido</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingresa el Apellido" value="<?php echo $info_miembro['apellido_miembro']; ?>">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
-                                                <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputName2" placeholder="Name">
+
+                                                <!-- Email -->
+                                                <div class="form-group row">
+                                                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa el Email" value="<?php echo $info_miembro['email_miembro']; ?>">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                                                <div class="col-sm-10">
-                                                <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+
+                                                <!-- Fecha -->
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 col-form-label">Fecha de Nacimiento</label>
+                                                    <?php
+                                                        $fecha = $info_miembro['fecha_nacimiento'];
+                                                        $fecha_formateada = date('m/d/Y', strtotime($fecha));
+                                                    ?>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" name="fecha_nacimiento" data-target="#reservationdate" data-toggle="datetimepicker" value="<?php echo $fecha_formateada; ?>">
+                                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                                                <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+
+                                                <!-- Descripción -->
+                                                <div class="form-group row">
+                                                    <label for="biografia" class="col-sm-2 col-form-label">Descripción</label>
+                                                    <div class="col-sm-10">
+                                                        <textarea id="biografia" class="form-control" rows="3" placeholder="Escribe algo sobre el miembro" name="bio_editada"><?php echo $info_miembro['descripcion']; ?></textarea>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="offset-sm-2 col-sm-10">
-                                                <div class="checkbox">
-                                                    <label>
-                                                    <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                                                    </label>
+
+                                                <!-- Password -->
+                                                <div class="form-group row">
+                                                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="password" class="form-control" id="password" name="password" placeholder="Crea el Password">
+                                                    </div>
                                                 </div>
+                                                
+                                                <div class="form-group row">
+                                                    <div class="offset-sm-2 col-sm-10">
+                                                        <input type="hidden" name="registro" value="actualizar">
+                                                        <input type="hidden" name="id_registro" value="<?php echo $info_miembro['id_miembro']; ?>">
+                                                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="offset-sm-2 col-sm-10">
-                                                <button type="submit" class="btn btn-danger">Submit</button>
-                                                </div>
-                                            </div>
                                             </form>
                                         </div>
                                     <!-- /.tab-pane -->
@@ -416,7 +436,7 @@
                         <!-- /.col -->
 
                         <!-- Chat -->
-                        <?php include_once 'templates/chat.php'?>
+                        <?php //include_once 'templates/chat.php'?>
                         <!-- Fin Chat -->
                     </div>
                     <!-- /.row -->

@@ -9,6 +9,7 @@
     $fecha_nacimiento = date('Y-m-d', strtotime($fecha_nac));
     $url_imagen = "user.jpg";
     $biografia = "Hola Amigos! Soy Nuevo";
+    $bio_editada = $_POST['bio_editada'];
     $password = $_POST['password'];
     $fecha = date('Y-m-d H:i:s');
     $id_registro = $_POST['id_registro'];
@@ -43,6 +44,42 @@
             $conn->close();
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
+        }
+        die(json_encode($respuesta));
+    }
+
+    //Editar Usuario
+    if ($_POST['registro'] == 'actualizar'){
+        
+        try {
+            if(empty($_POST['password'])) {
+                $stmt = $conn->prepare('UPDATE miembros SET nombre_miembro = ?, apellido_miembro = ?, email_miembro = ?, fecha_nacimiento = ?, descripcion = ?, editado = NOW(), WHERE id_miembro = ? ');
+                $stmt->bind_param("sssssi", $nombre, $apellido, $email, $fecha_nacimiento, $bio_editada, $id_registro);
+            } else {
+                $opciones = array(
+                    'cost' => 12
+                );
+                $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
+                $stmt = $conn->prepare('UPDATE miembros SET nombre_miembro = ?, apellido_miembro = ?, email_miembro = ?, password = ?, fecha_nacimiento = ?, descripcion = ?, editado = NOW() WHERE id_miembro = ? ');
+                $stmt->bind_param("ssssssi", $nombre, $apellido, $email, $hash_password, $fecha_nacimiento, $bio_editada, $id_registro);
+            }
+            $stmt->execute();
+            if($stmt->affected_rows) {
+                $respuesta = array(
+                    'respuesta' => 'exito',
+                    'id_actualizado' => $id_registro
+                );
+            } else {
+              $respuesta = array(
+                'respuesta' => 'error'
+              );
+            }
+            $stmt->close();
+            $conn->close();
+        } catch (Exception $e) {
+            $respuesta = array(
+              'respuesta' => $e->getMessage()
+            );
         }
         die(json_encode($respuesta));
     }
