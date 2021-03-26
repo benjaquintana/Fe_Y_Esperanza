@@ -43,7 +43,7 @@ $(function() {
     $('.publicar_foto').colorbox({inline:true, width:"50%"});
 
     $('#boton_publicar').click(function() {
-        $('#cerrar').modal('hide');
+        $.colorbox.close();
     });
 });
 
@@ -78,7 +78,7 @@ $(document).ready(function(){
 	$modal.on('shown.bs.modal', function() {
 		cropper = new Cropper(image, {
 			aspectRatio: 1,
-			viewMode: 3,
+			viewMode: 2,
 			preview:'.preview'
 		});
 	}).on('hidden.bs.modal', function(){

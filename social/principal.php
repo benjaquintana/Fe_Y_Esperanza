@@ -103,7 +103,7 @@
                                                     <div class="card-footer">
                                                         <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
                                                         <input type="hidden" name="publicar" value="foto">
-                                                        <button type="submit" class="btn btn-success btn-block boton_publicar"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></button>
+                                                        <button type="submit" id="boton_publicar" class="btn btn-success btn-block"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></button>
                                                     </div>
                                                 </form>
                                             </div>

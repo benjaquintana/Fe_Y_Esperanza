@@ -24,7 +24,8 @@
                         <div class="row d-flex align-items-stretch">
                         <?php
                             try {
-                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, url_img_miembro FROM miembros ";
+                                $id_session = $_SESSION['id'];
+                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, url_img_miembro FROM miembros WHERE id_miembro != $id_session ";
                                 $resultado = $conn->query($sql);
                             } catch (\Exception $e) {
                                 $error = $e->getMessage();
@@ -61,7 +62,7 @@
                     </div>
                 </div><!-- /.card -->
                 <!-- Chat -->
-                <?php include_once 'templates/chat.php'?>
+                <?php //include_once 'templates/chat.php'?>
                 <!-- Fin Chat -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->

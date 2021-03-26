@@ -57,10 +57,10 @@
                                                 <div class="modal-body">
                                                     <div class="img-container">
                                                         <div class="row">
-                                                            <div class="col-md-8">
-                                                                <img src="" id="sample_image" />
+                                                            <div class="modal_image col-md-9">
+                                                                <img src="" class="" id="sample_image" />
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-3">
                                                                 <div class="preview"></div>
                                                             </div>
                                                         </div>

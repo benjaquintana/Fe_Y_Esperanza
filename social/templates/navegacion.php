@@ -127,19 +127,6 @@
                                 <p>Amigos</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-images"></i>
-                                <p>Fotos</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-video"></i>
-                                <p>Videos</p>
-                            </a>
-                        </li>
-                        
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

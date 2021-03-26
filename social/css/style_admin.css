@@ -176,4 +176,6 @@
     transform: translate(-50%, -50%);
     text-align: center;
 }
-
+.modal_image img {
+    max-height: 25rem;
+}
