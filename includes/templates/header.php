@@ -47,7 +47,7 @@
                 </div>
                 <!-- Registro Radio -->
                 <div class="registro_sesion">
-                    <a href="social/login.php" class="boton boton_terciario"><i class="fas fa-user-lock"></i> Iniciar Sesión</a>
+                    <a href="social/login.php" class="boton boton_terciario inicio_sesion"><i class="fas fa-user-lock"></i> Iniciar Sesión</a>
                     <a href="social/registro.php" class="boton boton_terciario"><i class="fas fa-user-plus"></i> Registrarse</a>
                 </div>
             </div>

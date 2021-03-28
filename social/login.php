@@ -15,7 +15,7 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="../index.html" class="h1">Unidos en Fe</a>
+                <a href="../index.php" class="h1">Unidos en Fe</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Inicia Sesión Aquí</p>

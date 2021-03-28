@@ -317,7 +317,7 @@ nav.redes_sociales {
 }
 nav.redes_sociales a {
     color: var(--secundarioClaro);
-    font-size: 4rem;
+    font-size: 3rem;
     margin-right: 20px;
 }
 nav.redes_sociales a:last-child {
@@ -393,6 +393,10 @@ div.registro_sesion a {
     color: var(--secundarioClaro);
     font-size: 2rem;
     margin-right: 20px;
+}
+.inicio_sesion {
+    color: #ffffff !important;
+    background-color: var(--secundarioClaro);
 }
 
 /* Navegación Principal */
