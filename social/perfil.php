@@ -33,48 +33,10 @@
                                 <div class="card-body box-profile">
 
                                     <div class="text-center image_area">
-                                        <form role="form" name="guardar_registro" method="post" id="guardar_registro_archivo" action="upload.php">
-                                            <label for="upload_image">
-                                                <img src="../img/miembros/<?php echo $miembro['url_img_miembro'] ?>"
-                                                    id="uploaded_image" 
-                                                    class="profile-user-img img-fluid img-circle uploaded_image" 
-                                                    alt="img_<?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>">
-                                                <div class="overlay">
-                                                    <div class="text"><i class="fas fa-camera"></i></div>
-                                                </div>
-                                                <input type="file" name="image" class="image" id="upload_image" style="display:none">
-                                            </label>
-                                        </form>
-                                    </div>
-
-                                    <!-- Modal Upload Imagen -->
-                                    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Recortar la imagen antes de subir</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">×</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="img-container">
-                                                        <div class="row">
-                                                            <div class="col-md-8">
-                                                                <img src="" id="sample_image" />
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <div class="preview"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" id="crop" class="btn btn-primary">Recortar</button>
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <img src="../img/miembros/<?php echo $miembro['url_img_miembro'] ?>"
+                                            id="uploaded_image" 
+                                            class="profile-user-img img-fluid img-circle uploaded_image" 
+                                            alt="img_<?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>">     
                                     </div>
                                     <h3 class="profile-username text-center"><?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?></h3>
 

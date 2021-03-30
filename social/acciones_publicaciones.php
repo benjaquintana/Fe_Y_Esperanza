@@ -4,16 +4,16 @@
 
     //Datos Comunes
     $id_miembro = $_POST['id_miembro'];
-    $texto = $_POST['publicacion'];
-    $descripcion = $_POST['descripcion'];
+    $img_vacia = "0";
+    $texto = $_POST['texto'];
     $fecha = date('Y-m-d H:i:s');
 
     //Publicación de Texto
     if ($_POST['publicar'] == 'texto'){
 
         try {
-            $stmt = $conn->prepare("INSERT INTO publicaciones (id_miem_public, texto, fecha) VALUES (?,?,?) ");
-            $stmt->bind_param("iss", $id_miembro, $texto, $fecha);
+            $stmt = $conn->prepare("INSERT INTO publicaciones (id_miem_public, img_publicacion, texto, fecha) VALUES (?,?,?,?) ");
+            $stmt->bind_param("isss", $id_miembro, $img_vacia, $texto, $fecha);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
             if($id_registro > 0) {
@@ -48,8 +48,8 @@
             mkdir($directorio, 0775, true);
         }
 
-        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . time() )){
-            $url_imagen = time();
+        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . time() . ".jpg" )){
+            $url_imagen = time() . ".jpg";
             $imagen_resultado = "Se subio correctmente";
         }else{
             $respuesta = array(
@@ -58,8 +58,8 @@
         }
         
         try {
-            $stmt = $conn->prepare("INSERT INTO publicar_imagen (id_miem_public_img, url_imagen, texto, fecha) VALUES (?,?,?,?) ");
-            $stmt->bind_param("isss", $id_miembro, $url_imagen, $descripcion, $fecha);
+            $stmt = $conn->prepare("INSERT INTO publicaciones (id_miem_public, img_publicacion, texto, fecha) VALUES (?,?,?,?) ");
+            $stmt->bind_param("isss", $id_miembro, $url_imagen, $texto, $fecha);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
             if($id_registro > 0) {

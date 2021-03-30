@@ -45,6 +45,10 @@ $(function() {
     $('#boton_publicar').click(function() {
         $.colorbox.close();
     });
+
+    $('#boton_publicar_foto').click(function() {
+        $.colorbox.close();
+    });
 });
 
 //Upload Image
