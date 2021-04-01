@@ -41,7 +41,7 @@
 
             <div class="card-body">
                 <?php
-                    $sql = "SELECT * FROM miembro WHERE id_miembro = $id ";
+                    $sql = "SELECT * FROM miembros WHERE id_miembro = $id ";
                     $resultado = $conn->query($sql);
                     $miembro = $resultado->fetch_assoc();
                 ?>

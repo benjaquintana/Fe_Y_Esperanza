@@ -82,8 +82,8 @@ $(document).ready(function() {
                 $.ajax({
                     type: 'post',
                     data: {
-                      id: id,
-                      registro: 'eliminar'
+                        id: id,
+                        registro: 'eliminar'
                     },
                     url: 'modelo_'+tipo+'.php',
                     success:function(data) {

@@ -4,6 +4,11 @@ $(function() {
         $('.navegacion_principal').slideToggle();
     });
 
+    //Clase del menu
+    $('body.index .navegador .navegacion_principal a:contains("Inicio")').addClass('activo');
+    $('body.nosotros .navegador .navegacion_principal a:contains("Sobre Nosotros")').addClass('activo');
+    $('body.programacion .navegador .navegacion_principal a:contains("Nuestros Programas")').addClass('activo');
+
 //Página Sobre Nosotros
 //Menu Doctrinas
     $('.creencias .menu_creencia:first').show();

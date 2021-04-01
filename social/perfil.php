@@ -24,7 +24,7 @@
                         <?php
                             $sql = "SELECT * FROM miembros WHERE id_miembro = $id ";
                             $resultado = $conn->query($sql);
-                            $miembro = $resultado->fetch_assoc();
+                            $nfo_miembro = $resultado->fetch_assoc();
                         ?>
                         <div class="col-md-3">
 
@@ -33,12 +33,12 @@
                                 <div class="card-body box-profile">
 
                                     <div class="text-center image_area">
-                                        <img src="../img/miembros/<?php echo $miembro['url_img_miembro'] ?>"
+                                        <img src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>"
                                             id="uploaded_image" 
                                             class="profile-user-img img-fluid img-circle uploaded_image" 
-                                            alt="img_<?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>">     
+                                            alt="img_<?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?>">     
                                     </div>
-                                    <h3 class="profile-username text-center"><?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?></h3>
+                                    <h3 class="profile-username text-center"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></h3>
 
                                     <!-- <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">
@@ -68,7 +68,7 @@
                                     <strong><i class="fas fa-street-view mr-1"></i></i> Biografía</strong>
 
                                     <p class="text-muted">
-                                        <?php echo $miembro['descripcion'] ?>
+                                        <?php echo $info_miembro['descripcion'] ?>
                                     </p>
 
                                     <hr>
@@ -112,117 +112,183 @@
                                 <div class="card-body">
                                     <div class="tab-content">
                                         <div class="active tab-pane" id="activity">
-                                            <!-- Post -->
-                                            <div class="post">
-                                            <div class="user-block">
-                                                <img class="img-circle img-bordered-sm" src="img/user1-128x128.jpg" alt="user image">
-                                                <span class="username">
-                                                <a href="#">Jonathan Burke Jr.</a>
-                                                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                                                </span>
-                                                <span class="description">Shared publicly - 7:30 PM today</span>
-                                            </div>
-                                            <!-- /.user-block -->
-                                            <p>
-                                                Lorem ipsum represents a long-held tradition for designers,
-                                                typographers and the like. Some people hate it and argue for
-                                                its demise, but others ignore the hate as they create awesome
-                                                tools to help create filler text for everyone from bacon lovers
-                                                to Charlie Sheen fans.
-                                            </p>
+                                            <?php
+                                                try {
+                                                    $sql = "SELECT id_publicacion, img_publicacion, texto, fecha, id_miembro, nombre_miembro, apellido_miembro, url_img_miembro ";
+                                                    $sql .= "FROM publicaciones ";
+                                                    $sql .= "INNER JOIN miembros ";
+                                                    $sql .= "ON publicaciones.id_miem_public = miembros.id_miembro ";
+                                                    $sql .= "AND publicaciones.id_miem_public = $id ";
+                                                    $sql .= "ORDER BY fecha DESC ";
+                                                    $resultado = $conn->query($sql);
+                                                } catch (\Exception $e) {
+                                                    $error = $e->getMessage();
+                                                    echo "$error";
+                                                }
+                                                while($publicacion = $resultado->fetch_assoc() ) { 
+                                                    
+                                                    $fecha = $publicacion['fecha'];
+                                                    $fecha_formateada = date('d M Y - G:i', strtotime($fecha));
+                                                    
+                                                    if ($publicacion['img_publicacion'] == "0" ) { ?>
+                                                        <div class="col-md-12">
+                                                            <!-- Box Comment -->
+                                                            <div class="card card-widget">
+                                                                <div class="card-header">
+                                                                    <div class="user-block">
+                                                                        
+                                                                        <img class="img-circle" src="../img/miembros/<?php echo $publicacion['url_img_miembro'] ?>" alt="User Image">
+                                                                        <span class="username"><a href="#"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro']; ?></a></span>
+                                                                        <span class="description">Compartido - <?php echo $fecha_formateada ?></span>
+                                                                    </div>
+                                                                    <!-- /.user-block -->
+                                                                    <div class="card-tools">
+                                                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                                            <i class="fas fa-minus"></i>
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                                                            <i class="fas fa-times"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <!-- /.card-tools -->
+                                                                </div>
+                                                                <!-- /.card-header -->
+                                                                <div class="card-body">
+                                                                    <!-- post text -->
+                                                                    <p><?php echo $publicacion['texto'] ?></p>
+                                                                    <!-- Social sharing buttons --
+                                                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                                                                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                                                                    <span class="float-right text-muted">45 likes - 2 comments</span> -->
+                                                                </div>
+                                                                <!-- /.card-body --
+                                                                <div class="card-footer card-comments">
+                                                                    <div class="card-comment">
+                                                                        <!-- User image --
+                                                                        <img class="img-circle img-sm" src="img/user3-128x128.jpg" alt="User Image">
 
-                                            <p>
-                                                <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                                                <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                                                <span class="float-right">
-                                                <a href="#" class="link-black text-sm">
-                                                    <i class="far fa-comments mr-1"></i> Comments (5)
-                                                </a>
-                                                </span>
-                                            </p>
+                                                                        <div class="comment-text">
+                                                                            <span class="username">
+                                                                            Maria Gonzales
+                                                                            <span class="text-muted float-right">8:03 PM Today</span>
+                                                                            </span><!-- /.username --
+                                                                            It is a long established fact that a reader will be distracted
+                                                                            by the readable content of a page when looking at its layout.
+                                                                        </div>
+                                                                        <!-- /.comment-text --
+                                                                    </div>
+                                                                    <!-- /.card-comment --
+                                                                    <div class="card-comment">
+                                                                        <!-- User image --
+                                                                        <img class="img-circle img-sm" src="img/user5-128x128.jpg" alt="User Image">
 
-                                            <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
-                                            </div>
-                                            <!-- /.post -->
+                                                                        <div class="comment-text">
+                                                                            <span class="username">
+                                                                            Nora Havisham
+                                                                            <span class="text-muted float-right">8:03 PM Today</span>
+                                                                            </span><!-- /.username --
+                                                                            The point of using Lorem Ipsum is that it hrs a morer-less
+                                                                            normal distribution of letters, as opposed to using
+                                                                            'Content here, content here', making it look like readable English.
+                                                                        </div>
+                                                                        <!-- /.comment-text --
+                                                                    </div>
+                                                                    <!-- /.card-comment --
+                                                                </div>
+                                                                <!-- /.card-footer --
+                                                                <div class="card-footer">
+                                                                    <form action="#" method="post">
+                                                                        <img class="img-fluid img-circle img-sm" src="img/user4-128x128.jpg" alt="Alt Text">
+                                                                        <!-- .img-push is used to add margin to elements next to floating images --
+                                                                        <div class="img-push">
+                                                                            <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <!-- /.card-footer -->
+                                                            </div>
+                                                            <!-- /.card -->
+                                                        </div>
+                                                        <!-- /.col -->
+                                                    <?php } else { ?>
+                                                        <!-- Box Comment -->
+                                                        <div class="col-md-12">
+                                                            <div class="card card-widget">
+                                                                <div class="card-header">
+                                                                    <div class="user-block">
+                                                                        <img class="img-circle" src="../img/miembros/<?php echo $publicacion['url_img_miembro'] ?>" alt="User Image">
+                                                                        <span class="username"><a href="#"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?></a></span>
+                                                                        <span class="description">Compartido - <?php echo $fecha_formateada ?></span>
+                                                                    </div>
+                                                                    <!-- /.user-block -->
+                                                                    <div class="card-tools">
+                                                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                                            <i class="fas fa-minus"></i>
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                                                            <i class="fas fa-times"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <!-- /.card-tools -->
+                                                                </div>
+                                                                <!-- /.card-header -->
+                                                                <div class="card-body">
+                                                                    <img class="img-fluid pad" src="../img/publicaciones/<?php echo $publicacion['img_publicacion'] ?>" alt="Photo">
 
-                                            <!-- Post -->
-                                            <div class="post clearfix">
-                                            <div class="user-block">
-                                                <img class="img-circle img-bordered-sm" src="img/user7-128x128.jpg" alt="User Image">
-                                                <span class="username">
-                                                <a href="#">Sarah Ross</a>
-                                                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                                                </span>
-                                                <span class="description">Sent you a message - 3 days ago</span>
-                                            </div>
-                                            <!-- /.user-block -->
-                                            <p>
-                                                Lorem ipsum represents a long-held tradition for designers,
-                                                typographers and the like. Some people hate it and argue for
-                                                its demise, but others ignore the hate as they create awesome
-                                                tools to help create filler text for everyone from bacon lovers
-                                                to Charlie Sheen fans.
-                                            </p>
+                                                                    <p><?php echo $publicacion['texto'] ?></p>
+                                                                    <!--<button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                                                                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                                                                    <span class="float-right text-muted">127 likes - 3 comments</span>-->
+                                                                </div>
+                                                                <!-- /.card-body --
+                                                                <div class="card-footer card-comments">
+                                                                    <div class="card-comment">
+                                                                    <!-- User image --
+                                                                    <img class="img-circle img-sm" src="img/user3-128x128.jpg" alt="User Image">
 
-                                            <form class="form-horizontal">
-                                                <div class="input-group input-group-sm mb-0">
-                                                <input class="form-control form-control-sm" placeholder="Response">
-                                                <div class="input-group-append">
-                                                    <button type="submit" class="btn btn-danger">Send</button>
-                                                </div>
-                                                </div>
-                                            </form>
-                                            </div>
-                                            <!-- /.post -->
-
-                                            <!-- Post -->
-                                            <div class="post">
-                                            <div class="user-block">
-                                                <img class="img-circle img-bordered-sm" src="img/user6-128x128.jpg" alt="User Image">
-                                                <span class="username">
-                                                <a href="#">Adam Jones</a>
-                                                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                                                </span>
-                                                <span class="description">Posted 5 photos - 5 days ago</span>
-                                            </div>
-                                            <!-- /.user-block -->
-                                            <div class="row mb-3">
-                                                <div class="col-sm-6">
-                                                <img class="img-fluid" src="img/photo1.png" alt="Photo">
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col-sm-6">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                    <img class="img-fluid mb-3" src="img/photo2.png" alt="Photo">
-                                                    <img class="img-fluid" src="img/photo3.jpg" alt="Photo">
-                                                    </div>
-                                                    <!-- /.col -->
-                                                    <div class="col-sm-6">
-                                                    <img class="img-fluid mb-3" src="img/photo4.jpg" alt="Photo">
-                                                    <img class="img-fluid" src="img/photo1.png" alt="Photo">
-                                                    </div>
-                                                    <!-- /.col -->
-                                                </div>
-                                                <!-- /.row -->
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.row -->
-
-                                            <p>
-                                                <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                                                <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                                                <span class="float-right">
-                                                <a href="#" class="link-black text-sm">
-                                                    <i class="far fa-comments mr-1"></i> Comments (5)
-                                                </a>
-                                                </span>
-                                            </p>
-
-                                            <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
-                                            </div>
-                                            <!-- /.post -->
+                                                                    <div class="comment-text">
+                                                                        <span class="username">
+                                                                        Maria Gonzales
+                                                                        <span class="text-muted float-right">8:03 PM Today</span>
+                                                                        </span><!-- /.username --
+                                                                        It is a long established fact that a reader will be distracted
+                                                                        by the readable content of a page when looking at its layout.
+                                                                    </div>
+                                                                    <!-- /.comment-text --
+                                                                    </div>
+                                                                    <!-- /.card-comment --
+                                                                    <div class="card-comment">
+                                                                        <!-- User image --
+                                                                        <img class="img-circle img-sm" src="img/user4-128x128.jpg" alt="User Image">
+                                                                        <div class="comment-text">
+                                                                            <span class="username">
+                                                                                Luna Stark
+                                                                                <span class="text-muted float-right">8:03 PM Today</span>
+                                                                            </span><!-- /.username --
+                                                                                It is a long established fact that a reader will be distracted
+                                                                                by the readable content of a page when looking at its layout.
+                                                                        </div>
+                                                                        <!-- /.comment-text --
+                                                                    </div>
+                                                                    <!-- /.card-comment --
+                                                                </div>
+                                                                <!-- /.card-footer --
+                                                                <div class="card-footer">
+                                                                    <form action="#" method="post">
+                                                                        <img class="img-fluid img-circle img-sm" src="img/user4-128x128.jpg" alt="Alt Text">
+                                                                        <!-- .img-push is used to add margin to elements next to floating images --
+                                                                        <div class="img-push">
+                                                                            <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <!-- /.card-footer -->
+                                                            </div>
+                                                            <!-- /.card -->
+                                                        </div>
+                                                        <!-- /.col -->
+                                                    <?php } ?>
+                                                <?php } ?>
                                         </div>
                                         <!-- /.tab-pane -->
                                     </div>

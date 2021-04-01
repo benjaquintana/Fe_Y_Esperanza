@@ -432,7 +432,7 @@ nav.navegacion_principal a:hover {
     background-color: var(--secundario);
     color: #ffffff;
 }
-nav.navegacion_principal a:first-child {
+.activo {
     background-color: var(--secundario);
 }
 nav.navegacion_principal a:first-child:hover {

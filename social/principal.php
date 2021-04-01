@@ -32,12 +32,12 @@
                                     <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="User Image">
                                 </div>
 
-                                <!-- Publicar -->
+                                <!-- Publicar Texto-->
                                 <div class="col-md-6">    
                                     <a href="#publicar_texto" class="btn btn-block btn-info publicar_texto"><i class="fas fa-feather-alt"></i> <b>Publicar</b></a>
                                 </div>
 
-                                <div id="cerrar" style="display: none;">
+                                <div style="display: none;">
                                     <div id="publicar_texto">
                                         <div class="col-md-12">
                                             <div class="card card-outline card-info">
@@ -56,7 +56,7 @@
                                                     <div class="card-footer">
                                                         <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
                                                         <input type="hidden" name="publicar" value="texto">
-                                                        <button type="submit" id="boton_publicar" class="btn btn-info btn-block"><i class="fas fa-feather-alt"></i> <b>Publicar</b></button>
+                                                        <button type="submit" class="btn btn-info btn-block boton_publicar"><i class="fas fa-feather-alt"></i> <b>Publicar</b></button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -66,7 +66,7 @@
                                 </div>
                                 
 
-                                <!-- Subir Fotos -->
+                                <!-- Publicar Fotos -->
                                 <div class="col-md-5">    
                                     <a href="#publicar_foto" class="btn btn-block btn-success publicar_foto"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></a>
                                 </div>
@@ -103,7 +103,7 @@
                                                     <div class="card-footer">
                                                         <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
                                                         <input type="hidden" name="publicar" value="foto">
-                                                        <button type="submit" id="boton_publicar_foto" class="btn btn-success btn-block"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></button>
+                                                        <button type="submit" class="btn btn-success btn-block boton_publicar_foto"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -135,12 +135,11 @@
                             $fecha_formateada = date('d M Y - G:i', strtotime($fecha));
                             
                             if ($publicacion['img_publicacion'] == "0" ) { ?>
-                                <div class="col-md-9">
+                                <div class="col-md-9 pub">
                                     <!-- Box Comment -->
                                     <div class="card card-widget">
                                         <div class="card-header">
                                             <div class="user-block">
-                                                
                                                 <img class="img-circle" src="../img/miembros/<?php echo $publicacion['url_img_miembro'] ?>" alt="User Image">
                                                 <span class="username"><a href="#"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro']; ?></a></span>
                                                 <span class="description">Compartido - <?php echo $fecha_formateada ?></span>
@@ -150,9 +149,45 @@
                                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                                     <i class="fas fa-minus"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                                    <i class="fas fa-times"></i>
-                                                </button>
+                                                <?php if($publicacion['id_miembro'] == $id_session): ?>
+                                                    <a href="#editar_texto" class="btn btn-tool editar_texto" title="Editar">
+                                                        <i class="far fa-edit"></i>
+                                                    </a>
+                                                <?php endif; ?>
+
+                                                <!-- Editar Texto -->
+                                                <div style="display: none;">
+                                                    <div id="editar_texto">
+                                                        <div class="col-md-12">
+                                                            <div class="card card-outline card-info">
+                                                                <form role="form" action="acciones_publicaciones.php" id="editar_publicacion" name="guardar_publicacion" method="post">
+                                                                    <div class="card-header">
+                                                                        <div class="user-block">
+                                                                            <img class="img-circle" src="../img/miembros/<?php echo $publicacion['url_img_miembro'] ?>" alt="Img_<?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?>">
+                                                                            <span class="username"><a href="mi_perfil.php"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?></a></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- /.card-header -->
+                                                                    <div class="card-body">
+                                                                        <textarea type="text" rows="5" name="texto" class="form-control"><?php echo $publicacion['texto'] ?></textarea>
+                                                                    </div>
+                                                                    <div class="card-footer">
+                                                                        <input type="hidden" name="id_publicacion" value="<?php echo $publicacion['id_publicacion'] ?>">
+                                                                        <input type="hidden" name="editar" value="texto">
+                                                                        <button type="submit" class="btn btn-info btn-block boton_publicar"><i class="fas fa-feather-alt"></i> <b>Publicar</b></button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.col-->
+                                                    </div>
+                                                </div>
+
+                                                <?php if($publicacion['id_miembro'] == $id_session): ?>
+                                                    <a href="#" data-id="<?php echo $publicacion['id_publicacion'];?>" data-tipo="publicaciones" class="btn btn-tool borrar_registro">
+                                                        <i class="fas fa-times"></i>
+                                                    </a>
+                                                <?php endif; ?>
                                             </div>
                                             <!-- /.card-tools -->
                                         </div>
@@ -216,7 +251,7 @@
                                 <!-- /.col -->
                             <?php } else { ?>
                                 <!-- Box Comment -->
-                                <div class="col-md-9">
+                                <div class="col-md-9 pub">
                                     <div class="card card-widget">
                                         <div class="card-header">
                                             <div class="user-block">
@@ -229,9 +264,68 @@
                                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                                     <i class="fas fa-minus"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                                    <i class="fas fa-times"></i>
-                                                </button>
+                                                <?php if($publicacion['id_miembro'] == $id_session): ?>
+                                                    <a href="#editar_foto" class="btn btn-tool editar_foto" title="Editar">
+                                                        <i class="far fa-edit"></i>
+                                                    </a>
+                                                <?php endif; ?>
+
+                                                <!-- Editar Fotos -->
+                                                <div style="display: none;">
+                                                    <div id="editar_foto">
+                                                        <div class="col-md-12">
+                                                            <div class="card card-outline card-info">
+                                                                <form role="form" name="editar_publicacion_archivo" id="editar_publicacion_archivo" method="post" action="acciones_publicaciones.php" enctype="multipart/form-data">
+                                                                    <div class="card-header">
+                                                                        <div class="user-block">
+                                                                            <img class="img-circle" src="../img/miembros/<?php echo $publicacion['url_img_miembro'] ?>" alt="User Image">
+                                                                            <span class="username"><a href="mi_perfil.php"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?></a></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- /.card-header -->
+
+                                                                    <div class="card-body">
+
+                                                                        <!-- Imagen Actual -->
+                                                                        <div class="form-group">
+                                                                            <label for="imagen">Imagen Actual</label>
+                                                                            <div class="input-group">
+                                                                                <img src="../img/publicaciones/<?php echo $publicacion['img_publicacion']; ?>" alt="img_publicacion" width="200">
+                                                                            </div>
+                                                                        </div>
+                                                                    
+                                                                        <!-- Subir Imagen -->
+                                                                        <label for="imagen">Nueva Imagen</label>
+                                                                        <div class="input-group">
+                                                                            <div class="custom-file">
+                                                                                <input type="file" class="custom-file-input" id="imagen" name="imagen">
+                                                                                <label class="custom-file-label" for="imagen"><?php echo $publicacion['img_publicacion']; ?></label>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="form-group">
+                                                                            <label for="text">Descripción</label>
+                                                                            <textarea type="text" rows="3" name="texto" class="form-control" placeholder="Describe tu imagen"><?php echo $publicacion['texto'] ?></textarea>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="card-footer">
+                                                                        <input type="hidden" name="id_publicacion" value="<?php echo $publicacion['id_publicacion'] ?>">
+                                                                        <input type="hidden" name="editar" value="foto">
+                                                                        <button type="submit" class="btn btn-success btn-block boton_publicar_foto"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.col-->
+                                                    </div>
+                                                </div>
+
+                                                <?php if($publicacion['id_miembro'] == $id_session): ?>
+                                                    <a href="#" data-id="<?php echo $publicacion['id_publicacion'];?>" data-tipo="publicaciones" class="btn btn-tool borrar_registro">
+                                                        <i class="fas fa-times"></i>
+                                                    </a>
+                                                <?php endif; ?>
                                             </div>
                                             <!-- /.card-tools -->
                                         </div>
@@ -294,6 +388,11 @@
                             <?php } ?>
                         <?php } ?>
                     
+                        
+                        
+
+                        
+
                     <!-- Chat -->
                     <?php //include_once 'templates/chat.php'?>
                     <!-- Fin Chat -->

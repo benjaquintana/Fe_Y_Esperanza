@@ -55,7 +55,7 @@
         die(json_encode($respuesta));
     }
 
-    //Editar Radio
+    //Editar Canal
     if ($_POST['registro'] == 'actualizar'){
         /*$respuesta = array(
             'post' => $_POST,

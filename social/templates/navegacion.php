@@ -15,7 +15,7 @@
                         <img src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" class="img-circle elevation-2 uploaded_image" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="mi_perfil.php" class="d-block"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a>
+                        <a href="mi_perfil.php" class="d-block" title="Ir a Mi perfil"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a>
                     </div>
                 </div>
 
