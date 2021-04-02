@@ -20,8 +20,8 @@
 
         $data = base64_decode($image_array_2[1]);
 
-        $name = time() . '.png';
-        $image_name = '../img/miembros/' . time() . '.png';
+        $name = time() . '.jpg';
+        $image_name = '../img/miembros/' . time() . '.jpg';
 
         file_put_contents($image_name, $data);
 
