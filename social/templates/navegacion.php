@@ -112,19 +112,19 @@
                                 <p>Donaciones</p>
                             </a>
                         </li>
-                        <!--<li class="nav-item">
-                            <a target="_blank" href="https://5500-copper-bobolink-z74mqd9z.ws-us03.gitpod.io/social/chat" class="nav-link">
+                        <li class="nav-item">
+                            <a href="contactos.php" class="nav-link">
+                                <i class="fas fa-user-circle nav-icon"></i>
+                                <p>Amigos</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="chat.php" class="nav-link">
                             <i class="nav-icon fas fa-mail-bulk"></i>
                                 <p>
                                     Chat
                                     <span class="badge badge-danger right">3</span>
                                 </p>
-                            </a>
-                        </li>-->
-                        <li class="nav-item">
-                            <a href="contactos.php" class="nav-link">
-                                <i class="fas fa-user-circle nav-icon"></i>
-                                <p>Amigos</p>
                             </a>
                         </li>
                     </ul>

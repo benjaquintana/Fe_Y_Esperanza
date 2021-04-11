@@ -55,21 +55,15 @@ $(function() {
 
 //Upload Image
 $(document).ready(function(){
-
 	var $modal = $('#modal');
-
 	var image = document.getElementById('sample_image');
-
 	var cropper;
-
 	$('#upload_image').change(function(event){
 		var files = event.target.files;
-
 		var done = function(url){
 			image.src = url;
 			$modal.modal('show');
 		};
-
 		if(files && files.length > 0)
 		{
 			reader = new FileReader();
@@ -97,7 +91,6 @@ $(document).ready(function(){
 			width:200,
 			height:200
 		});
-
 		canvas.toBlob(function(blob){
 			url = URL.createObjectURL(blob);
 			var reader = new FileReader();
@@ -118,4 +111,11 @@ $(document).ready(function(){
 		});
 	});
 	
+});
+
+// Chat
+$('.contacto').click(function() {
+	$('.contacto').removeClass('contacto_activo');
+	$(this).addClass('contacto_activo');
+	console.log("Hola me hizo click");
 });

@@ -15,8 +15,8 @@
                 </button>
             </div>
         </div>
-
         <!-- /.card-header -->
+
         <div class="card-body">
             <!-- Conversations are loaded here -->
             <div class="direct-chat-messages">

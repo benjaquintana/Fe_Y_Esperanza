@@ -179,3 +179,12 @@
 .modal_image img {
     max-height: 25rem;
 }
+
+/* Chat */
+.lista_contactos {
+    color: #000000!important;
+    margin-left: 45px;
+}
+.contacts-list li {
+    background-color: red!important;
+}

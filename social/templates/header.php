@@ -25,5 +25,5 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="css/adminlte.min.css">
     <!-- User style -->
-    <link rel="stylesheet" href="css/style_admin.css">
+    <link rel="stylesheet" href="css/style_social.css">
 </head>
