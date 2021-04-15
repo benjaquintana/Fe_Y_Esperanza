@@ -112,10 +112,3 @@ $(document).ready(function(){
 	});
 	
 });
-
-// Chat
-$('.contacto').click(function() {
-	$('.contacto').removeClass('contacto_activo');
-	$(this).addClass('contacto_activo');
-	console.log("Hola me hizo click");
-});

@@ -34,7 +34,7 @@
                         <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                     </div>
                     <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img uploaded_image" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="Message User Image">
+                    <img class="direct-chat-img uploaded_image" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="Message User Image">
                     <!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                         Is this template really for free? That's unbelievable!
@@ -78,7 +78,7 @@
                     while($miembro = $resultado->fetch_assoc() ) { ?>
                     <li id="<?php echo $miembro['id_miembro'] ?>" class="contacto" data-touserid="<?php echo $miembro['id_miembro'] ?>" >
                         <a href="#">
-                            <img class="contacts-list-img " src="../img/miembros/<?php echo $miembro['url_img_miembro'] ?>" alt="img_<?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>">
+                            <img class="contacts-list-img " src="../img/miembros/<?php echo $miembro['img_miembro'] ?>" alt="img_<?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>">
                             <div class="contacts-list-info">
                                 <span class="contacts-list-name">
                                     <?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>

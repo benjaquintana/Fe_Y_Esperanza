@@ -28,7 +28,7 @@
         echo $image_name;
 
         try {
-            $stmt = $conn->prepare('UPDATE miembros SET url_img_miembro = ?, editado = NOW() WHERE id_miembro = ? ');
+            $stmt = $conn->prepare('UPDATE miembros SET img_miembro = ?, editado = NOW() WHERE id_miembro = ? ');
             $stmt->bind_param("si", $name, $id_registro);
             $stmt->execute();
             /*if($stmt->affected_rows) {

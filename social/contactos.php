@@ -25,7 +25,7 @@
                         <?php
                             try {
                                 $id_session = $_SESSION['id'];
-                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, url_img_miembro FROM miembros WHERE id_miembro != $id_session ";
+                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, img_miembro FROM miembros WHERE id_miembro != $id_session ";
                                 $resultado = $conn->query($sql);
                             } catch (\Exception $e) {
                                 $error = $e->getMessage();
@@ -41,7 +41,7 @@
                                                 <h2 class="lead"><b><?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?></b></h2>
                                             </div>
                                             <div class="col-4 text-center">
-                                                <img src="../img/miembros/<?php echo $miembro['url_img_miembro'] ?>" alt="img_<?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>" class="img-circle img-fluid">
+                                                <img src="../img/miembros/<?php echo $miembro['img_miembro'] ?>" alt="img_<?php echo $miembro['nombre_miembro'] . " " . $miembro['apellido_miembro'] ?>" class="img-circle img-fluid">
                                             </div>
                                         </div>
                                     </div>

@@ -130,13 +130,13 @@
                     <!-- User Information -->
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle perfil_nav" data-toggle="dropdown">
-                            <img src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" class="user-image img-circle elevation-2 uploaded_image" alt="User Image">
+                            <img src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" class="user-image img-circle elevation-2 uploaded_image" alt="User Image">
                             <span class="d-none d-md-inline"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             <!-- User image -->
                             <li class="user-header bg-primary">
-                                <img src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" class="img-circle elevation-2 uploaded_image" alt="User Image">
+                                <img src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" class="img-circle elevation-2 uploaded_image" alt="User Image">
 
                                 <p>
                                     <?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?>

@@ -29,7 +29,7 @@
                             ?>
                             <div class="card-header d-flex"> 
                                 <div class="user-block">
-                                    <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="User Image">
+                                    <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="User Image">
                                 </div>
 
                                 <!-- Publicar Texto-->
@@ -44,7 +44,7 @@
                                                 <form role="form" action="acciones_publicaciones.php" id="guardar_publicacion" name="guardar_publicacion" method="post">
                                                     <div class="card-header">
                                                         <div class="user-block">
-                                                            <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="User Image">
+                                                            <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="User Image">
                                                             <span class="username"><a href="mi_perfil.php"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a></span>
                                                             <span class="description">¿Qué quieres publicar? Ponlo Aquí</span>
                                                         </div>
@@ -78,7 +78,7 @@
                                                 <form role="form" name="guardar_publicacion_archivo" id="guardar_publicacion_archivo" method="post" action="acciones_publicaciones.php" enctype="multipart/form-data">
                                                     <div class="card-header">
                                                         <div class="user-block">
-                                                            <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>" alt="User Image">
+                                                            <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="User Image">
                                                             <span class="username"><a href="mi_perfil.php"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a></span>
                                                             <span class="description">¿Qué quieres publicar? Colocalo Aquí</span>
                                                         </div>
@@ -119,7 +119,7 @@
                     <!-- Muro -->
                     <?php
                         try {
-                            $sql = "SELECT id_publicacion, img_publicacion, texto, fecha, id_miembro, nombre_miembro, apellido_miembro, url_img_miembro ";
+                            $sql = "SELECT id_publicacion, img_publicacion, texto, fecha, id_miembro, nombre_miembro, apellido_miembro, img_miembro ";
                             $sql .= "FROM publicaciones ";
                             $sql .= "INNER JOIN miembros ";
                             $sql .= "ON publicaciones.id_miem_public = miembros.id_miembro ";
@@ -140,7 +140,7 @@
                                     <div class="card card-widget">
                                         <div class="card-header">
                                             <div class="user-block">
-                                                <img class="img-circle" src="../img/miembros/<?php echo $publicacion['url_img_miembro'] ?>" alt="User Image">
+                                                <img class="img-circle" src="../img/miembros/<?php echo $publicacion['img_miembro'] ?>" alt="User Image">
                                                 <span class="username"><a href="#"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro']; ?></a></span>
                                                 <span class="description">Compartido - <?php echo $fecha_formateada ?></span>
                                             </div>
@@ -163,7 +163,7 @@
                                                                 <form role="form" action="acciones_publicaciones.php" id="editar_publicacion" name="guardar_publicacion" method="post">
                                                                     <div class="card-header">
                                                                         <div class="user-block">
-                                                                            <img class="img-circle" src="../img/miembros/<?php echo $publicacion['url_img_miembro'] ?>" alt="Img_<?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?>">
+                                                                            <img class="img-circle" src="../img/miembros/<?php echo $publicacion['img_miembro'] ?>" alt="Img_<?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?>">
                                                                             <span class="username"><a href="mi_perfil.php"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?></a></span>
                                                                         </div>
                                                                     </div>
@@ -255,7 +255,7 @@
                                     <div class="card card-widget">
                                         <div class="card-header">
                                             <div class="user-block">
-                                                <img class="img-circle" src="../img/miembros/<?php echo $publicacion['url_img_miembro'] ?>" alt="User Image">
+                                                <img class="img-circle" src="../img/miembros/<?php echo $publicacion['img_miembro'] ?>" alt="User Image">
                                                 <span class="username"><a href="#"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?></a></span>
                                                 <span class="description">Compartido - <?php echo $fecha_formateada ?></span>
                                             </div>
@@ -278,7 +278,7 @@
                                                                 <form role="form" name="editar_publicacion_archivo" id="editar_publicacion_archivo" method="post" action="acciones_publicaciones.php" enctype="multipart/form-data">
                                                                     <div class="card-header">
                                                                         <div class="user-block">
-                                                                            <img class="img-circle" src="../img/miembros/<?php echo $publicacion['url_img_miembro'] ?>" alt="User Image">
+                                                                            <img class="img-circle" src="../img/miembros/<?php echo $publicacion['img_miembro'] ?>" alt="User Image">
                                                                             <span class="username"><a href="mi_perfil.php"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?></a></span>
                                                                         </div>
                                                                     </div>

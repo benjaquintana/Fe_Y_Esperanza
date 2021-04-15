@@ -32,7 +32,7 @@
                                     <div class="text-center image_area">
                                         <form role="form" name="guardar_registro" method="post" id="guardar_registro_archivo" action="upload.php">
                                             <label for="upload_image">
-                                                <img src="../img/miembros/<?php echo $info_miembro['url_img_miembro'] ?>"
+                                                <img src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>"
                                                     id="uploaded_image" 
                                                     class="profile-user-img img-fluid img-circle uploaded_image" 
                                                     alt="img_<?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?>">
@@ -153,7 +153,7 @@
                                             <?php
                                                 $id_session = $_SESSION['id'];
                                                 try {
-                                                    $sql = "SELECT id_publicacion, img_publicacion, texto, fecha, id_miembro, nombre_miembro, apellido_miembro, url_img_miembro ";
+                                                    $sql = "SELECT id_publicacion, img_publicacion, texto, fecha, id_miembro, nombre_miembro, apellido_miembro, img_miembro ";
                                                     $sql .= "FROM publicaciones ";
                                                     $sql .= "INNER JOIN miembros ";
                                                     $sql .= "ON publicaciones.id_miem_public = miembros.id_miembro ";
@@ -176,7 +176,7 @@
                                                                 <div class="card-header">
                                                                     <div class="user-block">
                                                                         
-                                                                        <img class="img-circle" src="../img/miembros/<?php echo $publicacion['url_img_miembro'] ?>" alt="User Image">
+                                                                        <img class="img-circle" src="../img/miembros/<?php echo $publicacion['img_miembro'] ?>" alt="User Image">
                                                                         <span class="username"><a href="#"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro']; ?></a></span>
                                                                         <span class="description">Compartido - <?php echo $fecha_formateada ?></span>
                                                                     </div>
@@ -255,7 +255,7 @@
                                                             <div class="card card-widget">
                                                                 <div class="card-header">
                                                                     <div class="user-block">
-                                                                        <img class="img-circle" src="../img/miembros/<?php echo $publicacion['url_img_miembro'] ?>" alt="User Image">
+                                                                        <img class="img-circle" src="../img/miembros/<?php echo $publicacion['img_miembro'] ?>" alt="User Image">
                                                                         <span class="username"><a href="#"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?></a></span>
                                                                         <span class="description">Compartido - <?php echo $fecha_formateada ?></span>
                                                                     </div>

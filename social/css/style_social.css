@@ -181,10 +181,13 @@
 }
 
 /* Chat */
-.lista_contactos {
-    color: #000000!important;
+.lista_contactos span{
+    font-weight: normal;
+}
+.lista_contactos span {
+    color: #000000;
     margin-left: 45px;
 }
-.contacts-list li {
-    background-color: red!important;
+.contacto_activo {
+    background-color: var(--warning);
 }
