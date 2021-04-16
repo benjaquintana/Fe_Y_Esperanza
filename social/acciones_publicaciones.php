@@ -11,7 +11,7 @@
 
     //Publicación de Texto
     if ($_POST['publicar'] == 'texto'){
-
+        //die(json_encode($_POST));
         try {
             $stmt = $conn->prepare("INSERT INTO publicaciones (id_miem_public, img_publicacion, texto, fecha, editado) VALUES (?,?,?,?,NOW()) ");
             $stmt->bind_param("isss", $id_miembro, $img_vacia, $texto, $fecha);

@@ -119,11 +119,16 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="chat/index.php" class="nav-link">
+                            <a href="chat.php" class="nav-link">
+                            <?php
+                                $id_session = $_SESSION['id'];
+                                $resultado = $conn->query($sql);
+                                $mensajes = $resultado->fetch_assoc();
+                            ?>
                             <i class="nav-icon fas fa-mail-bulk"></i>
                                 <p>
                                     Chat
-                                    <span class="badge badge-danger right">3</span>
+                                    <span class="badge badge-danger right"><?php echo $mensajes['no_leidos'] ?></span>
                                 </p>
                             </a>
                         </li>

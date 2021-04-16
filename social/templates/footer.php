@@ -33,6 +33,8 @@
     <script src="js/demo.js"></script>
     <!-- Colorbox -->
     <script src="js/jquery.colorbox-min.js"></script>
+     <!-- Chat -->
+     <script src="js/chat.js"></script>
     <!-- User Scripts -->
     <script src="js/publicaciones_ajax.js"></script>
     <script src="js/social_ajax.js"></script>

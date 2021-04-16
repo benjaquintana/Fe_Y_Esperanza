@@ -16,7 +16,6 @@
 
     //Nuevo Usuario
     if ($_POST['registro'] == 'nuevo'){
-        
         //Password Seguro
         $opciones = array(
             'cost' => 12
