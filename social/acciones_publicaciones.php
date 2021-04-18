@@ -24,7 +24,7 @@
                 );
             } else {
                 $respuesta = array(
-                    'respuesta' => 'error',
+                    'respuesta' => 'error'
                 );
             }
             $stmt->close();
@@ -131,8 +131,14 @@
         }
         
         try {
-            $stmt = $conn->prepare("UPDATE publicaciones SET img_publicacion = ?, texto = ?, editado = NOW() WHERE id_publicacion = ? ");
-            $stmt->bind_param("ssi", $url_imagen, $texto, $id_publicacion);
+            if($_FILES['imagen']['size'] > 0 ) {
+                $stmt = $conn->prepare("UPDATE publicaciones SET img_publicacion = ?, texto = ?, editado = NOW() WHERE id_publicacion = ? ");
+                $stmt->bind_param("ssi", $url_imagen, $texto, $id_publicacion);
+            } else {
+                $stmt = $conn->prepare("UPDATE publicaciones SET texto = ?, editado = NOW() WHERE id_publicacion = ? ");
+                $stmt->bind_param("si", $texto, $id_publicacion);
+            }
+            
             $stmt->execute();
             if($stmt->affected_rows) {
                 $respuesta = array(
@@ -152,7 +158,7 @@
         die(json_encode($respuesta));
     }
 
-    //Eliminar Usuario
+    //Eliminar Publicacion
     if ($_POST['publicacion'] == 'eliminar'){
         $id_borrar = $_POST['id'];
         try {

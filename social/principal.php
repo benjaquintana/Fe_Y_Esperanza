@@ -150,14 +150,14 @@
                                                     <i class="fas fa-minus"></i>
                                                 </button>
                                                 <?php if($publicacion['id_miembro'] == $id_session): ?>
-                                                    <a href="#editar_texto" class="btn btn-tool editar_texto" title="Editar">
+                                                    <a href=".edicion_texto" class="btn btn-tool editar_texto">
                                                         <i class="far fa-edit"></i>
                                                     </a>
                                                 <?php endif; ?>
 
                                                 <!-- Editar Texto -->
                                                 <div style="display: none;">
-                                                    <div id="editar_texto">
+                                                    <div class="edicion_texto">
                                                         <div class="col-md-12">
                                                             <div class="card card-outline card-info">
                                                                 <form role="form" action="acciones_publicaciones.php" id="editar_publicacion" name="guardar_publicacion" method="post">
@@ -265,14 +265,14 @@
                                                     <i class="fas fa-minus"></i>
                                                 </button>
                                                 <?php if($publicacion['id_miembro'] == $id_session): ?>
-                                                    <a href="#editar_foto" class="btn btn-tool editar_foto" title="Editar">
+                                                    <a href=".edicion_foto" class="btn btn-tool editar_foto" title="Editar">
                                                         <i class="far fa-edit"></i>
                                                     </a>
                                                 <?php endif; ?>
 
                                                 <!-- Editar Fotos -->
                                                 <div style="display: none;">
-                                                    <div id="editar_foto">
+                                                    <div class="edicion_foto">
                                                         <div class="col-md-12">
                                                             <div class="card card-outline card-info">
                                                                 <form role="form" name="editar_publicacion_archivo" id="editar_publicacion_archivo" method="post" action="acciones_publicaciones.php" enctype="multipart/form-data">
@@ -298,7 +298,7 @@
                                                                         <label for="imagen">Nueva Imagen</label>
                                                                         <div class="input-group">
                                                                             <div class="custom-file">
-                                                                                <input type="file" class="custom-file-input" id="imagen" name="imagen">
+                                                                                <input type="file" class="custom-file-input" name="imagen">
                                                                                 <label class="custom-file-label" for="imagen"><?php echo $publicacion['img_publicacion']; ?></label>
                                                                             </div>
                                                                         </div>

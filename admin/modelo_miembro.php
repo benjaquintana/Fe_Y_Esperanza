@@ -42,7 +42,7 @@
         $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
         
         try {
-            $stmt = $conn->prepare("INSERT INTO miembros (nombre_miembro, apellido_miembro, email_miembro, password, fecha_nacimiento, url_img_miembro, descripcion, fecha_registro, editado) VALUES (?,?,?,?,?,?,?,?,NOW()) ");
+            $stmt = $conn->prepare("INSERT INTO miembros (nombre_miembro, apellido_miembro, email_miembro, password, fecha_nacimiento, img_miembro, descripcion, fecha_registro, editado) VALUES (?,?,?,?,?,?,?,?,NOW()) ");
             $stmt->bind_param("ssssssss", $nombre, $apellido, $email, $password_hashed, $fecha_nacimiento, $url_imagen, $biografia, $fecha);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
@@ -93,7 +93,7 @@
                 $stmt->bind_param("sssssi", $nombre, $apellido, $email, $fecha_nacimiento, $biografia, $id_registro);
 
             } elseif (empty($_POST['password']) && $_FILES['imagen']['size'] > 0) {
-                $stmt = $conn->prepare('UPDATE miembros SET nombre_miembro = ?, apellido_miembro = ?, email_miembro = ?, fecha_nacimiento = ?, url_img_miembro = ?, descripcion = ?, editado = NOW() WHERE id_miembro = ? ');
+                $stmt = $conn->prepare('UPDATE miembros SET nombre_miembro = ?, apellido_miembro = ?, email_miembro = ?, fecha_nacimiento = ?, img_miembro = ?, descripcion = ?, editado = NOW() WHERE id_miembro = ? ');
                 $stmt->bind_param("ssssssi", $nombre, $apellido, $email, $fecha_nacimiento, $url_imagen, $biografia, $id_registro);
             
             } elseif (!empty($_POST['password']) && $_FILES['imagen']['size'] == 0) {
@@ -109,7 +109,7 @@
                     'cost' => 12
                 );
                 $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
-                $stmt = $conn->prepare('UPDATE miembros SET nombre_miembro = ?, apellido_miembro = ?, email_miembro = ?, password = ? fecha_nacimiento = ?, url_img_miembro = ?, descripcion = ?, editado = NOW() WHERE id_miembro = ? ');
+                $stmt = $conn->prepare('UPDATE miembros SET nombre_miembro = ?, apellido_miembro = ?, email_miembro = ?, password = ? fecha_nacimiento = ?, img_miembro = ?, descripcion = ?, editado = NOW() WHERE id_miembro = ? ');
                 $stmt->bind_param("sssssssi", $nombre, $apellido, $email, $hash_password, $fecha_nacimiento, $url_imagen, $biografia, $id_registro);
             }
                

@@ -147,7 +147,7 @@
 			$toUserAvatar = '';
 			foreach ($userDetails as $user) {
 				$toUserAvatar = $user['img_miembro'];
-				$userSection = '<a class="nav-link active" href="#activity" data-toggle="tab">'.$user['nombre_miembro'].' '.$user['apellido_miembro'].'</a>';
+				$userSection = '<a class="nav-link active" href="perfil.php?id='.$user['id_miembro'].'" data-toggle="tab">'.$user['nombre_miembro'].' '.$user['apellido_miembro'].'</a>';
 			}		
 			// get user conversation
 			$conversation = $this->getUserChat($from_user_id, $to_user_id);	

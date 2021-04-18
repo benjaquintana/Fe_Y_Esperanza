@@ -17,6 +17,7 @@ $(document).ready(function() {
                         'La publicación se guardo correctamente',
                         'success'
                     )
+                    location.reload();	
                 } else {
                     Swal.fire({
                         icon: 'error',
@@ -52,6 +53,7 @@ $(document).ready(function() {
                         'La publicación se guardo correctamente',
                         'success'
                     )
+                    location.reload();
                 } else {
                     Swal.fire({
                         icon: 'error',
@@ -63,7 +65,7 @@ $(document).ready(function() {
         })
     });
 
-    //Editar Registro
+    //Editar Publicacion
     $('#editar_publicacion').on('submit', function(e) {
         e.preventDefault();
         var datos = $(this).serializeArray();
@@ -81,6 +83,7 @@ $(document).ready(function() {
                         'La publicación se guardo correctamente',
                         'success'
                     )
+                    location.reload();
                 } else {
                     Swal.fire({
                         icon: 'error',
@@ -116,6 +119,7 @@ $(document).ready(function() {
                         'La publicación se guardo correctamente',
                         'success'
                     )
+                    location.reload();
                 } else {
                     Swal.fire({
                         icon: 'error',

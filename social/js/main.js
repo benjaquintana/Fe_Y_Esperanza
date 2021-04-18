@@ -3,6 +3,9 @@ $(function() {
     $('#pushmenu').on('click', function() {
         $('.main-sidebar').slideToggle();
     });
+	$('.content-wrapper').click(function() {
+		$('.main-sidebar').fadeOut();
+	});
 
     //Clase del menu
     $('body.principal .wrapper .navegacion .navegacion_center .nav-item .icono .fa-home').addClass('activo');

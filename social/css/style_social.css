@@ -27,7 +27,7 @@
         margin-left: 0;
     }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .menu_barra {
         display: none;
     }
@@ -147,7 +147,7 @@
     margin: 10px;
     border: 1px solid red;
 }
-.modal-lg{
+.modal-lg {
     max-width: 1000px !important;
 }
 .overlay {
@@ -181,13 +181,37 @@
 }
 
 /* Chat */
-.lista_contactos span{
+.lista_contactos span {
     font-weight: normal;
 }
 .lista_contactos span {
     color: #000000;
     margin-left: 45px;
 }
-.contacto_activo {
+.active {
     background-color: var(--warning);
+}
+.intro_chat {
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .intro_chat {
+        background-image: url(../../img/bg_inicio.jpg);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        max-height: 9rem;
+    }
+}
+.intro_chat img {
+    display: none;
+}
+@media (min-width: 768px) {
+    .intro_chat img {
+        display: inline-block;
+        max-width: 9rem;
+    }
+}
+.intro_chat h4{
+    font-size: 2.8;
 }

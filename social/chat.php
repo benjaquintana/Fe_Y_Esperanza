@@ -95,7 +95,12 @@
 								<div class="direct-chat-messages">
 									<div class="messages" id="conversation">		
 										<?php echo $chat->getUserChat($_SESSION['id'], $currentSession); ?>
-										<h3>Bienvenido al Chat de Unidos en Fe, donde encontraras a amigos en Cristo para la eternidad.</h3>
+										<div class="intro_chat">
+											<img src="../img/feyesperanza.jpg" alt="logo Fe y Esperanza">
+											<hr>
+											<h4>Bienvenido al Chat de Unidos en Fe, donde encontraras amigos en Cristo para la eternidad.</h4>
+										</div>
+										
 									</div>
 								</div>
 								<!--/.direct-chat-messages-->
