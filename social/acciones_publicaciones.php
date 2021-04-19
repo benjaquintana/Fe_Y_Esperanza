@@ -4,10 +4,11 @@
 
     //Datos Comunes
     $id_miembro = $_POST['id_miembro'];
+    $id_publicacion = $_POST['id_publicacion'];
+    $id_comentario = $_POST['id_comentario'];
     $img_vacia = "0";
     $texto = $_POST['texto'];
     $fecha = date('Y-m-d H:i:s');
-    $id_publicacion = $_POST['id_publicacion'];
 
     //Publicación de Texto
     if ($_POST['publicar'] == 'texto'){
@@ -81,7 +82,7 @@
         die(json_encode($respuesta));
     }
 
-    //Editar de Texto
+    //Editar Publicacion
     if ($_POST['editar'] == 'texto'){
         //die(json_encode($_POST));
 
@@ -181,6 +182,81 @@
             );
         }
         die(json_encode($respuesta));
+    }
+/*----------------------------------------------------------------------------------------------------------------------*/
+    //Publicar Comentario
+    if ($_POST['publicar'] == 'comentario'){
+        //die(json_encode($_POST));
+        try {
+            $stmt = $conn->prepare("INSERT INTO comentarios (id_comentador, id_publicacion, texto, fecha, editado) VALUES (?,?,?,?,NOW()) ");
+            $stmt->bind_param("iiss", $id_miembro, $id_publicacion, $texto, $fecha);
+            $stmt->execute();
+            $id_registro = $stmt->insert_id;
+            if($id_registro > 0) {
+                $respuesta = array(
+                    'respuesta' => 'exito',
+                    'id_registro' => $id_registro
+                );
+            } else {
+                $respuesta = array(
+                    'respuesta' => 'error'
+                );
+            }
+            $stmt->close();
+            $conn->close();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        die(json_encode($respuesta));
+    }
 
+     //Editar Comentario
+     if ($_POST['editar'] == 'comentario'){
+        //die(json_encode($_POST));
+        try {
+            $stmt = $conn->prepare("UPDATE comentarios SET texto = ?, editado = NOW() WHERE id_comentario = ? ");
+            $stmt->bind_param("si", $texto, $id_comentario);
+            $stmt->execute();
+            if($stmt->affected_rows) {
+                $respuesta = array(
+                    'respuesta' => 'exito',
+                    'id_publicacion' => $id_comentario
+                );
+            } else {
+              $respuesta = array(
+                'respuesta' => 'error'
+              );
+            }
+            $stmt->close();
+            $conn->close();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        die(json_encode($respuesta));
+    }
+
+    //Eliminar Publicacion
+    if ($_POST['comentario'] == 'eliminar'){
+        $id_borrar = $_POST['id'];
+        try {
+            $stmt = $conn->prepare('DELETE FROM comentarios WHERE id_comentario = ? ');
+            $stmt->bind_param('i', $id_borrar);
+            $stmt->execute();
+            if($stmt->affected_rows) {
+                $respuesta = array(
+                    'respuesta' => 'exito',
+                    'id_eliminado' => $id_borrar
+                );
+            } else {
+                $respuesta = array(
+                    'respuesta' => 'error'
+                );
+            }
+        } catch (Exception $e) {
+            $respuesta = array(
+              'respuesta' => $e->getMessage()
+            );
+        }
+        die(json_encode($respuesta));
     }
 ?>

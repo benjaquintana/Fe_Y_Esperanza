@@ -200,47 +200,95 @@
                                             <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
                                             <span class="float-right text-muted">45 likes - 2 comments</span> -->
                                         </div>
-                                        <!-- /.card-body --
+                                        <!-- /.card-body -->
+
                                         <div class="card-footer card-comments">
-                                            <div class="card-comment">
-                                                <!-- User image --
-                                                <img class="img-circle img-sm" src="img/user3-128x128.jpg" alt="User Image">
+                                            <?php
+                                                try {
+                                                    $sql = "SELECT id_comentario, id_miembro, nombre_miembro, apellido_miembro, img_miembro, texto, fecha ";
+                                                    $sql .= "FROM comentarios ";
+                                                    $sql .= "INNER JOIN miembros ";
+                                                    $sql .= "ON comentarios.id_comentador = miembros.id_miembro ";
+                                                    $sql .= "ORDER BY fecha ASC ";
+                                                    $resultado = $conn->query($sql);
+                                                } catch (\Exception $e) {
+                                                    $error = $e->getMessage();
+                                                    echo "$error";
+                                                }
+                                                $fecha = $comentario['fecha'];
+                                                $fecha_formateada = date('d M Y - G:i', strtotime($fecha));
 
-                                                <div class="comment-text">
-                                                    <span class="username">
-                                                    Maria Gonzales
-                                                    <span class="text-muted float-right">8:03 PM Today</span>
-                                                    </span><!-- /.username --
-                                                    It is a long established fact that a reader will be distracted
-                                                    by the readable content of a page when looking at its layout.
-                                                </div>
-                                                <!-- /.comment-text --
-                                            </div>
-                                            <!-- /.card-comment --
-                                            <div class="card-comment">
-                                                <!-- User image --
-                                                <img class="img-circle img-sm" src="img/user5-128x128.jpg" alt="User Image">
+                                                while($comentario = $resultado->fetch_assoc() ) { ?>
+                                                    <div class="card-comment">
+                                                        <!-- User image -->
+                                                        <img class="img-circle img-sm" src="../img/miembros/<?php echo $comentario['img_miembro'] ?>" alt="User Image">
 
-                                                <div class="comment-text">
-                                                    <span class="username">
-                                                    Nora Havisham
-                                                    <span class="text-muted float-right">8:03 PM Today</span>
-                                                    </span><!-- /.username --
-                                                    The point of using Lorem Ipsum is that it hrs a morer-less
-                                                    normal distribution of letters, as opposed to using
-                                                    'Content here, content here', making it look like readable English.
-                                                </div>
-                                                <!-- /.comment-text --
-                                            </div>
-                                            <!-- /.card-comment --
+                                                        <div class="comment-text">
+                                                            <span class="username">
+                                                                <?php echo $comentario['nombre_miembro'] . " " . $comentario['apellido_miembro'] ?>
+                                                                <span class="text-muted float-right"><?php echo $comentario['fecha'] ?>
+                                                                    <?php if($comentario['id_miembro'] == $id_session): ?>
+                                                                        <a href=".edicion_comentario" class="btn btn-tool editar_texto">
+                                                                            <i class="far fa-edit"></i>
+                                                                        </a>
+
+                                                                        <!-- Editar Texto -->
+                                                                        <div style="display: none;">
+                                                                            <div class="edicion_comentario">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="card card-outline card-info">
+                                                                                        <form role="form" action="acciones_publicaciones.php" id="editar_comentario" name="guardar_comentario" method="post">
+                                                                                            <div class="card-header">
+                                                                                                <div class="user-block">
+                                                                                                    <img class="img-circle" src="../img/miembros/<?php echo $comentario['img_miembro'] ?>" alt="Img_<?php echo $comentario['nombre_miembro'] . " " . $comentario['apellido_miembro'] ?>">
+                                                                                                    <span class="username"><a href="mi_perfil.php"><?php echo $comentario['nombre_miembro'] . " " . $comentario['apellido_miembro'] ?></a></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!-- /.card-header -->
+                                                                                            <div class="card-body">
+                                                                                                <textarea type="text" rows="5" name="texto" class="form-control"><?php echo $comentario['texto'] ?></textarea>
+                                                                                            </div>
+                                                                                            <div class="card-footer">
+                                                                                                <input type="hidden" name="editar" value="comentario">
+                                                                                                <input type="hidden" name="id_comentario" value="<?php echo $comentario['id_comentario'] ?>">
+                                                                                                <button type="submit" class="btn btn-info btn-block boton_publicar"><i class="fas fa-feather-alt"></i> <b>Guardar</b></button>
+                                                                                            </div>
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- /.col-->
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <a href="#" data-id="<?php echo $comentario['id_comentario'];?>" data-tipo="publicaciones" class="btn btn-tool borrar_comentario">
+                                                                            <i class="fas fa-times"></i>
+                                                                        </a>
+                                                                    <?php endif; ?>
+                                                                </span>
+                                                            </span><!-- /.username -->
+                                                            <?php echo $comentario['texto'] ?>
+                                                        </div>
+                                                        <!-- /.comment-text -->
+                                                    </div>
+                                                    <!-- /.card-comment -->
+                                            <?php } ?>
                                         </div>
-                                        <!-- /.card-footer --
+                                        <!-- /.card-footer -->
+                                        <?php
+                                            $id_session = $_SESSION['id'];
+                                            $sql = "SELECT * FROM miembros WHERE id_miembro = $id_session ";
+                                            $resultado = $conn->query($sql);
+                                            $info_miembro = $resultado->fetch_assoc(); 
+                                        ?>
                                         <div class="card-footer">
-                                            <form action="#" method="post">
-                                                <img class="img-fluid img-circle img-sm" src="img/user4-128x128.jpg" alt="Alt Text">
-                                                <!-- .img-push is used to add margin to elements next to floating images --
+                                            <form role="form" action="acciones_publicaciones.php" id="comentar_publicacion" name="comentar_publicacion" method="post">
+                                                <img class="img-fluid img-circle img-sm" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="Alt Text">
+                                                <!-- .img-push is used to add margin to elements next to floating images -->
                                                 <div class="img-push">
-                                                    <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
+                                                    <input type="hidden" name="publicar" value="comentario">
+                                                    <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
+                                                    <input type="hidden" name="id_publicacion" value="<?php echo $publicacion['id_publicacion'] ?>">
+                                                    <input type="text" name="texto" class="form-control form-control-sm" placeholder="Presion enter para comentar">
                                                 </div>
                                             </form>
                                         </div>

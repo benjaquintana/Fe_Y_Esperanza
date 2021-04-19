@@ -36,6 +36,7 @@
      <!-- Chat -->
      <script src="js/chat.js"></script>
     <!-- User Scripts -->
+    <script src="js/comentarios_ajax.js"></script>
     <script src="js/publicaciones_ajax.js"></script>
     <script src="js/social_ajax.js"></script>
     <script src="js/login_ajax.js"></script>
