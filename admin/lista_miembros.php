@@ -53,7 +53,7 @@
                                     <tbody>
                                         <?php
                                             try {
-                                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, email_miembro, fecha_nacimiento, url_img_miembro, descripcion FROM miembros ";
+                                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, email_miembro, fecha_nacimiento, img_miembro, descripcion FROM miembros ";
                                                 $resultado = $conn->query($sql);
                                             } catch (\Exception $e) {
                                                 $error = $e->getMessage();
@@ -65,7 +65,7 @@
                                                     <td><?php echo $miembro['apellido_miembro'];?></td>
                                                     <td><?php echo $miembro['email_miembro'];?></td>
                                                     <td><?php echo $miembro['fecha_nacimiento'];?></td>
-                                                    <td><img src="../img/miembros/<?php echo $miembro['url_img_miembro'];?>" alt="img_invitado" width="150px"></td>
+                                                    <td><img src="../img/miembros/<?php echo $miembro['img_miembro'];?>" alt="img_invitado" width="150px"></td>
                                                     <td><?php echo $miembro['descripcion'];?></td>
                                                     <?php if($_SESSION['nivel'] <= 2): ?>
                                                     <td>

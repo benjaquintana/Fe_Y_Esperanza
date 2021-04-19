@@ -86,7 +86,7 @@
                         <div class="form-group">
                             <label for="imagen">Imagen Actual</label>
                             <div class="input-group">
-                                <img src="../img/miembros/<?php echo $miembro['url_img_miembro']; ?>" alt="img<?php echo $miembro['nombre_miembro'] ?>" width="200">
+                                <img src="../img/miembros/<?php echo $miembro['img_miembro']; ?>" alt="img<?php echo $miembro['nombre_miembro'] ?>" width="200">
                             </div>
                         </div>
 
@@ -96,7 +96,7 @@
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="imagen" name="imagen">
-                                    <label class="custom-file-label" for="imagen"><?php echo $miembro['url_img_miembro']; ?></label>
+                                    <label class="custom-file-label" for="imagen"><?php echo $miembro['img_miembro']; ?></label>
                                 </div>
                             </div>
                         </div>
