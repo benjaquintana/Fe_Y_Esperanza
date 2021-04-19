@@ -36,6 +36,9 @@
     color: var(--secundarioClaro);
     font-weight: bold!important;
 }
+.brand-link {
+    width: auto!important;
+}
 
 .navegacion_center {
     justify-content: center!important;
@@ -188,7 +191,7 @@
     color: #000000;
     margin-left: 45px;
 }
-.active {
+.contacto_activo {
     background-color: var(--warning);
 }
 .intro_chat {

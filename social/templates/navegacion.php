@@ -98,16 +98,17 @@
                                     }
                                     while($canales = $resultado->fetch_assoc() ) { ?>
                                     <li class="nav-item">
-                                        <a href="<?php echo $canales['link'] ?>" class="nav-link">
+                                        <a href="<?php echo $canales['link'] ?>" target="_blank" rel="noopener noreferrer" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p><?php echo $canales['nombre_canal'] ?></p>
                                         </a>
+                                        <a href="http://" ></a>
                                     </li>
                                 <?php } ?>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="https://checkout.square.site/buy/57VWMWQWCKW4XFET6SDFSTRM" class="nav-link">
+                            <a href="https://checkout.square.site/buy/57VWMWQWCKW4XFET6SDFSTRM" target="_blank" rel="noopener noreferrer" class="nav-link">
                                 <i class="nav-icon fas fa-heart"></i>
                                 <p>Donaciones</p>
                             </a>
@@ -122,13 +123,14 @@
                             <a href="chat.php" class="nav-link">
                             <?php
                                 $id_session = $_SESSION['id'];
+                                $sql = "SELECT COUNT(id_chat) AS no_leidos FROM chat WHERE id_reciever = $id_session AND estado = 1 ";
                                 $resultado = $conn->query($sql);
                                 $mensajes = $resultado->fetch_assoc();
                             ?>
                             <i class="nav-icon fas fa-mail-bulk"></i>
                                 <p>
                                     Chat
-                                    <span class="badge badge-danger right"><?php echo $mensajes['no_leidos'] ?></span>
+                                    <span id="cuenta_mensajes" class="badge badge-danger right"><?php echo $mensajes['no_leidos'] ?></span>
                                 </p>
                             </a>
                         </li>

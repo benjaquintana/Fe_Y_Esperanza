@@ -4,11 +4,11 @@ $(function() {
 	}, 60000);	
 	setInterval(function(){
 		updateUserChat();			
-	}, 5000);
+	}, 1000);
 
 	$(document).on('click', '.contact', function(){		
-		$('.contact').removeClass('active');
-		$(this).addClass('active');
+		$('.contact').removeClass('contacto_activo');
+		$(this).addClass('contacto_activo');
 		var to_user_id = $(this).data('touserid');
 		showUserChat(to_user_id);
 		$(".chatMessage").attr('id', to_user_id);
@@ -62,7 +62,7 @@ function sendMessage(to_user_id) {
 }
 
 function updateUserChat() {
-	$('li.contact.active').each(function(){
+	$('li.contact.contacto_activo').each(function(){
 		var to_user_id = $(this).attr('data-touserid');
 		$.ajax({
 			url:"chat_action.php",
@@ -72,7 +72,8 @@ function updateUserChat() {
 				action:'update_user_chat'},
 			dataType: "json",
 			success:function(response){				
-				$('#conversation').html(response.conversation);			
+				$('#conversation').html(response.conversation);	
+				$(".direct-chat-messages").animate({ scrollTop: $(".messages").height() }, "fast");		
 			}
 		});
 	});

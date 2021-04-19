@@ -3,9 +3,25 @@ $(function() {
     $('#pushmenu').on('click', function() {
         $('.main-sidebar').slideToggle();
     });
-	$('.content-wrapper').click(function() {
-		$('.main-sidebar').fadeOut();
-	});
+
+	//Quitar Menu
+	var anchoVentana = window.innerWidth
+	const funcion1 = () => {
+		$('.content-wrapper').click(function() {
+			$('.main-sidebar').fadeOut();
+		});
+	}
+	window.onresize = function() {
+		anchoVentana = window.innerWidth;
+	};
+	if(992 > anchoVentana){
+		funcion1();
+	}
+
+	//Actualizar No Leidos
+	setInterval(function(){
+		actualizarNoLeidos();			
+	}, 10000);
 
     //Clase del menu
     $('body.principal .wrapper .navegacion .navegacion_center .nav-item .icono .fa-home').addClass('activo');
@@ -55,6 +71,21 @@ $(function() {
         $.colorbox.close();
     });
 });
+
+//Actualizar los mensajes no leidos
+function actualizarNoLeidos() {
+	$.ajax({
+		url:"acciones_social.php",
+		method:"POST",
+		data:{ 
+			actualizar:'no_leidos'},
+		dataType: "json",
+		success: function(respuesta) {	
+			console.log(respuesta.no_leidos);
+			$('#cuenta_mensajes').html(respuesta.no_leidos);
+		}
+	});
+}
 
 //Upload Image
 $(document).ready(function(){
