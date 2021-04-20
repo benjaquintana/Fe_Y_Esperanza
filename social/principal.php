@@ -198,7 +198,6 @@
                                                         <div class="comment-text">
                                                             <span class="username">
                                                                 <?php echo $comentario['nombre_miembro'] . " " . $comentario['apellido_miembro'] ?>
-                                                                <span class="text-muted float-right"><?php echo $comentario['fecha'] ?>
                                                                     <?php if($comentario['id_miembro'] == $id_session): ?>
                                                                         <a href="editar_comentario.php?id=<?php echo $comentario['id_comentario'] ?>" class="btn btn-tool editar_comentario">
                                                                             <i class="far fa-edit"></i>
@@ -298,7 +297,6 @@
                                                         <div class="comment-text">
                                                             <span class="username">
                                                                 <?php echo $comentario['nombre_miembro'] . " " . $comentario['apellido_miembro'] ?>
-                                                                <span class="text-muted float-right"><?php echo $comentario['fecha'] ?>
                                                                     <?php if($comentario['id_miembro'] == $id_session): ?>
                                                                         <a href=".edicion_comentario" class="btn btn-tool editar_comentario">
                                                                             <i class="far fa-edit"></i>
