@@ -18,7 +18,6 @@
             <div class="container-fluid">
                 <div class="row social">
                     <!-- Muro Principal -->
-
                     <div class="col-md-9">
                         <div class="card card-widget">
                             <?php
@@ -129,8 +128,8 @@
                             $error = $e->getMessage();
                             echo "$error";
                         }
-                        while($publicacion = $resultado->fetch_assoc() ) { 
-                            
+                        while ($publicacion = $resultado->fetch_assoc() ) { 
+
                             $fecha = $publicacion['fecha'];
                             $fecha_formateada = date('d M Y - G:i', strtotime($fecha));
                             
@@ -150,38 +149,10 @@
                                                     <i class="fas fa-minus"></i>
                                                 </button>
                                                 <?php if($publicacion['id_miembro'] == $id_session): ?>
-                                                    <a href=".edicion_texto" class="btn btn-tool editar_texto">
+                                                    <a href="editar_publicacion.php?id=<?php echo $publicacion['id_publicacion'] ?>" class="btn btn-tool">
                                                         <i class="far fa-edit"></i>
                                                     </a>
                                                 <?php endif; ?>
-
-                                                <!-- Editar Texto -->
-                                                <div style="display: none;">
-                                                    <div class="edicion_texto">
-                                                        <div class="col-md-12">
-                                                            <div class="card card-outline card-info">
-                                                                <form role="form" action="acciones_publicaciones.php" id="editar_publicacion" name="guardar_publicacion" method="post">
-                                                                    <div class="card-header">
-                                                                        <div class="user-block">
-                                                                            <img class="img-circle" src="../img/miembros/<?php echo $publicacion['img_miembro'] ?>" alt="Img_<?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?>">
-                                                                            <span class="username"><a href="mi_perfil.php"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?></a></span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!-- /.card-header -->
-                                                                    <div class="card-body">
-                                                                        <textarea type="text" rows="5" name="texto" class="form-control"><?php echo $publicacion['texto'] ?></textarea>
-                                                                    </div>
-                                                                    <div class="card-footer">
-                                                                        <input type="hidden" name="id_publicacion" value="<?php echo $publicacion['id_publicacion'] ?>">
-                                                                        <input type="hidden" name="editar" value="texto">
-                                                                        <button type="submit" class="btn btn-info btn-block boton_publicar"><i class="fas fa-feather-alt"></i> <b>Publicar</b></button>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                        <!-- /.col-->
-                                                    </div>
-                                                </div>
 
                                                 <?php if($publicacion['id_miembro'] == $id_session): ?>
                                                     <a href="#" data-id="<?php echo $publicacion['id_publicacion'];?>" data-tipo="publicaciones" class="btn btn-tool borrar_registro">
@@ -203,22 +174,23 @@
                                         <!-- /.card-body -->
 
                                         <div class="card-footer card-comments">
+                                            <!--Comentarios-->
                                             <?php
+                                                $id_publicacion = $publicacion['id_publicacion'];
                                                 try {
                                                     $sql = "SELECT id_comentario, id_miembro, nombre_miembro, apellido_miembro, img_miembro, texto, fecha ";
                                                     $sql .= "FROM comentarios ";
                                                     $sql .= "INNER JOIN miembros ";
                                                     $sql .= "ON comentarios.id_comentador = miembros.id_miembro ";
+                                                    $sql .= "WHERE id_publicacion = $id_publicacion ";
                                                     $sql .= "ORDER BY fecha ASC ";
-                                                    $resultado = $conn->query($sql);
+                                                    $resultado_comentario = $conn->query($sql);
                                                 } catch (\Exception $e) {
                                                     $error = $e->getMessage();
                                                     echo "$error";
                                                 }
-                                                $fecha = $comentario['fecha'];
-                                                $fecha_formateada = date('d M Y - G:i', strtotime($fecha));
 
-                                                while($comentario = $resultado->fetch_assoc() ) { ?>
+                                                while($comentario = $resultado_comentario->fetch_assoc() ) { ?>
                                                     <div class="card-comment">
                                                         <!-- User image -->
                                                         <img class="img-circle img-sm" src="../img/miembros/<?php echo $comentario['img_miembro'] ?>" alt="User Image">
@@ -228,38 +200,9 @@
                                                                 <?php echo $comentario['nombre_miembro'] . " " . $comentario['apellido_miembro'] ?>
                                                                 <span class="text-muted float-right"><?php echo $comentario['fecha'] ?>
                                                                     <?php if($comentario['id_miembro'] == $id_session): ?>
-                                                                        <a href=".edicion_comentario" class="btn btn-tool editar_texto">
+                                                                        <a href="editar_comentario.php?id=<?php echo $comentario['id_comentario'] ?>" class="btn btn-tool editar_comentario">
                                                                             <i class="far fa-edit"></i>
                                                                         </a>
-
-                                                                        <!-- Editar Texto -->
-                                                                        <div style="display: none;">
-                                                                            <div class="edicion_comentario">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="card card-outline card-info">
-                                                                                        <form role="form" action="acciones_publicaciones.php" id="editar_comentario" name="guardar_comentario" method="post">
-                                                                                            <div class="card-header">
-                                                                                                <div class="user-block">
-                                                                                                    <img class="img-circle" src="../img/miembros/<?php echo $comentario['img_miembro'] ?>" alt="Img_<?php echo $comentario['nombre_miembro'] . " " . $comentario['apellido_miembro'] ?>">
-                                                                                                    <span class="username"><a href="mi_perfil.php"><?php echo $comentario['nombre_miembro'] . " " . $comentario['apellido_miembro'] ?></a></span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <!-- /.card-header -->
-                                                                                            <div class="card-body">
-                                                                                                <textarea type="text" rows="5" name="texto" class="form-control"><?php echo $comentario['texto'] ?></textarea>
-                                                                                            </div>
-                                                                                            <div class="card-footer">
-                                                                                                <input type="hidden" name="editar" value="comentario">
-                                                                                                <input type="hidden" name="id_comentario" value="<?php echo $comentario['id_comentario'] ?>">
-                                                                                                <button type="submit" class="btn btn-info btn-block boton_publicar"><i class="fas fa-feather-alt"></i> <b>Guardar</b></button>
-                                                                                            </div>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <!-- /.col-->
-                                                                            </div>
-                                                                        </div>
-
                                                                         <a href="#" data-id="<?php echo $comentario['id_comentario'];?>" data-tipo="publicaciones" class="btn btn-tool borrar_comentario">
                                                                             <i class="fas fa-times"></i>
                                                                         </a>
@@ -274,21 +217,15 @@
                                             <?php } ?>
                                         </div>
                                         <!-- /.card-footer -->
-                                        <?php
-                                            $id_session = $_SESSION['id'];
-                                            $sql = "SELECT * FROM miembros WHERE id_miembro = $id_session ";
-                                            $resultado = $conn->query($sql);
-                                            $info_miembro = $resultado->fetch_assoc(); 
-                                        ?>
                                         <div class="card-footer">
-                                            <form role="form" action="acciones_publicaciones.php" id="comentar_publicacion" name="comentar_publicacion" method="post">
+                                            <form class="comentar_publicacion" role="form" action="acciones_publicaciones.php" name="comentar_publicacion" method="post">
                                                 <img class="img-fluid img-circle img-sm" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="Alt Text">
                                                 <!-- .img-push is used to add margin to elements next to floating images -->
                                                 <div class="img-push">
                                                     <input type="hidden" name="publicar" value="comentario">
                                                     <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
                                                     <input type="hidden" name="id_publicacion" value="<?php echo $publicacion['id_publicacion'] ?>">
-                                                    <input type="text" name="texto" class="form-control form-control-sm" placeholder="Presion enter para comentar">
+                                                    <input type="text" name="texto" class="form-control form-control-sm" placeholder="Presiona enter para comentar">
                                                 </div>
                                             </form>
                                         </div>
@@ -313,61 +250,10 @@
                                                     <i class="fas fa-minus"></i>
                                                 </button>
                                                 <?php if($publicacion['id_miembro'] == $id_session): ?>
-                                                    <a href=".edicion_foto" class="btn btn-tool editar_foto" title="Editar">
+                                                    <a href="editar_publicacion.php?id=<?php echo $publicacion['id_publicacion'] ?>" class="btn btn-tool editar_foto" title="Editar">
                                                         <i class="far fa-edit"></i>
                                                     </a>
                                                 <?php endif; ?>
-
-                                                <!-- Editar Fotos -->
-                                                <div style="display: none;">
-                                                    <div class="edicion_foto">
-                                                        <div class="col-md-12">
-                                                            <div class="card card-outline card-info">
-                                                                <form role="form" name="editar_publicacion_archivo" id="editar_publicacion_archivo" method="post" action="acciones_publicaciones.php" enctype="multipart/form-data">
-                                                                    <div class="card-header">
-                                                                        <div class="user-block">
-                                                                            <img class="img-circle" src="../img/miembros/<?php echo $publicacion['img_miembro'] ?>" alt="User Image">
-                                                                            <span class="username"><a href="mi_perfil.php"><?php echo $publicacion['nombre_miembro'] . " " . $publicacion['apellido_miembro'] ?></a></span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!-- /.card-header -->
-
-                                                                    <div class="card-body">
-
-                                                                        <!-- Imagen Actual -->
-                                                                        <div class="form-group">
-                                                                            <label for="imagen">Imagen Actual</label>
-                                                                            <div class="input-group">
-                                                                                <img src="../img/publicaciones/<?php echo $publicacion['img_publicacion']; ?>" alt="img_publicacion" width="200">
-                                                                            </div>
-                                                                        </div>
-                                                                    
-                                                                        <!-- Subir Imagen -->
-                                                                        <label for="imagen">Nueva Imagen</label>
-                                                                        <div class="input-group">
-                                                                            <div class="custom-file">
-                                                                                <input type="file" class="custom-file-input" name="imagen">
-                                                                                <label class="custom-file-label" for="imagen"><?php echo $publicacion['img_publicacion']; ?></label>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                        <div class="form-group">
-                                                                            <label for="text">Descripción</label>
-                                                                            <textarea type="text" rows="3" name="texto" class="form-control" placeholder="Describe tu imagen"><?php echo $publicacion['texto'] ?></textarea>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="card-footer">
-                                                                        <input type="hidden" name="id_publicacion" value="<?php echo $publicacion['id_publicacion'] ?>">
-                                                                        <input type="hidden" name="editar" value="foto">
-                                                                        <button type="submit" class="btn btn-success btn-block boton_publicar_foto"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></button>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                        <!-- /.col-->
-                                                    </div>
-                                                </div>
 
                                                 <?php if($publicacion['id_miembro'] == $id_session): ?>
                                                     <a href="#" data-id="<?php echo $publicacion['id_publicacion'];?>" data-tipo="publicaciones" class="btn btn-tool borrar_registro">
@@ -386,45 +272,62 @@
                                             <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
                                             <span class="float-right text-muted">127 likes - 3 comments</span>-->
                                         </div>
-                                        <!-- /.card-body --
+                                        <!-- /.card-body -->
                                         <div class="card-footer card-comments">
-                                            <div class="card-comment">
-                                            <!-- User image --
-                                            <img class="img-circle img-sm" src="img/user3-128x128.jpg" alt="User Image">
+                                            <!--Comentarios-->
+                                            <?php
+                                                $id_publicacion = $publicacion['id_publicacion'];
+                                                try {
+                                                    $sql = "SELECT id_comentario, id_miembro, nombre_miembro, apellido_miembro, img_miembro, texto, fecha ";
+                                                    $sql .= "FROM comentarios ";
+                                                    $sql .= "INNER JOIN miembros ";
+                                                    $sql .= "ON comentarios.id_comentador = miembros.id_miembro ";
+                                                    $sql .= "WHERE id_publicacion = $id_publicacion ";
+                                                    $sql .= "ORDER BY fecha ASC ";
+                                                    $resultado_comentario = $conn->query($sql);
+                                                } catch (\Exception $e) {
+                                                    $error = $e->getMessage();
+                                                    echo "$error";
+                                                }
 
-                                            <div class="comment-text">
-                                                <span class="username">
-                                                Maria Gonzales
-                                                <span class="text-muted float-right">8:03 PM Today</span>
-                                                </span><!-- /.username --
-                                                It is a long established fact that a reader will be distracted
-                                                by the readable content of a page when looking at its layout.
-                                            </div>
-                                            <!-- /.comment-text --
-                                            </div>
-                                            <!-- /.card-comment --
-                                            <div class="card-comment">
-                                                <!-- User image --
-                                                <img class="img-circle img-sm" src="img/user4-128x128.jpg" alt="User Image">
-                                                <div class="comment-text">
-                                                    <span class="username">
-                                                        Luna Stark
-                                                        <span class="text-muted float-right">8:03 PM Today</span>
-                                                    </span><!-- /.username --
-                                                        It is a long established fact that a reader will be distracted
-                                                        by the readable content of a page when looking at its layout.
-                                                </div>
-                                                <!-- /.comment-text --
-                                            </div>
-                                            <!-- /.card-comment --
+                                                while($comentario = $resultado_comentario->fetch_assoc() ) { ?>
+                                                    <div class="card-comment">
+                                                        <!-- User image -->
+                                                        <img class="img-circle img-sm" src="../img/miembros/<?php echo $comentario['img_miembro'] ?>" alt="User Image">
+
+                                                        <div class="comment-text">
+                                                            <span class="username">
+                                                                <?php echo $comentario['nombre_miembro'] . " " . $comentario['apellido_miembro'] ?>
+                                                                <span class="text-muted float-right"><?php echo $comentario['fecha'] ?>
+                                                                    <?php if($comentario['id_miembro'] == $id_session): ?>
+                                                                        <a href=".edicion_comentario" class="btn btn-tool editar_comentario">
+                                                                            <i class="far fa-edit"></i>
+                                                                        </a>
+                                                                        
+                                                                        <a href="#" data-id="<?php echo $comentario['id_comentario'];?>" data-tipo="publicaciones" class="btn btn-tool borrar_comentario">
+                                                                            <i class="fas fa-times"></i>
+                                                                        </a>
+                                                                    <?php endif; ?>
+                                                                </span>
+                                                            </span><!-- /.username -->
+                                                            <?php echo $comentario['texto'] ?>
+                                                        </div>
+                                                        <!-- /.comment-text -->
+                                                    </div>
+                                                    <!-- /.card-comment -->
+                                            <?php } ?>
                                         </div>
-                                        <!-- /.card-footer --
+                                        <!-- /.card-footer -->
+                                        
                                         <div class="card-footer">
-                                            <form action="#" method="post">
-                                                <img class="img-fluid img-circle img-sm" src="img/user4-128x128.jpg" alt="Alt Text">
-                                                <!-- .img-push is used to add margin to elements next to floating images --
+                                            <form class="comentar_publicacion" role="form" action="acciones_publicaciones.php" name="comentar_publicacion" method="post">
+                                                <img class="img-fluid img-circle img-sm" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="Alt Text">
+                                                <!-- .img-push is used to add margin to elements next to floating images -->
                                                 <div class="img-push">
-                                                    <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
+                                                    <input type="hidden" name="publicar" value="comentario">
+                                                    <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
+                                                    <input type="hidden" name="id_publicacion" value="<?php echo $publicacion['id_publicacion'] ?>">
+                                                    <input type="text" name="texto" class="form-control form-control-sm" placeholder="Presion enter para comentar">
                                                 </div>
                                             </form>
                                         </div>
@@ -436,11 +339,6 @@
                             <?php } ?>
                         <?php } ?>
                     
-                        
-                        
-
-                        
-
                     <!-- Chat -->
                     <?php //include_once 'templates/chat.php'?>
                     <!-- Fin Chat -->

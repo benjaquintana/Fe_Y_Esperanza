@@ -60,8 +60,6 @@ $(function() {
     //Colorbox
     $('.publicar_texto').colorbox({inline:true, width:"50%"});
     $('.publicar_foto').colorbox({inline:true, width:"50%"});
-    $('.editar_texto').colorbox({inline:true, width:"50%"});
-    $('.editar_foto').colorbox({inline:true, width:"50%"});
 
     $('.boton_publicar').click(function() {
         $.colorbox.close();

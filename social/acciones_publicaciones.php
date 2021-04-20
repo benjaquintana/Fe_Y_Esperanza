@@ -81,7 +81,8 @@
         }
         die(json_encode($respuesta));
     }
-
+    
+/*----------------------------------------------------------------------------------------------*/
     //Editar Publicacion
     if ($_POST['editar'] == 'texto'){
         //die(json_encode($_POST));
@@ -183,6 +184,7 @@
         }
         die(json_encode($respuesta));
     }
+
 /*----------------------------------------------------------------------------------------------------------------------*/
     //Publicar Comentario
     if ($_POST['publicar'] == 'comentario'){

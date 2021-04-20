@@ -83,7 +83,9 @@ $(document).ready(function() {
                         'La publicación se guardo correctamente',
                         'success'
                     )
-                    location.reload();
+                    setTimeout(function(){
+                        window.location.href = 'principal.php';
+                    }, 1000);
                 } else {
                     Swal.fire({
                         icon: 'error',
@@ -119,7 +121,9 @@ $(document).ready(function() {
                         'La publicación se guardo correctamente',
                         'success'
                     )
-                    location.reload();
+                    setTimeout(function(){
+                        window.location.href = 'principal.php';
+                    }, 1000);
                 } else {
                     Swal.fire({
                         icon: 'error',

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //Guardar Registro
-    $('#comentar_publicacion').on('keypress', function(e) {
+    $('.comentar_publicacion').on('keypress', function(e) {
         if(e.which == 13) {
             e.preventDefault();
             var datos = $(this).serializeArray();
@@ -32,7 +32,7 @@ $(document).ready(function() {
     });
 
     //Editar Comentario
-    $('#editar_comentario').on('submit', function(e) {
+    $('.editar_comentario').on('submit', function(e) {
         e.preventDefault();
         var datos = $(this).serializeArray();
         $.ajax({
@@ -49,7 +49,9 @@ $(document).ready(function() {
                         'La publicación se guardo correctamente',
                         'success'
                     )
-                    location.reload();
+                    setTimeout(function(){
+                        window.location.href = 'principal.php';
+                    }, 1000);
                 } else {
                     Swal.fire({
                         icon: 'error',
