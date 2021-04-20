@@ -298,7 +298,7 @@
                                                             <span class="username">
                                                                 <?php echo $comentario['nombre_miembro'] . " " . $comentario['apellido_miembro'] ?>
                                                                     <?php if($comentario['id_miembro'] == $id_session): ?>
-                                                                        <a href=".edicion_comentario" class="btn btn-tool editar_comentario">
+                                                                        <a href="editar_comentario.php?id=<?php echo $comentario['id_comentario'] ?>" class="btn btn-tool editar_comentario">
                                                                             <i class="far fa-edit"></i>
                                                                         </a>
                                                                         
