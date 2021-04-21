@@ -282,7 +282,7 @@ ul {
 
 /* Hero */
 div.hero {
-    background-image: url(../img/hero.png);
+    background-image: url(../img/hero.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -380,9 +380,9 @@ p.slogan span{
 div.registro_sesion {
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
     margin-left: 5rem;
-    margin-top: 10rem;
+    margin-top: 4.5rem;
 }
 @media (min-width: 998px) {
     div.registro_sesion {
@@ -666,7 +666,33 @@ div.banner_canales {
     .conexiones {
         grid-template-columns: repeat(8, 1fr);
     } 
-}    
+}
+
+/* Contenido Principal */
+.contenido_principal {
+    float: right;
+    width: 90%;
+    max-height: 50rem;
+    overflow: scroll;
+}
+@media (min-width: 768px) {
+    .contenido_principal {
+        float: left;
+        width: 90%;
+        max-height: 70rem;
+    }
+}
+@media (min-width: 998px) {
+    .contenido_principal {
+        float: left;
+        max-height: 90rem;
+        overflow: scroll;
+    }
+}
+.social {
+    padding-top: 2rem;
+    justify-content: center;
+}
 
 /* Footer */
 .site_footer {
@@ -686,6 +712,7 @@ div.banner_canales {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-top: 1.5rem;
     }
 }
 .footer_informacion{

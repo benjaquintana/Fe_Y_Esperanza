@@ -7,6 +7,7 @@ $(function() {
     //Clase del menu
     $('body.index .navegador .navegacion_principal a:contains("Inicio")').addClass('activo');
     $('body.nosotros .navegador .navegacion_principal a:contains("Sobre Nosotros")').addClass('activo');
+    $('body.estaciones .navegador .navegacion_principal a:contains("Estaciones")').addClass('activo');
     $('body.programacion .navegador .navegacion_principal a:contains("Nuestros Programas")').addClass('activo');
 
 //Página Sobre Nosotros
