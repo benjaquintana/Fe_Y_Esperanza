@@ -16,11 +16,12 @@
     $password = $_POST['password'];
     $fecha = date('Y-m-d H:i:s');
     $id_registro = $_POST['id_registro'];
+    $nivel = 2;
 
     //Nuevo Usuario
     if ($_POST['registro'] == 'nuevo'){
         //die(json_encode($_POST));
-        
+
         //Password Seguro
         $opciones = array(
             'cost' => 12
@@ -28,8 +29,8 @@
         $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
         
         try {
-            $stmt = $conn->prepare("INSERT INTO miembros (nombre_miembro, apellido_miembro, email_miembro, password, fecha_nacimiento, img_miembro, descripcion, fecha_registro, editado) VALUES (?,?,?,?,?,?,?,?,NOW()) ");
-            $stmt->bind_param("ssssssss", $nombre, $apellido, $email, $password_hashed, $fecha_nacimiento, $imagen_miembro, $biografia, $fecha);
+            $stmt = $conn->prepare("INSERT INTO miembros (nombre_miembro, apellido_miembro, email_miembro, password, fecha_nacimiento, img_miembro, descripcion, fecha_registro, editado, nivel) VALUES (?,?,?,?,?,?,?,?,NOW(),?) ");
+            $stmt->bind_param("ssssssssi", $nombre, $apellido, $email, $password_hashed, $fecha_nacimiento, $imagen_miembro, $biografia, $fecha, $nivel);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
             if($id_registro > 0) {

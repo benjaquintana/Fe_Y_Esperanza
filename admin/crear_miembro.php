@@ -85,6 +85,16 @@
                             <label for="biografia">Descripción</label>
                             <textarea id="biografia" class="form-control" rows="3" placeholder="Escribe algo sobre el miembro" name="biografia"></textarea>
                         </div>
+                        
+                        <!-- Nivel -->
+                        <div class="form-group">
+                            <label>Seleccione el Nivel del Administrador</label>
+                            <select id="nivel" class="custom-select" name="nivel" required>
+                                <option value="">-- Selecciona un Nivel --</option>
+                                <option value="1">Completo</option>
+                                <option value="2">Basico</option>
+                            </select>
+                        </div>
 
                         <!-- Password -->
                         <div class="form-group">

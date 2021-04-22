@@ -44,7 +44,7 @@ $(document).ready(function() {
             async: true,
             cache: false,
             success: function(data) {
-              console.log(data);
+                console.log(data);
                 var resultado = data;
                 if(resultado.respuesta == "exito") {
                     Swal.fire(

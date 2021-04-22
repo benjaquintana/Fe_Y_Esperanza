@@ -45,6 +45,7 @@
                                             <th>Nacimiento</th>
                                             <th>Imagen</th>
                                             <th>Descripción</th>
+                                            <th>Nivel</th>
                                             <?php if($_SESSION['nivel'] <= 2): ?>
                                             <th>Acciones</th>
                                             <?php endif; ?>
@@ -53,7 +54,7 @@
                                     <tbody>
                                         <?php
                                             try {
-                                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, email_miembro, fecha_nacimiento, img_miembro, descripcion FROM miembros ";
+                                                $sql = "SELECT id_miembro, nombre_miembro, apellido_miembro, email_miembro, fecha_nacimiento, img_miembro, descripcion, nivel FROM miembros ";
                                                 $resultado = $conn->query($sql);
                                             } catch (\Exception $e) {
                                                 $error = $e->getMessage();
@@ -67,6 +68,7 @@
                                                     <td><?php echo $miembro['fecha_nacimiento'];?></td>
                                                     <td><img src="../img/miembros/<?php echo $miembro['img_miembro'];?>" alt="img_invitado" width="150px"></td>
                                                     <td><?php echo $miembro['descripcion'];?></td>
+                                                    <td><?php echo $miembro['nivel'];?></td>
                                                     <?php if($_SESSION['nivel'] <= 2): ?>
                                                     <td>
                                                         <a href="editar_miembro.php?id=<?php echo $miembro['id_miembro']?>" class="btn bg-orange btn-flat margin editar_registro">
@@ -88,6 +90,7 @@
                                             <th>Nacimiento</th>
                                             <th>Imagen</th>
                                             <th>Descripción</th>
+                                            <th>Nivel</th>
                                             <?php if($_SESSION['nivel'] <= 2): ?>
                                             <th>Acciones</th>
                                             <?php endif; ?>
