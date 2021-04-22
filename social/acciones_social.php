@@ -19,6 +19,8 @@
 
     //Nuevo Usuario
     if ($_POST['registro'] == 'nuevo'){
+        //die(json_encode($_POST));
+        
         //Password Seguro
         $opciones = array(
             'cost' => 12
