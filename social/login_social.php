@@ -8,7 +8,7 @@
             $stmt = $conn->prepare("SELECT * FROM miembros WHERE email_miembro = ? ");
             $stmt->bind_param("s", $email);
             $stmt->execute();
-            $stmt->bind_result($id, $nombre, $apellido, $email, $password_miembro, $nacimiento, $imagen, $biografia, $fecha, $editado);
+            $stmt->bind_result($id, $nombre, $apellido, $email, $password_miembro, $nacimiento, $imagen, $biografia, $fecha, $editado, $nivel);
             if($stmt->affected_rows) {
                 $existe = $stmt->fetch();
                 if($existe) {
@@ -22,6 +22,7 @@
                         $_SESSION['imagen'] = $imagen;
                         $_SESSION['descripcion'] = $biografia;
                         $_SESSION['fecha'] = $fecha;
+                        $_SESSION['nivel'] = $nivel;
                         $respuesta = array(
                             'respuesta' => 'exitoso',
                             'usuario' => $nombre . " " . $apellido,
