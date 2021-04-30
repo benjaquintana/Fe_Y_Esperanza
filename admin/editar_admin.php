@@ -46,7 +46,7 @@
                             $admin = $resultado->fetch_assoc();
                         ?>
                         <!-- form start -->
-                        <form role="form" name="guardar_registro" id="guardar_registro" method="post" action="modelo_admin.php">
+                        <form role="form" name="guardar_registro" id="guardar_registro" data-tipo="admin" method="post" action="modelo_admin.php">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="usuario">Usuario</label>

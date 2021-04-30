@@ -37,7 +37,7 @@
 
             <div class="card-body">
                 <!-- form start -->
-                <form role="form" name="guardar_registro" id="guardar_registro_archivo" method="post" action="modelo_miembro.php" enctype="multipart/form-data">
+                <form role="form" name="guardar_registro" id="guardar_registro_archivo" data-tipo="miembros" method="post" action="modelo_miembro.php" enctype="multipart/form-data">
                     <div class="card-body has-validation">
 
                         <!-- Nombre -->

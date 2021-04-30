@@ -46,7 +46,7 @@
                                 $canal = $resultado->fetch_assoc();
                             ?>
                             <!-- form start -->
-                            <form role="form" name="guardar_registro" id="guardar_registro_archivo" method="post" action="modelo_canal.php" enctype="multipart/form-data">
+                            <form role="form" name="guardar_registro" id="guardar_registro_archivo" data-tipo="canales" method="post" action="modelo_canal.php" enctype="multipart/form-data">
                                 <div class="card-body has-validation">
                                     <!-- Nombre -->
                                     <div class="form-group">
