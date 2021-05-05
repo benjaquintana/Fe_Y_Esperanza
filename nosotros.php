@@ -308,7 +308,7 @@
             <div class="lista_equipo">
                 <?php try {
                     require_once('includes/funciones/db_conexion.php');
-                    $sql = "SELECT nombre, apellido, url_imagen, descripcion FROM equipo WHERE cargo = 'directivo' ";
+                    $sql = "SELECT nombre, apellido, url_imagen, descripcion FROM equipo WHERE cargo = 'directivo' ORDER BY id_equipo ASC ";
                     $resultado = $conn->query($sql);
                 } catch (\Exception $e) {
                     $error = $e->getMessage();
@@ -331,7 +331,7 @@
             <div class="lista_equipo">
                 <?php try {
                     require_once('includes/funciones/db_conexion.php');
-                    $sql = "SELECT nombre, apellido, url_imagen, descripcion FROM equipo WHERE cargo = 'locutor' ";
+                    $sql = "SELECT nombre, apellido, url_imagen, descripcion FROM equipo WHERE cargo = 'locutor' ORDER BY id_equipo ASC ";
                     $resultado = $conn->query($sql);
                 } catch (\Exception $e) {
                     $error = $e->getMessage();
