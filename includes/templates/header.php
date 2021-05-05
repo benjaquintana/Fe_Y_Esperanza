@@ -54,7 +54,7 @@
             <a href="/" class="dropbtn"><i class="fas fa-home"></i> Inicio</a>                
             <a href="nosotros.php" class="dropbtn"><i class="far fa-address-card"></i> Sobre Nosotros</a>                
             <a href="estaciones.php" class="dropbtn"><i class="far fa-play-circle"></i> Estaciones</a>
-            <a href="https://checkout.square.site/buy/57VWMWQWCKW4XFET6SDFSTRM" class="dropbtn"><i class="fas fa-donate"></i> Donaciones</a>                
+            <a href="ofrendas.php" class="dropbtn"><i class="fas fa-donate"></i> Ofrendas</a>                
             <a href="https://app.box.com/s/ufwqe25szifb0zg4m086nzzvf3zbbxd5" class="dropbtn"><i class="fas fa-cloud-download-alt"></i> Descargas</a>
         </nav>
     </div>

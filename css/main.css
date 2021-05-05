@@ -923,6 +923,20 @@ div.ocultar_creencia {
     border-radius: 50%;
 }
 
+/* Ofrendas */
+.formas_pagos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formas_pagos img {
+    width: 40rem;
+    margin: 1rem;
+}
+.firma {
+    text-align: right;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
