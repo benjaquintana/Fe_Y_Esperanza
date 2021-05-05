@@ -6,7 +6,7 @@
     <div class="contenedor">
         <div>
             <h2>Ofrendas</h2>
-            <small>Apoya este ministerio con tus Ofrendas de amor</small>
+            <h3>Apoya este ministerio con tus ofrendas de amor</h3>
         </div>
         <div>
             <p>Me gustaría ayudar en este ministerio con mis oraciones y también con mi ofrenda de amor a Cristo, 

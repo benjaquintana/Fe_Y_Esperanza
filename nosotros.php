@@ -303,8 +303,8 @@
         <div class="contenedor">
             <h2>Nuestro Equipo</h2>
 
-            <!-- Directivos -->
-            <h3>Directivos</h3>
+            <!-- Direccion -->
+            <h3>Direccion</h3>
             <div class="lista_equipo">
                 <?php try {
                     require_once('includes/funciones/db_conexion.php');
