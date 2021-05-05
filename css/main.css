@@ -908,6 +908,21 @@ div.ocultar_creencia {
     display: none;
 }
 
+/* Nuestro Equipo */
+.lista_equipo {
+    display: flex;
+}
+.card_equipo {
+    padding: 1rem;
+    width: 18rem;
+    margin: 1rem;
+    text-align: center;
+}
+.img_equipo {
+    width: 10rem;
+    border-radius: 50%;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

@@ -298,6 +298,59 @@
             </div>
         </div>
     </section>
+
+    <section class="seccion">
+        <div class="contenedor">
+            <h2>Nuestro Equipo</h2>
+
+            <!-- Directivos -->
+            <h3>Directivos</h3>
+            <div class="lista_equipo">
+                <?php try {
+                    require_once('includes/funciones/db_conexion.php');
+                    $sql = "SELECT nombre, apellido, url_imagen, descripcion FROM equipo WHERE cargo = 'directivo' ";
+                    $resultado = $conn->query($sql);
+                } catch (\Exception $e) {
+                    $error = $e->getMessage();
+                    echo "$error";
+                }
+
+                while($equipo = $resultado->fetch_assoc() ) { ?>
+                    <div class="card_equipo">
+                        <img class="img_equipo" src="img/direc_locutores/<?php echo $equipo['url_imagen'] ?>" alt="img_<?php echo $equipo['nombre'] ?>">
+                        <div>
+                            <p><b><?php echo $equipo['nombre'] . " " . $equipo['apellido']; ?></b></p>
+                            <p><?php echo $equipo['descripcion']; ?></p>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+
+            <!-- Locutores -->
+            <h3>Locutores</h3>
+            <div class="lista_equipo">
+                <?php try {
+                    require_once('includes/funciones/db_conexion.php');
+                    $sql = "SELECT nombre, apellido, url_imagen, descripcion FROM equipo WHERE cargo = 'locutor' ";
+                    $resultado = $conn->query($sql);
+                } catch (\Exception $e) {
+                    $error = $e->getMessage();
+                    echo "$error";
+                }
+                
+                while($equipo = $resultado->fetch_assoc() ) { ?>
+                    <div class="card_equipo">
+                        <img class="img_equipo" src="img/direc_locutores/<?php echo $equipo['url_imagen'] ?>" alt="img_<?php echo $equipo['nombre'] ?>">
+                        <div>
+                            <p><b><?php echo $equipo['nombre'] . " " . $equipo['apellido']; ?></b></p>
+                            <p><?php echo $equipo['descripcion']; ?></p>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+           
+        </div>
+    </section>
     
 <!--Footer-->
 <?php include_once 'includes/templates/footer.php'?>
