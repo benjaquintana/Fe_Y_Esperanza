@@ -910,12 +910,22 @@ div.ocultar_creencia {
 
 /* Nuestro Equipo */
 .lista_equipo {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+    div.lista_equipo {
+        grid-template-columns: repeat(4, 1fr);
+    } 
+}
+@media (min-width: 998px) {
+    div.lista_equipo {
+        grid-template-columns: repeat(8, 1fr);
+    } 
 }
 .card_equipo {
     padding: 1rem;
-    width: 18rem;
-    margin: 1rem;
+    width: 15rem;
     text-align: center;
 }
 .img_equipo {

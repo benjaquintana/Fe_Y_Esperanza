@@ -39,6 +39,7 @@
                                 <table id="registro" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
+                                            <th>Id</th>
                                             <th>Nombre</th>
                                             <th>Apellido</th>
                                             <th>Imagen</th>
@@ -60,6 +61,7 @@
                                             }
                                             while($equipo = $resultado->fetch_assoc() ) { ?>
                                                 <tr>
+                                                    <td><?php echo $equipo['id_equipo']; ?></td>
                                                     <td><?php echo $equipo['nombre'];?></td>
                                                     <td><?php echo $equipo['apellido'];?></td>
                                                     <td><img src="../img/direc_locutores/<?php echo $equipo['url_imagen'];?>" alt="img_invitado" width="150px"></td>
@@ -80,6 +82,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <th>Id</th>
                                             <th>Nombre</th>
                                             <th>Apellido</th>
                                             <th>Imagen</th>
