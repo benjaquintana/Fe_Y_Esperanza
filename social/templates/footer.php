@@ -29,8 +29,7 @@
     <script src="js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="js/demo.js"></script>
+    
     <!-- Colorbox -->
     <script src="js/jquery.colorbox-min.js"></script>
      <!-- Chat -->

@@ -53,7 +53,7 @@
 
     //Editar Usuario
     if ($_POST['registro'] == 'actualizar'){
-        
+       //die(json_encode($_POST));
         try {
             if(empty($_POST['password'])) {
                 $stmt = $conn->prepare('UPDATE miembros SET nombre_miembro = ?, apellido_miembro = ?, email_miembro = ?, fecha_nacimiento = ?, descripcion = ?, editado = NOW(), WHERE id_miembro = ? ');
@@ -86,7 +86,9 @@
         }
         die(json_encode($respuesta));
     }
+?>
 
+<?php 
     //Actualizar No Leidos
     if ($_POST['actualizar'] == 'no_leidos') {
         try {

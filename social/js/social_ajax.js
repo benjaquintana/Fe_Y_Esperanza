@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //Guardar Registro
-     $('#guardar_registro').on('submit', function(e) {
+     $('#guardar_registro_nuevo').on('submit', function(e) {
         e.preventDefault();
         var datos = $(this).serializeArray();
         $.ajax({
