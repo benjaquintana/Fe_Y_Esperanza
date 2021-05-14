@@ -23,6 +23,21 @@ $(function() {
 		actualizarNoLeidos();			
 	}, 10000);
 
+	//Actualizar los mensajes no leidos
+	function actualizarNoLeidos() {
+		$.ajax({
+			url:"acciones_social.php",
+			method:"POST",
+			data:{ 
+				actualizar:'no_leidos'},
+			dataType: "json",
+			success: function(respuesta) {	
+				console.log(respuesta.no_leidos);
+				$('#cuenta_mensajes').html(respuesta.no_leidos);
+			}
+		});
+	}
+
     //Clase del menu
     $('body.principal .wrapper .navegacion .navegacion_center .nav-item .icono .fa-home').addClass('activo');
     $('body.contactos .wrapper .navegacion .navegacion_center .nav-item .icono .fa-user-circle').addClass('activo');
@@ -69,21 +84,6 @@ $(function() {
         $.colorbox.close();
     });
 });
-
-//Actualizar los mensajes no leidos
-function actualizarNoLeidos() {
-	$.ajax({
-		url:"acciones_social.php",
-		method:"POST",
-		data:{ 
-			actualizar:'no_leidos'},
-		dataType: "json",
-		success: function(respuesta) {	
-			console.log(respuesta.no_leidos);
-			$('#cuenta_mensajes').html(respuesta.no_leidos);
-		}
-	});
-}
 
 //Upload Image
 $(document).ready(function(){

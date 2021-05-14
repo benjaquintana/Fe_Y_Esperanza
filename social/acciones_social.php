@@ -1,10 +1,8 @@
 <?php
-    // Sesión
-	require_once 'funciones/sesiones.php';
     // Funciones
     require_once 'funciones/funciones.php';
+
     //Datos Comunes
-    $id_session = $_SESSION['id'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
@@ -53,7 +51,10 @@
 
     //Editar Usuario
     if ($_POST['registro'] == 'actualizar'){
-       //die(json_encode($_POST));
+        // Sesión
+        require_once 'funciones/sesiones.php';
+        $id_session = $_SESSION['id'];
+        //die(json_encode($_POST));
         try {
             if(empty($_POST['password'])) {
                 $stmt = $conn->prepare('UPDATE miembros SET nombre_miembro = ?, apellido_miembro = ?, email_miembro = ?, fecha_nacimiento = ?, descripcion = ?, editado = NOW(), WHERE id_miembro = ? ');
@@ -91,6 +92,9 @@
 <?php 
     //Actualizar No Leidos
     if ($_POST['actualizar'] == 'no_leidos') {
+        // Sesión
+        require_once 'funciones/sesiones.php';
+        $id_session = $_SESSION['id'];
         try {
             $sql = "SELECT COUNT(id_chat) AS no_leidos FROM chat WHERE id_reciever = $id_session AND estado = 1 ";
             $resultado = $conn->query($sql);

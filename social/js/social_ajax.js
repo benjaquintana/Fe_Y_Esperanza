@@ -27,6 +27,9 @@ $(document).ready(function() {
                         text: 'Hubo un error'
                     })
                 }
+            },
+            error: function(error) {
+                console.log(error)
             }
         })
     });
