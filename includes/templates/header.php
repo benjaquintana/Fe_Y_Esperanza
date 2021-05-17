@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="social/css/adminlte.min.css">
 
     <!-- User style -->
+    <link rel="stylesheet" href="social/css/colorbox.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
 

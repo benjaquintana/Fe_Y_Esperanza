@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="css/select2.min.css">
     <!-- Sweet Alert 2 -->
     <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <!-- Icon Picker -->
+    <link rel="stylesheet" href="css/iconpicker-1.5.0.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="css/adminlte.min.css">
     <!-- User style -->

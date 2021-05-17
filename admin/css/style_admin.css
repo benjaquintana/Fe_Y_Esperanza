@@ -1,3 +1,21 @@
+/* Boton icono */
+.boton_iconos {
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    color: #fff;
+    background: #a94158;
+    background: linear-gradient(to right bottom, #a94158, #99394e, #883144, #78293a, #692131);
+    box-shadow: 0 2px 14px -6px #000;
+    padding: 0 18px;
+    font-size: 16px;
+    line-height: 16px;
+    border: none;
+
+}
+.boton_iconos:hover {
+    transform: scale(.97);
+    box-shadow: 0 0 18px -6px #000;}
+
 /* Utilidades */
 :root {
     --primario:rgb(20, 83, 81);

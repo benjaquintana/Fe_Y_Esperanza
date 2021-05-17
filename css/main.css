@@ -323,22 +323,6 @@ nav.redes_sociales a {
 nav.redes_sociales a:last-child {
     margin-right: 0;
 }
-.facebook {
-    color: #3b5998;
-}
-.twitter {
-    color: #00acee;
-}
-.whatsapp {
-    color: #00bb2d;
-}
-.youtube {
-    color: #c4302b;
-}
-.instagram {
-    color: #3f729b;
-}
-
 div.informacion_evento {
     text-align: center;
     color: var(--secundarioClaro);
@@ -349,18 +333,6 @@ div.informacion_evento {
         width: 90%;
         margin-left: 5rem;
         margin-top: 2.5rem;
-    }
-}
-h1.nombre_sitio {
-    font-size: 5.9vw;
-    text-transform: uppercase;
-    font-family: 'PT Sans', sans-serif;
-}
-@media (min-width: 768px) {
-    h1.nombre_sitio {
-        font-size: 7vw;
-        margin: 0;
-        line-height: 1;
     }
 }
 div.informacion_evento p {
@@ -763,7 +735,12 @@ div.banner_canales {
     margin-top: 2rem;
 }
 .contenido_nuestro_ministerio video {
-    height: 40rem;
+    height: 22rem;
+}
+@media (min-width: 768px) {
+    .contenido_nuestro_ministerio video {
+        height: 40rem;
+    }
 }
 
 /* Doctrinas */
@@ -786,16 +763,29 @@ div.creencias {
     background-color: rgba(253, 198, 59, 0.5);
     padding: 1.5rem;
     margin-top: 8rem;
+    width: 100%;
 }
-@media (min-width: 768px) {
-    div.creencias {
-        width: 70%;
-    }
+.lista_creencias {
+
 }
-@media (min-width: 992px) {
-    div.creencias {
-        width: 100%;
-    }
+div.creencia {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    width: 15rem;
+    height: 15rem;
+    font-size: 2.5rem;
+    border-radius: 5%;
+}
+div.creencia:hover {
+    background-color: var(--secundarioClaro);
+}
+.creencia_info p {
+    color: var(--secundarioClaro);
+}
+.creencia_info p:hover {
+    color: #ffffff;
 }
 /* Menu Doctrinas */
 nav.menu_doctrinas {

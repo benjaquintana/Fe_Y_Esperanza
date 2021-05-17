@@ -132,6 +132,33 @@
                             </ul>
                         </li>
 
+                        <!-- Creencias -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-book-open"></i>
+                                <p>
+                                    Creencias
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="lista_creencias.php" class="nav-link">
+                                        <i class="fas fa-list-alt nav-icon"></i>
+                                        <p>Ver Todos</p>
+                                    </a>
+                                </li>
+                                <?php if($_SESSION['nivel'] <= 2): ?>
+                                <li class="nav-item">
+                                    <a href="crear_creencias.php" class="nav-link">
+                                        <i class="nav-icon fas fa-plus-circle"></i>
+                                        <p>Agregar</p>
+                                    </a>
+                                </li>
+                                <?php endif; ?>
+                            </ul>
+                        </li>
+
                         <!-- Miembros -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">

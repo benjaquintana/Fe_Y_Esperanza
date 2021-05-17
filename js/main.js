@@ -11,6 +11,8 @@ $(function() {
     $('body.ofrendas .navegador .navegacion_principal a:contains("Ofrendas")').addClass('activo');
 
 //Página Sobre Nosotros
+$('.creencia_info').colorbox({inline:true, width:"50%"});
+
 //Menu Doctrinas
     $('.creencias .menu_creencia:first').show();
     $('.menu_doctrinas a:first').addClass('activo_doctrina');

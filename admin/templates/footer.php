@@ -43,6 +43,14 @@
     <script src="js/select2.full.min.js"></script>
     <!-- Sweeralert2 -->
     <script src="js/sweetalert2.min.js"></script>
+    <!-- Icon Picker -->
+    <?php
+        $archivo = basename($_SERVER['PHP_SELF']);
+        $pagina = str_replace(".php", "", $archivo);
+        if ($pagina == 'crear_creencias' || $pagina == 'editar_creencias') {
+            echo '<script src="js/iconpicker-1.5.0.js"></script>';
+        }
+    ?>
     <!-- AdminLTE App -->
     <script src="js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
