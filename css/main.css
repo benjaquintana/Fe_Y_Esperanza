@@ -766,7 +766,11 @@ div.creencias {
     width: 100%;
 }
 .lista_creencias {
-
+    display: flex;
+    justify-content: initial;
+}
+.lista_creencias li {
+    margin: 1rem;
 }
 div.creencia {
     display: flex;
@@ -778,14 +782,21 @@ div.creencia {
     font-size: 2.5rem;
     border-radius: 5%;
 }
-div.creencia:hover {
-    background-color: var(--secundarioClaro);
+.info_creencia {
+    width: 100%;
 }
-.creencia_info p {
+.info_creencia p {
     color: var(--secundarioClaro);
 }
-.creencia_info p:hover {
-    color: #ffffff;
+.info_creencia p:hover {
+    color: var(--secundarioOscuro);
+}
+.creencia_texto {
+    padding: 2rem;
+    text-align: justify;
+}
+.creencia_texto h3 {
+    text-align: center;
 }
 /* Menu Doctrinas */
 nav.menu_doctrinas {

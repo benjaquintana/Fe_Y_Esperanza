@@ -42,21 +42,19 @@
                         <?php while($creencia = $resultado->fetch_assoc() ) { ?>
                             <li>
                                 <div class="creencia">
-                                    <a class="creencia_info" href="#creencia<?php echo $invitados['id_creencia']; ?>">
-                                        <p><i class="fas fa-bible"></i><br><?php echo $creencia['nombre'] ?></p>
+                                    <a class="info_creencia creencia_info" href="#creencia<?php echo $creencia['id_creencia']; ?>">
+                                        <p><i class="<?php echo $creencia['icono'] ?>"></i><br><?php echo $creencia['nombre'] ?></p>
                                     </a>
                                 </div>
                             </li>
-
                             <div style="display: none;">
-                                <div class="creencia_info" id="creencia<?php echo $invitados['id_creencia']; ?>">
+                                <div class="creencia_info creencia_texto" id="creencia<?php echo $creencia['id_creencia']; ?>">
                                     <div class="detalle_evento">
                                         <h3><?php echo $creencia['nombre'] ?></h3>
                                         <p><?php echo $creencia['texto'] ?></p>
                                     </div>
                                 </div>
                             </div>
-
                         <?php } ?>
                     </ul>
                 </div>
