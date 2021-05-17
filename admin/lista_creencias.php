@@ -66,7 +66,7 @@
                                                     <a href="editar_creencias.php?id=<?php echo $creencia['id_creencia']?>" class="btn bg-orange btn-flat margin editar_registro">
                                                         <i class="fa fa-pencil blanco"></i>
                                                     </a>
-                                                    <a href="#" data-id="<?php echo $creencia['id_creencia'];?>" data-tipo="creencia" class="btn bg-maroon btn-flat margin borrar_registro">
+                                                    <a href="#" data-id="<?php echo $creencia['id_creencia'];?>" data-tipo="creencias" class="btn bg-maroon btn-flat margin borrar_registro">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>
