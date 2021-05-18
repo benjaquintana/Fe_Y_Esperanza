@@ -60,7 +60,7 @@
                                     <select class="custom-select" name="doctrina" required>
                                         <option value="">-- Seleccione una Doctrina --</option>
                                         <option value="Dios">Dios</option>
-                                        <option value="Naturaleza del Hombbre">Natruraleza del Hombre</option>
+                                        <option value="Naturaleza del Hombre">Natruraleza del Hombre</option>
                                         <option value="Salvacion">Salvacion</option>
                                         <option value="Iglesia">Iglesia</option>
                                         <option value="Conducta Cristiana">Conducta Cristiana</option>
