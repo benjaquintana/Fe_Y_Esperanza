@@ -44,6 +44,7 @@
                                         <th>Doctrina</th>
                                         <th>Descripcion</th>
                                         <th>Icono</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -80,6 +81,7 @@
                                         <th>Doctrina</th>
                                         <th>Descripcion</th>
                                         <th>Icono</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </tfoot>
                             </table>
