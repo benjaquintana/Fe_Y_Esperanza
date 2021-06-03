@@ -24,7 +24,7 @@
                         <?php
                             $sql = "SELECT * FROM miembros WHERE id_miembro = $id ";
                             $resultado = $conn->query($sql);
-                            $nfo_miembro = $resultado->fetch_assoc();
+                            $info_miembro = $resultado->fetch_assoc();
                         ?>
                         <div class="col-md-3">
 

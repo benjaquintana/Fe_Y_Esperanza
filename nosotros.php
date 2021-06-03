@@ -38,7 +38,7 @@
                         $error = $e->getMessage();
                         echo "$error";
                     } ?>
-                    <ul class="lista_creencias clearfix">
+                    <ul class="lista_creencias">
                         <?php while($creencia = $resultado->fetch_assoc() ) { ?>
                             <li>
                                 <div class="creencia">
@@ -46,15 +46,15 @@
                                         <p><i class="<?php echo $creencia['icono'] ?>"></i><br><?php echo $creencia['nombre'] ?></p>
                                     </a>
                                 </div>
-                            </li>
-                            <div style="display: none;">
-                                <div class="creencia_info creencia_texto" id="creencia<?php echo $creencia['id_creencia']; ?>">
-                                    <div class="detalle_evento">
-                                        <h3><?php echo $creencia['nombre'] ?></h3>
-                                        <p><?php echo $creencia['texto'] ?></p>
+                                <div style="display: none;">
+                                    <div class="creencia_info creencia_texto" id="creencia<?php echo $creencia['id_creencia']; ?>">
+                                        <div class="detalle_evento">
+                                            <h3><?php echo $creencia['nombre'] ?></h3>
+                                            <p><?php echo $creencia['texto'] ?></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </li>
                         <?php } ?>
                     </ul>
                 </div>
