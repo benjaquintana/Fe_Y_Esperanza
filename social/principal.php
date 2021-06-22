@@ -18,102 +18,104 @@
             <div class="container-fluid">
                 <div class="row social">
                     <!-- Muro Principal -->
-                    <div class="col-md-9">
-                        <div class="card card-widget">
-                            <?php
-                                $id_session = $_SESSION['id'];
-                                $sql = "SELECT * FROM miembros WHERE id_miembro = $id_session ";
-                                $resultado = $conn->query($sql);
-                                $info_miembro = $resultado->fetch_assoc(); 
-                            ?>
-                            <div class="card-header d-flex"> 
-                                <div class="user-block">
-                                    <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="User Image">
-                                </div>
-
-                                <!-- Publicar Texto-->
-                                <div class="col-md-6">    
-                                    <a href="#publicar_texto" class="btn btn-block btn-info publicar_texto"><i class="fas fa-feather-alt"></i> <b>Publicar</b></a>
-                                </div>
-
-                                <div style="display: none;">
-                                    <div id="publicar_texto">
-                                        <div class="col-md-12">
-                                            <div class="card card-outline card-info">
-                                                <form role="form" action="acciones_publicaciones.php" id="guardar_publicacion" name="guardar_publicacion" method="post">
-                                                    <div class="card-header">
-                                                        <div class="user-block">
-                                                            <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="User Image">
-                                                            <span class="username"><a href="mi_perfil.php"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a></span>
-                                                            <span class="description">¿Qué quieres publicar? Ponlo Aquí</span>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.card-header -->
-                                                    <div class="card-body">
-                                                        <textarea type="text" rows="5" name="texto" class="form-control"></textarea>
-                                                    </div>
-                                                    <div class="card-footer">
-                                                        <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
-                                                        <input type="hidden" name="publicar" value="texto">
-                                                        <button type="submit" class="btn btn-info btn-block boton_publicar"><i class="fas fa-feather-alt"></i> <b>Publicar</b></button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <!-- /.col-->
+                    <?php if($info_miembro['nivel'] == 1): ?>
+                        <div class="col-md-9">
+                            <div class="card card-widget">
+                                <?php
+                                    $id_session = $_SESSION['id'];
+                                    $sql = "SELECT * FROM miembros WHERE id_miembro = $id_session ";
+                                    $resultado = $conn->query($sql);
+                                    $info_miembro = $resultado->fetch_assoc(); 
+                                ?>
+                                <div class="card-header d-flex"> 
+                                    <div class="user-block">
+                                        <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="User Image">
                                     </div>
-                                </div>
-                                
 
-                                <!-- Publicar Fotos -->
-                                <div class="col-md-5">    
-                                    <a href="#publicar_foto" class="btn btn-block btn-success publicar_foto"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></a>
-                                </div>
-                                
-                                <div style="display: none;">
-                                    <div id="publicar_foto">
-                                        <div class="col-md-12">
-                                            <div class="card card-outline card-info">
-                                                <form role="form" name="guardar_publicacion_archivo" id="guardar_publicacion_archivo" method="post" action="acciones_publicaciones.php" enctype="multipart/form-data">
-                                                    <div class="card-header">
-                                                        <div class="user-block">
-                                                            <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="User Image">
-                                                            <span class="username"><a href="mi_perfil.php"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a></span>
-                                                            <span class="description">¿Qué quieres publicar? Colocalo Aquí</span>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.card-header -->
+                                    <!-- Publicar Texto-->
+                                    <div class="col-md-6">    
+                                        <a href="#publicar_texto" class="btn btn-block btn-info publicar_texto"><i class="fas fa-feather-alt"></i> <b>Publicar</b></a>
+                                    </div>
 
-                                                    <div class="card-body">
-                                                        <label for="imagen">Imagen</label>
-                                                        <div class="input-group">
-                                                            <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" id="imagen" name="imagen">
-                                                                <label class="custom-file-label" for="imagen">Subir archivo</label>
+                                    <div style="display: none;">
+                                        <div id="publicar_texto">
+                                            <div class="col-md-12">
+                                                <div class="card card-outline card-info">
+                                                    <form role="form" action="acciones_publicaciones.php" id="guardar_publicacion" name="guardar_publicacion" method="post">
+                                                        <div class="card-header">
+                                                            <div class="user-block">
+                                                                <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="User Image">
+                                                                <span class="username"><a href="mi_perfil.php"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a></span>
+                                                                <span class="description">¿Qué quieres publicar? Ponlo Aquí</span>
                                                             </div>
                                                         </div>
-                                                        
-                                                        <div class="form-group">
-                                                            <label for="text">Descripción</label>
-                                                            <textarea type="text" rows="3" name="texto" class="form-control" placeholder="Describe tu imagen"></textarea>
+                                                        <!-- /.card-header -->
+                                                        <div class="card-body">
+                                                            <textarea type="text" rows="5" name="texto" class="form-control"></textarea>
                                                         </div>
-                                                    </div>
-
-                                                    <div class="card-footer">
-                                                        <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
-                                                        <input type="hidden" name="publicar" value="foto">
-                                                        <button type="submit" class="btn btn-success btn-block boton_publicar_foto"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></button>
-                                                    </div>
-                                                </form>
+                                                        <div class="card-footer">
+                                                            <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
+                                                            <input type="hidden" name="publicar" value="texto">
+                                                            <button type="submit" class="btn btn-info btn-block boton_publicar"><i class="fas fa-feather-alt"></i> <b>Publicar</b></button>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
+                                            <!-- /.col-->
                                         </div>
-                                        <!-- /.col-->
                                     </div>
-                                </div>
+                                    
 
+                                    <!-- Publicar Fotos -->
+                                    <div class="col-md-5">    
+                                        <a href="#publicar_foto" class="btn btn-block btn-success publicar_foto"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></a>
+                                    </div>
+                                    
+                                    <div style="display: none;">
+                                        <div id="publicar_foto">
+                                            <div class="col-md-12">
+                                                <div class="card card-outline card-info">
+                                                    <form role="form" name="guardar_publicacion_archivo" id="guardar_publicacion_archivo" method="post" action="acciones_publicaciones.php" enctype="multipart/form-data">
+                                                        <div class="card-header">
+                                                            <div class="user-block">
+                                                                <img class="img-circle" src="../img/miembros/<?php echo $info_miembro['img_miembro'] ?>" alt="User Image">
+                                                                <span class="username"><a href="mi_perfil.php"><?php echo $info_miembro['nombre_miembro'] . " " . $info_miembro['apellido_miembro'] ?></a></span>
+                                                                <span class="description">¿Qué quieres publicar? Colocalo Aquí</span>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.card-header -->
+
+                                                        <div class="card-body">
+                                                            <label for="imagen">Imagen</label>
+                                                            <div class="input-group">
+                                                                <div class="custom-file">
+                                                                    <input type="file" class="custom-file-input" id="imagen" name="imagen">
+                                                                    <label class="custom-file-label" for="imagen">Subir archivo</label>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="form-group">
+                                                                <label for="text">Descripción</label>
+                                                                <textarea type="text" rows="3" name="texto" class="form-control" placeholder="Describe tu imagen"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-footer">
+                                                            <input type="hidden" name="id_miembro" value="<?php echo $info_miembro['id_miembro']; ?>">
+                                                            <input type="hidden" name="publicar" value="foto">
+                                                            <button type="submit" class="btn btn-success btn-block boton_publicar_foto"><i class="fas fa-camera-retro"></i> <b>Subir Foto</b></button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- /.col-->
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
 
                     <!-- Muro -->
                     <?php
