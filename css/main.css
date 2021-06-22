@@ -825,7 +825,7 @@ div.creencia {
     color: var(--secundarioOscuro);
 }
 
-/* Nuestro Equipo */
+/************* Nuestro Equipo **************/
 .lista_equipo {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -849,8 +849,24 @@ div.creencia {
     width: 10rem;
     border-radius: 50%;
 }
+/************* Estaciones **************/
+.lista_estaciones {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+}
+@media (min-width: 768px) {
+    .lista_estaciones {
+        grid-template-columns: repeat(2, 1fr);
+    } 
+}
+@media (min-width: 998px) {
+    .lista_estaciones {
+        grid-template-columns: repeat(3, 1fr);
+    } 
+}
 
-/* Ofrendas */
+/********************* Ofrendas ********************/
 .formas_pagos {
     display: flex;
     justify-content: center;
