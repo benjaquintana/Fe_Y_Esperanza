@@ -53,7 +53,7 @@
 
                                     <!-- Imagen -->
                                     <div class="form-group">
-                                        <label for="imagen">Imagen</label>
+                                        <label for="imagen">Imagen <small>471x228</small></label>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="imagen" name="imagen">
