@@ -22,8 +22,8 @@
             mkdir($directorio, 0775, true);
         }
 
-        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . time() . $_FILES['imagen']['name'])){
-            $url_imagen = time() . $_FILES['imagen']['name'];
+        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . time() . ".jpg")){
+            $url_imagen = time() . ".jpg";
             $imagen_resultado = "Se subio correctmente";
         }else{
             $respuesta = array(
@@ -69,8 +69,8 @@
             mkdir($directorio, 0775, true);
         }
 
-        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . time() . $_FILES['imagen']['name'])){
-            $url_imagen = time() . $_FILES['imagen']['name'];
+        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . time() . ".jpg")){
+            $url_imagen = time() . ".jpg";
             $imagen_resultado = "Se subio correctmente";
         }else{
             $respuesta = array(

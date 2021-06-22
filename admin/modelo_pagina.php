@@ -21,8 +21,8 @@
             mkdir($directorio, 0775, true);
         }
 
-        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . time() . $_FILES['imagen']['name'])){
-            $url_imagen = time() . $_FILES['imagen']['name'];
+        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . time() . ".jpg")){
+            $url_imagen = time() . ".jpg";
             $imagen_resultado = "Se subio correctmente";
         }else{
             $respuesta = array(
@@ -35,7 +35,7 @@
             $stmt->bind_param("sss", $nombre, $link, $url_imagen);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
-            if($stmt->affected_rows) {
+            if($id_registro > 0) {
                 $respuesta = array(
                     'respuesta' => 'exito',
                     'id_invitado' => $id_registro,
@@ -68,8 +68,8 @@
             mkdir($directorio, 0775, true);
         }
 
-        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . time() . $_FILES['imagen']['name'])){
-            $url_imagen = time() . $_FILES['imagen']['name'];
+        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . time() . ".jpg")){
+            $url_imagen = time() . ".jpg";
             $imagen_resultado = "Se subio correctmente";
         }else{
             $respuesta = array(
